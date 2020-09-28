@@ -1,0 +1,117 @@
+---
+title: ''
+output: html_document
+params:
+  ovr: 0
+  cpu: !r parallel::detectCores()
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(tibble)
+library(IRanges)
+do.call(Sys.setenv, params)
+```
+
+```{r}
+parse_blast <- function(path) {
+  i <- 0
+  hits <- list()
+  conn <- file(path)
+  open(conn)
+  col_types <- cols(
+    `% identity` = "d", `alignment length` = "i", mismatches = "i", `gap opens` = "i",
+    `q. start` = "i", `q. end` = "i", `s. start` = "i", `s. end` = "i",
+    evalue = "d", `bit score` = "d", `query length` = "i",
+    .default = "c"
+  )
+  while (!startsWith(header <- readLines(conn, n = 1), "# BLAST processed")) {
+    header <- readLines(conn, n = 4)
+    fields <- strsplit(substr(header[3], 11, nchar(header[3])), ", ")[[1]]
+    n_max <- as.integer(strsplit(header[4], " ")[[1]][2])
+    hits[[(i <- i + 1)]] <- read_tsv(
+      readLines(conn, n = n_max),
+      col_names = fields, col_types = col_types
+    )
+  }
+  close(conn)
+  hits
+}
+
+query_coverage <- function(start, end) {
+  ranges <- IRanges(start, end)
+  cbind(start, end, g = subjectHits(findOverlaps(ranges, reduce(ranges)))) %>%
+    as.data.frame() %>%
+    group_by(g) %>%
+    summarise(start = min(start), end = max(end), .groups = "drop") %>%
+    with(end - start + 1)
+}
+```
+
+```{r}
+list.files(pattern = "^[A-G]-.*\\.fasta$") %>%
+  sapply(read_lines, n_max = 1) %>%
+  enframe() %>%
+  separate("name", c("species", "region"), "[-\\.]", extra = "drop") %>%
+  separate("value", "accver", " ", extra = "drop") %>%
+  mutate(across(accver, str_remove, "^>")) ->
+df.qaccver
+```
+
+```{r}
+df.genome <- read_tsv("genome.tsv", col_types = "ccifffffcccccccc")
+```
+
+```{r}
+parse_blast("hits.tsv") %>%
+  bind_rows() %>%
+  group_by(`subject acc.ver`, `query acc.ver`) %>%
+  summarise(
+    qpidcov = sum(query_coverage(`q. start`, `q. end`)) /
+      dplyr::first(`query length`) * mean(`% identity`),
+    start = min(`s. start`, `s. end`),
+    end = max(`s. start`, `s. end`),
+    strand = dplyr::first(`subject strand`),
+    .groups = "drop"
+  ) %>%
+  left_join(df.qaccver, by = c(`query acc.ver` = "accver")) ->
+df.qpidcov
+```
+
+```{r}
+arrange(df.qpidcov, species, region) %>%
+  pivot_wider(
+    names_from = c("species", "region"),
+    names_sep = "-",
+    values_from = "qpidcov",
+    -c(`query acc.ver`, start, end, strand)
+  )
+```
+
+```{r}
+left_join(df.qpidcov, select(df.genome, accver, species), by = c(`subject acc.ver` = "accver")) %>%
+  filter(!(region %in% c("fib1", "fib2"))) %>%
+  filter(!(species.y %in% c("G", "?"))) %>%
+  group_by(`subject acc.ver`, region) %>%
+  slice_max(qpidcov, n = 1) %>%
+  ungroup() %>%
+  group_by(species.x, region) %>%
+  group_walk(~ write_lines(
+    with(.x, sprintf("%s %d-%d %s", `subject acc.ver`, start, end, strand)),
+    paste0("bat-", .y[1], "-", .y[2], ".txt")
+  ))
+```
+
+```{bash}
+ls bat-*\.txt | grep -v gen | \
+while read -r ele
+do
+  blastdbcmd -db genome -entry_batch "$ele" > "${ele/.txt/.fasta}"
+  mafft --auto --thread "$cpu" "${ele/.txt/.fasta}" > "${ele/.txt/.msa.fasta}" 2> "${ele/.txt/.msa.log}"
+  sed -i '' -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' "${ele/.txt/.msa.fasta}"
+  run_gubbins.py "${ele/.txt/.msa.fasta}" -p "${ele/.txt/.gub}" -c "$cpu" > "${ele/.txt/.gub.log}"
+done
+```

@@ -1,0 +1,782 @@
+accver	title	taxid	species	type	P	H	F	date	ac0	ac1	ac2	ac3	ac4	collection_date	country
+MN513341.1	Human adenovirus 1 isolate SG05/HAdvC1/2016, complete genome	10533	C	001	001	001	001	2016-09-16	SG	?	?	?	?	16-Sep-2016	Singapore
+MN513344.1	Human adenovirus 1 isolate SG08/HAdvC1/2016, complete genome	10533	C	001	001	001	001	2016-10-12	SG	?	?	?	?	12-Oct-2016	Singapore
+MN513345.1	Human adenovirus 1 isolate SG09/HAdvC1/2016, complete genome	10533	C	001	001	001	001	2016-09-19	SG	?	?	?	?	19-Sep-2016	Singapore
+MN737436.1	Human adenovirus 1 strain QH-1665/2018, complete genome	10533	C	001	001	001	001	2018-11-01	CN	?	?	?	?	Nov-2018	China
+MH183293.1	Human adenovirus 1 strain SH2016, complete genome	10533	C	001	001	001	001	2016-02-04	CN	?	?	?	?	04-Feb-2016	China
+JX173078.1	Human adenovirus C strain human/ARG/A15812/2000/1[P1H1F1], complete genome	129951	C	001	001	001	001	2000-01-01	AR	?	?	?	?	2000	Argentina
+JX173080.1	Human adenovirus C strain human/EGY/E13/2001/1[P1H1F1], complete genome	129951	C	001	001	001	001	2001-02-01	EG	?	?	?	?	01-Feb-2001	Egypt
+JX173086.1	Human adenovirus C strain human/USA/VT13862/2004/1[P1H1F1], complete genome	129951	C	001	001	001	001	2004-01-02	US	?	?	?	?	02-Jan-2004	USA
+JX173085.1	Human adenovirus C strain human/USA/VT2612/2003/1[P1H1F1], complete genome	129951	C	001	001	001	001	2003-03-03	US	?	?	?	?	03-Mar-2003	USA
+JX173083.1	Human adenovirus C strain human/USA/VT2672/2003/1[P1H1F1], complete genome	129951	C	001	001	001	001	2003-02-28	US	?	?	?	?	28-Feb-2003	USA
+JX173082.1	Human adenovirus C strain human/USA/VT384/2003/1[P1H1F1], complete genome	129951	C	001	001	001	001	2003-02-03	US	?	?	?	?	03-Feb-2003	USA
+AF534906.1	Human adenovirus type 1 subgroup C, complete genome	10533	C	001	001	001	001	?	?	?	?	?	?	NA	NA
+AC_000017.1	Human adenovirus type 1, complete genome	10533	C	001	001	001	001	?	?	?	?	?	?	NA	NA
+MK805085.1	Human mastadenovirus C isolate Human/China/Shanghai/673/P1H1F1/2009, complete genome	129951	C	001	001	001	001	2009-06-30	CN	?	?	?	?	30-Jun-2009	China
+MK896858.1	Human mastadenovirus C isolate Human/China/Shanghai/8694/2016/2[P1H1F1], complete genome	129951	C	001	001	001	001	2016-03-07	CN	?	?	?	?	07-Mar-2016	China
+MK357714.1	Human adenovirus sp. isolate DT-11, complete genome	1907210	C	001	001	001	001	2017-05-31	CN	?	?	?	?	31-May-2017	China
+J01917.1	Adenovirus type 2, complete genome	10515	C	002	002	002	002	?	?	?	?	?	?	NA	NA
+MF044052.1	human adenovirus 2 isolate HK91, complete genome	10515	C	002	002	002	002	2014-08-01	CN	?	?	?	?	01-Aug-2014	China: Hong Kong
+MN513342.1	Human adenovirus 2 isolate SG06/HAdvC2/2016, complete genome	10515	C	002	002	002	002	2016-09-25	SG	?	?	?	?	25-Sep-2016	Singapore
+KX384959.1	Human adenovirus 2 strain T215/Ft Jackson South Carolina USA/2002, complete genome	10515	C	002	002	002	002	2002-11-29	US	SC	?	?	?	29-Nov-2002	USA: Fort Jackson, SC
+AC_000007.1	Human adenovirus 2, complete genome	10515	C	002	002	002	002	?	?	?	?	?	?	NA	NA
+JX173079.1	Human adenovirus C strain human/ARG/A15932/2002/2[P2H2F2], complete genome	129951	C	002	002	002	002	2002-01-01	AR	?	?	?	?	2002	Argentina
+JX173077.1	Human adenovirus C strain human/ARG/A8649/2005/2[P2H2F2], complete genome	129951	C	002	002	002	002	2005-01-01	AR	?	?	?	?	2005	Argentina
+JX173081.1	Human adenovirus C strain human/EGY/E53/2001/2[P2H2F2], complete genome	129951	C	002	002	002	002	2001-10-18	EG	?	?	?	?	18-Oct-2001	Egypt
+KF268310.1	Human adenovirus C strain human/USA/Pitts_00109/1992/2[P2H2F2], complete genome	129951	C	002	002	002	002	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+KF268130.1	Human adenovirus C strain human/USA/UFL_Adv2/2004/2[P2H2F2], complete genome	129951	C	002	002	002	002	2004-12-01	US	NY	?	?	?	Dec-2004	USA: New York
+JX173084.1	Human adenovirus C strain human/USA/VT5544/2003/2[P2H2F2], complete genome	129951	C	002	002	002	002	2003-05-21	US	?	?	?	?	21-May-2003	USA
+MK836309.1	Human mastadenovirus C isolate Human/China/Shanghai/793/P2H2F2/2/2009, complete genome	129951	C	002	002	002	002	2009-07-03	CN	?	?	?	?	03-Jul-2009	China
+DQ099432.4	Human adenovirus B strain Guangzhou01, complete genome	108098	B	003	003	003	003	2005-01-01	?	?	?	?	?	Jan-2005	NA
+DQ105654.4	Human adenovirus B strain Guangzhou02, complete genome	108098	B	003	003	003	003	2004-07-01	?	?	?	?	?	Jul-2004	NA
+JX423380.1	Human adenovirus B strain human/USA/ak32_AdV3a/2004/3[P3H3F3], complete genome	108098	B	003	003	003	003	2004-07-01	US	?	131	?	?	01-Jul-2004	USA: San Diego
+JX423381.1	Human adenovirus B strain human/USA/ak33_AdV3a/2003/3[P3H3F3], complete genome	108098	B	003	003	003	003	2003-01-01	US	?	099	?	?	01-Jan-2003	USA: Philadelphia
+JX423382.1	Human adenovirus B strain human/USA/ak34_AdV3a2/2008/3[P3H3F3], complete genome	108098	B	003	003	003	003	2008-01-01	US	?	099	?	?	01-Jan-2008	USA: Philadelphia
+KF268128.1	Human adenovirus B strain human/USA/CL_46/1988/3[P3H3F3], complete genome	108098	B	003	003	003	003	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF268202.1	Human adenovirus B strain human/USA/MEEI_00075/X/3[P3H3F3], complete genome	108098	B	003	003	003	003	?	US	?	?	?	?	NA	USA
+KF268195.1	Human adenovirus B strain human/USA/UFL_Adv3/2004/3[P3/H3/F3], partial genome	108098	B	003	003	003	003	2004-10-01	US	MO	?	?	?	Oct-2004	USA: Missouri
+KF268124.1	Human adenovirus B strain human/USA/UFL_Adv35/2004/35[P35H35F35], complete genome	108098	B	003	003	003	003	2004-12-01	US	IA	?	?	?	Dec-2004	USA: Iowa
+KF268131.1	Human adenovirus B strain human/USA/UFL_Adv3a17/2007/3[P3H3F3], complete genome	108098	B	003	003	003	003	2007-02-01	US	CT	?	?	?	Feb-2007	USA: Connecticut
+KF268120.1	Human adenovirus B strain human/USA/UFL_Adv3a2/2007/3[P3H3F3], complete genome	108098	B	003	003	003	003	2007-02-01	US	CT	?	?	?	Feb-2007	USA: Connecticut
+KF268133.1	Human adenovirus B strain human/USA/UFL_Adv3a50/2007/3[P3H3F3], complete genome	108098	B	003	003	003	003	2007-02-01	US	CT	?	?	?	Feb-2007	USA: Connecticut
+KF268123.1	Human adenovirus B strain human/USA/UFL_Adv3a51/2007/3[P3H3F3], complete genome	108098	B	003	003	003	003	2007-01-01	US	CT	?	?	?	Jan-2007	USA: Connecticut
+NC_011203.1	Human adenovirus B1, complete genome	108098	B	003	003	003	003	?	?	?	?	?	?	NA	NA
+KX384958.1	Human adenovirus B3 strain T382/Ft Jackson South Carolina USA/2002, complete genome	45659	B	003	003	003	003	2002-12-09	US	SC	?	?	?	09-Dec-2002	USA: Fort Jackson, SC
+AY599834.1	Human adenovirus type 3 strain GB, complete genome	45659	B	003	003	003	003	?	?	?	?	?	?	NA	NA
+AY599836.1	Human adenovirus type 3 strain NHRC 1276, complete genome	45659	B	003	003	003	003	?	US	IL	?	?	?	NA	USA: Illinois, NTC Great Lakes
+DQ086466.1	Human adenovirus type 3, complete genome	45659	B	003	003	003	003	?	?	?	?	?	?	NA	NA
+MK836310.1	Human mastadenovirus B isolate human/China/Shanghai/1631/2009/3[P3H3F3], complete genome	108098	B	003	003	003	003	2009-10-30	CN	?	?	?	?	30-Oct-2009	China
+MK836311.1	Human mastadenovirus B isolate Human/China/Shanghai/3096/2009/3[P3H3F3], complete genome	108098	B	003	003	003	003	2009-12-24	CN	?	?	?	?	24-Dec-2009	China
+MK847517.1	Human mastadenovirus B isolate Human/China/Shanghai/3496/3[P3H3F3]/2009, complete genome	108098	B	003	003	003	003	2011-08-12	CN	?	?	?	?	12-Aug-2011	China
+MK883603.1	Human mastadenovirus B isolate Human/China/Shanghai/3517/2011/3[P3H3F3], complete genome	108098	B	003	003	003	003	2011-08-12	CN	?	?	?	?	12-Aug-2011	China
+MK883604.1	Human mastadenovirus B isolate Human/China/Shanghai/3754/2011/3[P3H3F3], complete genome	108098	B	003	003	003	003	2011-10-25	CN	?	?	?	?	25-Oct-2011	China
+MK813914.1	Human mastadenovirus B isolate human/China/Shanghai/381/2004/3[P3H3F3], complete genome	108098	B	003	003	003	003	2009-06-19	CN	?	?	?	?	19-Jun-2009	China
+MK883608.1	Human mastadenovirus B isolate Human/China/Shanghai/4010/2012/3[P3H3F3], complete genome	108098	B	003	003	003	003	2012-03-13	CN	?	?	?	?	13-Mar-2012	China
+MK813915.1	Human mastadenovirus B isolate human/China/Shanghai/538/2009/3[P3H3F3], complete genome	108098	B	003	003	003	003	2009-06-26	CN	?	?	?	?	26-Jun-2009	China
+MK836308.1	Human mastadenovirus B isolate human/China/Shanghai/678/2009/3[P3H3F3], complete genome	108098	B	003	003	003	003	2009-06-30	CN	?	?	?	?	30-Jun-2009	China
+KY320276.1	Human mastadenovirus B isolate KUMC-62, complete genome	108098	B	003	003	003	003	?	KR	?	?	?	?	NA	South Korea
+AY458656.2	Human adenovirus 4 strain CL68578, complete genome	28280	E	004	004	004	004	?	?	?	?	?	?	NA	NA
+KF006344.1	Human adenovirus 4 strain GZ01, complete genome	28280	E	004	004	004	004	2008-06-01	CN	30	?	?	?	01-Jun-2008	China: Guangzhou
+AB679754.1	Human adenovirus 4a DNA, complete genome, isolate: HAdVE_4a_Sapporo1984	35263	E	004	004	004	004	1984-01-01	JP	12	?	?	?	1984	Japan: Sapporo, Hokkaido University Hospital
+AB679755.1	Human adenovirus 4a DNA, complete genome, isolate: HAdVE_4a_Sapporo1991	35263	E	004	004	004	004	1991-01-01	JP	12	?	?	?	1991	Japan: Sapporo, Hokkaido University Hospital
+AB679756.1	Human adenovirus 4a DNA, complete genome, isolate: HAdVE_4a_Sapporo2001	35263	E	004	004	004	004	2001-01-01	JP	12	?	?	?	2001	Japan: Sapporo, Hokkaido University Hospital
+AP014849.1	Human adenovirus 4a NHRC-11023 DNA, complete genome	35263	E	004	004	004	004	2001-01-01	US	?	?	?	?	2001	USA
+AP014846.1	Human adenovirus 4a NHRC-20699 DNA, complete genome	35263	E	004	004	004	004	2002-01-01	US	?	?	?	?	2002	USA
+AP014840.1	Human adenovirus 4a NHRC-21320 DNA, complete genome	35263	E	004	004	004	004	2005-01-01	US	?	?	?	?	2005	USA
+AP014841.1	Human adenovirus 4a NHRC-22650 DNA, complete genome	35263	E	004	004	004	004	2006-01-01	US	?	?	?	?	2006	USA
+AP014842.1	Human adenovirus 4a NHRC-23703 DNA, complete genome	35263	E	004	004	004	004	2008-01-01	US	?	?	?	?	2008	USA
+AP014843.1	Human adenovirus 4a NHRC-25562 DNA, complete genome	35263	E	004	004	004	004	2011-01-01	US	?	?	?	?	2011	USA
+AP014851.1	Human adenovirus 4a NHRC-36401 DNA, complete genome	35263	E	004	004	004	004	2011-01-01	US	?	?	?	?	2011	USA
+AP014848.1	Human adenovirus 4a NHRC-42269 DNA, complete genome	35263	E	004	004	004	004	2001-01-01	US	?	?	?	?	2001	USA
+AP014850.1	Human adenovirus 4a NHRC-50654 DNA, complete genome	35263	E	004	004	004	004	2001-01-01	US	?	?	?	?	2001	USA
+AP014844.1	Human adenovirus 4a NHRC-70935 DNA, complete genome	35263	E	004	004	004	004	2004-01-01	US	?	?	?	?	2004	USA
+AP014845.1	Human adenovirus 4a NHRC-92165 DNA, complete genome	35263	E	004	004	004	004	2009-01-01	US	?	?	?	?	2009	USA
+AP014847.1	Human adenovirus 4a WPAFB 7 DNA, complete genome	35263	E	004	004	004	004	2009-01-01	US	?	?	?	?	2009	USA
+AP014852.1	Human adenovirus 4p NHRC_90255 DNA, complete genome	1643781	E	004	004	004	004	2000-01-01	US	?	?	?	?	2000	USA
+AP014853.1	Human adenovirus 4p NHRC_90870 DNA, complete genome	1643781	E	004	004	004	004	2004-01-01	US	?	?	?	?	2004	USA
+NC_003266.2	Human adenovirus E, complete genome	130308	E	004	004	004	004	?	?	?	?	?	?	NA	NA
+AY487947.1	Human adenovirus E, complete genome	130308	E	004	004	004	004	?	?	?	?	?	?	NA	NA
+KX868498.2	Human adenovirus E4 isolate GyK225, complete genome	28280	E	004	004	004	004	2000-01-01	SE	?	?	?	?	2000	Sweden
+MN513338.1	Human adenovirus E4 isolate SG01/HAdvE4/2016, complete genome	28280	E	004	004	004	004	2016-09-23	SG	?	?	?	?	23-Sep-2016	Singapore
+MN513339.1	Human adenovirus E4 isolate SG03/HAdvE4/2016, complete genome	28280	E	004	004	004	004	2016-07-02	SG	?	?	?	?	02-Jul-2016	Singapore
+MN513340.1	Human adenovirus E4 isolate SG04/HAdvE4/2016, complete genome	28280	E	004	004	004	004	2016-08-02	SG	?	?	?	?	02-Aug-2016	Singapore
+MN513343.1	Human adenovirus E4 isolate SG07/HAdvE4/2016, complete genome	28280	E	004	004	004	004	2016-10-11	SG	?	?	?	?	11-Oct-2016	Singapore
+MN513346.1	Human adenovirus E4 isolate SG10/HAdvE4/2016, complete genome	28280	E	004	004	004	004	2016-10-31	SG	?	?	?	?	31-Oct-2016	Singapore
+MN513347.1	Human adenovirus E4 isolate SG11/HAdvE4/2016, complete genome	28280	E	004	004	004	004	2016-11-04	SG	?	?	?	?	04-Nov-2016	Singapore
+KX384953.1	Human adenovirus E4 strain 078/Ft Jackson South Carolina USA/1997, complete genome	28280	E	004	004	004	004	1997-01-01	US	SC	?	?	?	1997	USA: Fort Jackson, SC
+KX384954.1	Human adenovirus E4 strain 10/Ft Jackson South Carolina USA/2001, complete genome	28280	E	004	004	004	004	2001-01-01	US	SC	?	?	?	2001	USA: Fort Jackson, SC
+KX384952.1	Human adenovirus E4 strain 186/Ft Jackson South Carolina USA/1998, complete genome	28280	E	004	004	004	004	1998-01-01	US	SC	?	?	?	1998	USA: Fort Jackson, SC
+MN307136.1	Human adenovirus E4 strain HAdV-E/USA_MD/5883/2019/P4H4F4, complete genome	28280	E	004	004	004	004	2019-01-12	US	MD	?	?	?	12-Jan-2019	USA: Maryland
+MN307145.1	Human adenovirus E4 strain HAdV-E/USA_PA/7607/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-12-18	US	PA	?	?	?	18-Dec-2018	USA: Pennsylvania
+MN307143.1	Human adenovirus E4 strain HAdV-E/USA_PA/9762/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-10-31	US	PA	?	?	?	31-Oct-2018	USA: Pennsylvania
+MN307144.1	Human adenovirus E4 strain HAdV-E/USA_PA/9773/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-11-20	US	PA	?	?	?	20-Nov-2018	USA: Pennsylvania
+MN307139.1	Human adenovirus E4 strain HAdV-E/USA_VA/2744/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-11-27	US	VA	?	?	?	27-Nov-2018	USA: Virginia
+MN307138.1	Human adenovirus E4 strain HAdV-E/USA_VA/9621/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-11-13	US	VA	?	?	?	13-Nov-2018	USA: Virginia
+MN307137.1	Human adenovirus E4 strain HAdV-E/USA_VA/9623/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-11-07	US	VA	?	?	?	07-Nov-2018	USA: Virginia
+MN307142.1	Human adenovirus E4 strain HAdV-E/USA_WI/5556/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-12-17	US	WI	?	?	?	17-Dec-2018	USA: Wisconsin
+MN307140.1	Human adenovirus E4 strain HAdV-E/USA_WI/6006/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-11-26	US	WI	?	?	?	26-Nov-2018	USA: Wisconsin
+MN307141.1	Human adenovirus E4 strain HAdV-E/USA_WI/6010/2018/P4H4F4, complete genome	28280	E	004	004	004	004	2018-11-28	US	WI	?	?	?	28-Nov-2018	USA: Wisconsin
+KX384948.1	Human adenovirus E4 strain RDU2954/New Jersey USA/1966, complete genome	28280	E	004	004	004	004	1966-01-01	US	NJ	?	?	?	1966	USA: New Jersey
+KX384949.1	Human adenovirus E4 strain RI-67 (ATCC VR-1572), complete genome	28280	E	004	004	004	004	1953-01-01	US	MO	?	?	?	1953	USA: Fort Leonard Wood, Missouri
+KX384947.1	Human adenovirus E4 strain RU4445/Egypt/1968, complete genome	28280	E	004	004	004	004	1968-01-01	EG	?	?	?	?	1968	Egypt
+KX384950.1	Human adenovirus E4 strain RU7872/Minnesota USA/1971, complete genome	28280	E	004	004	004	004	1971-01-01	US	MN	?	?	?	1971	USA: Minnesota
+KX384945.1	Human adenovirus E4 strain T158/Ft Jackson South Carolina USA/2002, complete genome	28280	E	004	004	004	004	2002-11-26	US	SC	?	?	?	26-Nov-2002	USA: Fort Jackson, SC
+KX384956.1	Human adenovirus E4 strain V0014/France/1978, complete genome	28280	E	004	004	004	004	1978-01-01	FR	?	?	?	?	1978	France
+KX384957.1	Human adenovirus E4 strain V1003/New York USA/1981, complete genome	28280	E	004	004	004	004	1981-01-01	US	NY	?	?	?	1981	USA: New York
+KX384955.1	Human adenovirus E4 strain V1933/New Mexico USA/1985, complete genome	28280	E	004	004	004	004	1985-01-01	US	NM	?	?	?	1985	USA: New Mexico
+KX384946.1	Human adenovirus E4 strain V2029E/Georgia USA/1986, complete genome	28280	E	004	004	004	004	1986-01-01	US	GA	?	?	?	1986	USA: Georgia
+KX384951.1	Human adenovirus E4 strain ZG/Indio California USA/1995, complete genome	28280	E	004	004	004	004	1995-01-01	US	CA	?	11789039	?	1995	USA: Indio, CA
+MG030485.1	Human adenovirus type 4 isolate NVI1692, complete genome	28280	E	004	004	004	004	2016-08-31	US	?	?	?	?	31-Aug-2016	USA
+MG030486.1	Human adenovirus type 4 isolate NVI1694, complete genome	28280	E	004	004	004	004	2016-08-31	US	?	?	?	?	31-Aug-2016	USA
+MG030483.1	Human adenovirus type 4 isolate NVI1727, complete genome	28280	E	004	004	004	004	2016-09-08	US	?	?	?	?	08-Sep-2016	USA
+MG030484.1	Human adenovirus type 4 isolate NVI1771, complete genome	28280	E	004	004	004	004	2016-09-14	US	?	?	?	?	14-Sep-2016	USA
+AY599837.1	Human adenovirus type 4 strain NHRC 3, complete genome	28280	E	004	004	004	004	?	US	?	?	?	?	NA	USA: Lackland Air Force Base
+AY599835.1	Human adenovirus type 4 strain NHRC 42606, complete genome	28280	E	004	004	004	004	?	US	?	?	?	?	NA	USA: Ft. Jackson
+AY594253.1	Human adenovirus type 4 strain RI-67, complete genome	28280	E	004	004	004	004	?	?	?	?	?	?	NA	NA
+AY594254.1	Human adenovirus type 4 vaccine strain, complete genome	28280	E	004	004	004	004	?	?	?	?	?	?	NA	NA
+MF002043.1	Human mastadenovirus E isolate HAdVE/USA_New Jersey/RU2533/1966/P4H4F4, complete genome	130308	E	004	004	004	004	1966-01-01	US	?	?	?	?	1966	USA
+MF002042.1	Human mastadenovirus E isolate HAdVE/USA_New York/1418/2015/P4H4F4, complete genome	130308	E	004	004	004	004	2015-01-13	US	?	?	?	?	13-Jan-2015	USA
+EF371058.2	Human mastadenovirus E isolate NHRC90339, complete genome	130308	E	004	004	004	004	?	US	DE	?	?	?	NA	USA: Cape May, DE
+KY996443.1	Human mastadenovirus E strain E/USA/38662/2014/P4H4F4, complete genome	130308	E	004	004	004	004	2014-12-10	US	NY	?	?	?	10-Dec-2014	USA: New York
+KY996450.1	Human mastadenovirus E strain HAdV-E/USA/12752/2012/P4H4F4, complete genome	130308	E	004	004	004	004	2012-04-26	US	NY	?	?	?	26-Apr-2012	USA: New York
+KY996451.1	Human mastadenovirus E strain HAdV-E/USA/27440/2012/P4H4F4, complete genome	130308	E	004	004	004	004	2012-08-19	US	NY	?	?	?	19-Aug-2012	USA: New York
+KY996445.1	Human mastadenovirus E strain HAdV-E/USA/33430/2014/P4H4F4, complete genome	130308	E	004	004	004	004	2014-10-22	US	NY	?	?	?	22-Oct-2014	USA: New York
+KY996446.1	Human mastadenovirus E strain HAdV-E/USA/3477/2015/P4H4F4, complete genome	130308	E	004	004	004	004	2015-01-30	US	NY	?	?	?	30-Jan-2015	USA: New York
+KY996447.1	Human mastadenovirus E strain HAdV-E/USA/4054/2015/P4H4F4, complete genome	130308	E	004	004	004	004	2015-02-04	US	NY	?	?	?	04-Feb-2015	USA: New York
+KY996448.1	Human mastadenovirus E strain HAdV-E/USA/4876/2014/P4H4F4, complete genome	130308	E	004	004	004	004	2014-02-10	US	NY	?	?	?	10-Feb-2014	USA: New York
+KY996449.1	Human mastadenovirus E strain HAdV-E/USA/5497/2013/P4H4F4, complete genome	130308	E	004	004	004	004	2013-02-23	US	NY	?	?	?	23-Feb-2013	USA: New York
+KY996442.1	Human mastadenovirus E strain HAdV-E/USA/9111/2014/P4H4F4, complete genome	130308	E	004	004	004	004	2014-02-13	US	NY	?	?	?	13-Feb-2014	USA: New York
+KY996452.1	Human mastadenovirus E strain HAdVE/Japan/J1007/1981/P4H4F4, complete genome	130308	E	004	004	004	004	1981-01-01	JP	?	?	?	?	1981	Japan
+KY996453.1	Human mastadenovirus E strain HAdVE/USA_Connecticut/TB071911/2011/P4H4F4, complete genome	130308	E	004	004	004	004	2011-01-01	US	?	?	?	?	2011	USA
+KY996444.1	Human mastadenovirus E strain HAdVE/USA_New York/38813/2014/P4H4F4, complete genome	130308	E	004	004	004	004	2014-12-11	US	?	?	?	?	11-Dec-2014	USA
+KX868466.2	Human adenovirus 5 isolate GyK193, complete genome	28285	C	005	005	005	005	2000-01-01	SE	?	?	?	?	2000	Sweden
+AC_000008.1	Human adenovirus 5, complete genome	28285	C	005	005	005	005	?	?	?	?	?	?	NA	NA
+AY339865.1	Human adenovirus C serotype 5, complete genome	129951	C	005	005	005	005	?	?	?	?	?	?	NA	NA
+KF268127.1	Human adenovirus C strain human/USA/CL_42/1988/5[P5H5F5], complete genome	129951	C	005	005	005	005	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF429754.1	Human adenovirus C strain human/USA/Pitts_00149/1990/5[P5H5F5]F268310, complete genome	129951	C	005	005	005	005	1990-01-01	US	PA	003	?	?	1990	USA: Pittsburgh, Pennsylvania
+AY601635.1	Human adenovirus type 5 strain NHRC Ad5FS 7151, complete genome	28285	C	005	005	005	005	?	?	?	?	?	?	NA	NA
+MH121094.1	Human mastadenovirus C strain 25C5, partial genome	129951	C	005	005	005	005	?	DE	?	?	?	?	NA	Germany
+M73260.1	Mastadenovirus h5 gene, complete genome	28285	C	005	005	005	005	?	?	?	?	?	?	NA	NA
+LC068716.1	Human adenovirus 6 DNA, nearly complete genome, strain: 1030787	10534	C	006	006	006	006	2003-12-03	JP	?	?	?	?	2003-12-03	Japan
+LC068717.1	Human adenovirus 6 DNA, nearly complete genome, strain: 1040264	10534	C	006	006	006	006	2004-04-12	JP	?	?	?	?	2004-04-12	Japan
+LC068718.1	Human adenovirus 6 DNA, nearly complete genome, strain: 1040502	10534	C	006	006	006	006	2004-08-19	JP	?	?	?	?	2004-08-19	Japan
+LC068719.1	Human adenovirus 6 DNA, nearly complete genome, strain: 1050156	10534	C	006	006	006	006	2005-04-01	JP	?	?	?	?	2005-04-01	Japan
+LC068720.1	Human adenovirus 6 DNA, nearly complete genome, strain: 1050158	10534	C	006	006	006	006	2005-04-08	JP	?	?	?	?	2005-04-08	Japan
+LC068713.1	Human adenovirus 6 DNA, nearly complete genome, strain: 870550	10534	C	006	006	006	006	1987-12-26	JP	?	?	?	?	1987-12-26	Japan
+LC068712.1	Human adenovirus 6 DNA, nearly complete genome, strain: 870550	10534	C	006	006	006	006	1987-12-26	JP	?	?	?	?	1987-12-26	Japan
+LC068714.1	Human adenovirus 6 DNA, nearly complete genome, strain: 930113	10534	C	006	006	006	006	1993-03-05	JP	?	?	?	?	1993-03-05	Japan
+LC068715.1	Human adenovirus 6 DNA, nearly complete genome, strain: 940162	10534	C	006	006	006	006	1994-05-21	JP	?	?	?	?	1994-05-21	Japan
+HQ413315.1	Human adenovirus 6 isolate Tonsil 99, complete genome	10534	C	006	006	006	006	1953-01-01	US	DC	001	?	?	1953	USA: Washington, DC
+FJ349096.1	Human adenovirus 6 strain Tonsil 99 prototype, complete genome	10534	C	006	006	006	006	1953-01-01	US	?	?	?	?	1953	USA
+JX423389.1	Human adenovirus C strain human/USA/ak31_AdV6/2007/6[P6H6F6], complete genome	129951	C	006	006	006	006	2007-08-01	US	?	099	?	?	01-Aug-2007	USA: Philadelphia
+KF268129.1	Human adenovirus C strain human/USA/UFL_Adv6/2005/6[P6H6F6], complete genome	129951	C	006	006	006	006	2005-02-01	US	CO	?	?	?	Feb-2005	USA: Colorado
+MH121112.1	Human mastadenovirus C strain 45C6, partial genome	129951	C	006	006	006	006	?	DE	?	?	?	?	NA	Germany
+MH121113.1	Human mastadenovirus C strain 46C6, partial genome	129951	C	006	006	006	006	?	DE	?	?	?	?	NA	Germany
+LC530212.1	Human adenovirus 7 293 DNA, complete genome	10519	B	007	007	007	007	2018-01-01	JP	24	?	?	?	2018	Japan:Sendai
+MN164629.1	Human adenovirus 7 isolate A549, complete genome	10519	B	007	007	007	007	2018-01-01	CN	?	?	?	?	2018	China
+JX625134.1	Human adenovirus 7 isolate CQ1198, complete genome	10519	B	007	007	007	007	2010-11-01	CN	?	?	?	?	Nov-2010	China
+MG696128.1	Human adenovirus 7 isolate X01, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696129.1	Human adenovirus 7 isolate X02, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696130.1	Human adenovirus 7 isolate X03, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696131.1	Human adenovirus 7 isolate X04, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696132.1	Human adenovirus 7 isolate X05, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696133.1	Human adenovirus 7 isolate X06, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696134.1	Human adenovirus 7 isolate X07, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG736303.1	Human adenovirus 7 isolate X07s, complete genome	10519	B	007	007	007	007	2017-04-28	CN	?	?	?	?	28-Apr-2017	China
+MG696135.1	Human adenovirus 7 isolate X09, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696136.1	Human adenovirus 7 isolate X10, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG736304.1	Human adenovirus 7 isolate X10s, complete genome	10519	B	007	007	007	007	2017-04-30	CN	?	?	?	?	30-Apr-2017	China
+MG696137.1	Human adenovirus 7 isolate X12, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696138.1	Human adenovirus 7 isolate X13, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696139.1	Human adenovirus 7 isolate X16, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696140.1	Human adenovirus 7 isolate X17, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696141.1	Human adenovirus 7 isolate X19, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696142.1	Human adenovirus 7 isolate X20, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696143.1	Human adenovirus 7 isolate X21, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696144.1	Human adenovirus 7 isolate X22, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696145.1	Human adenovirus 7 isolate X23, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696146.1	Human adenovirus 7 isolate X24, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696147.1	Human adenovirus 7 isolate X25, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696148.1	Human adenovirus 7 isolate X26, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+MG696149.1	Human adenovirus 7 isolate X27, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+KX897164.1	Human adenovirus 7 isolate Z9/WH/CHN/2015 complete genome, complete genome	10519	B	007	007	007	007	2015-01-01	CN	?	?	?	?	2015	China
+JF800905.1	Human adenovirus 7 strain 0901HZ/ShX/CHN/2009, complete genome	10519	B	007	007	007	007	2009-01-08	CN	?	?	?	?	08-Jan-2009	China: Shaanxi Province
+MN135993.1	Human adenovirus 7 strain 163, complete genome	10519	B	007	007	007	007	2018-01-01	CN	?	?	?	?	2018	China
+KU361344.1	Human adenovirus 7 strain 19BOVLB/Volgograd/Rus/2014, complete genome	10519	B	007	007	007	007	2014-03-19	RU	?	?	?	?	19-Mar-2014	Russia: Volgograd province
+MH355567.1	Human adenovirus 7 strain BJ/CHN/2018, complete genome	10519	B	007	007	007	007	2018-01-01	CN	?	?	?	?	01-Jan-2018	China
+KT963081.1	Human adenovirus 7 strain CDC 2014012.949, complete genome	10519	B	007	007	007	007	2014-02-19	US	OR	?	?	?	19-Feb-2014	USA: Oregon
+KJ019884.1	Human adenovirus 7 strain CDC228/JM/CHN/2012, complete genome	10519	B	007	007	007	007	2012-01-01	CN	?	?	?	?	2012	China
+HQ659699.1	Human adenovirus 7 strain gz07, complete genome	10519	B	007	007	007	007	2007-11-01	CN	?	?	?	?	Nov-2007	China
+GQ478341.1	Human adenovirus 7 strain GZ08, complete genome	10519	B	007	007	007	007	2008-02-01	CN	?	?	?	?	01-Feb-2008	China
+KJ019885.1	Human adenovirus 7 strain H12/JM/CHN/2012, complete genome	10519	B	007	007	007	007	2012-01-01	CN	?	?	?	?	2012	China
+KJ019886.1	Human adenovirus 7 strain H18/JM/CHN/2013, complete genome	10519	B	007	007	007	007	2013-01-01	CN	?	?	?	?	2013	China
+KC857700.1	Human adenovirus 7 strain HAdV B7 XZ2011-93, complete genome	10519	B	007	007	007	007	2012-01-25	CN	?	?	?	?	25-Jan-2012	China
+MK492257.1	Human adenovirus 7 strain HAdV-B/NW-14993/Illinois/USA/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-02-01	US	?	?	?	?	Feb-2017	USA
+MK492255.1	Human adenovirus 7 strain HAdV-B/NW-MM/Illinois/USA/2014/P7H7F7, complete genome	10519	B	007	007	007	007	2014-12-01	US	?	?	?	?	Dec-2014	USA
+MK492256.1	Human adenovirus 7 strain HAdV-B/NW-VM/Illinois/USA/2014/P7H7F7, complete genome	10519	B	007	007	007	007	2014-12-01	US	?	?	?	?	Dec-2014	USA
+MN307148.1	Human adenovirus 7 strain HAdV-B/USA_MD/6201/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-11-30	US	MD	?	?	?	30-Nov-2018	USA: Maryland
+MN307147.1	Human adenovirus 7 strain HAdV-B/USA_MD/9630/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-11-15	US	MD	?	?	?	15-Nov-2018	USA: Maryland
+MN307146.1	Human adenovirus 7 strain HAdV-B/USA_MD/9631/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-10-29	US	MD	?	?	?	29-Oct-2018	USA: Maryland
+MN307156.1	Human adenovirus 7 strain HAdV-B/USA_MI/0380/2019/P7H7F7, complete genome	10519	B	007	007	007	007	2019-05-07	US	MI	?	?	?	07-May-2019	USA: Michigan
+MN307153.1	Human adenovirus 7 strain HAdV-B/USA_MI/6118/2019/P7H7F7, complete genome	10519	B	007	007	007	007	2019-03-13	US	MI	?	?	?	13-Mar-2019	USA: Michigan
+MN307155.1	Human adenovirus 7 strain HAdV-B/USA_MI/7744/2019/P7H7F7, complete genome	10519	B	007	007	007	007	2019-03-22	US	MI	?	?	?	22-Mar-2019	USA: Michigan
+MN307154.1	Human adenovirus 7 strain HAdV-B/USA_MI/8596/2019/P7H7F7, complete genome	10519	B	007	007	007	007	2019-04-03	US	MI	?	?	?	03-Apr-2019	USA: Michigan
+MH262318.1	Human adenovirus 7 strain HAdV-B/USA_NJ/5644/2016/P7H7F7, complete genome	10519	B	007	007	007	007	2016-12-12	US	?	?	?	?	12-Dec-2016	USA
+MH262319.1	Human adenovirus 7 strain HAdV-B/USA_NJ/5645/2016/P7H7F7, complete genome	10519	B	007	007	007	007	2016-12-14	US	?	?	?	?	14-Dec-2016	USA
+MH262320.1	Human adenovirus 7 strain HAdV-B/USA_NJ/5646/2016/P7H7F7, complete genome	10519	B	007	007	007	007	2016-12-14	US	?	?	?	?	14-Dec-2016	USA
+MH262321.1	Human adenovirus 7 strain HAdV-B/USA_NJ/5649/2016/P7H7F7, complete genome	10519	B	007	007	007	007	2016-12-19	US	?	?	?	?	19-Dec-2016	USA
+MH262322.1	Human adenovirus 7 strain HAdV-B/USA_NJ/6294/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-02-15	US	?	?	?	?	15-Feb-2017	USA
+MH262323.1	Human adenovirus 7 strain HAdV-B/USA_NJ/6295/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-02-16	US	?	?	?	?	16-Feb-2017	USA
+MH262324.1	Human adenovirus 7 strain HAdV-B/USA_NJ/6296/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-02-09	US	?	?	?	?	09-Feb-2017	USA
+MH262325.1	Human adenovirus 7 strain HAdV-B/USA_PA/1200/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-01-10	US	?	?	?	?	10-Jan-2017	USA
+MH262326.1	Human adenovirus 7 strain HAdV-B/USA_PA/1201/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-01-11	US	?	?	?	?	11-Jan-2017	USA
+MH697607.1	Human adenovirus 7 strain HAdV-B/USA_PA/5803/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-08-10	US	?	?	?	?	10-Aug-2017	USA
+MN307150.1	Human adenovirus 7 strain HAdV-B/USA_PA/7575/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-11-28	US	PA	?	?	?	28-Nov-2018	USA: Pennsylvania
+MN307151.1	Human adenovirus 7 strain HAdV-B/USA_PA/7599/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-14	US	PA	?	?	?	14-Dec-2018	USA: Pennsylvania
+MN307152.1	Human adenovirus 7 strain HAdV-B/USA_PA/7605/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-17	US	PA	?	?	?	17-Dec-2018	USA: Pennsylvania
+MN307149.1	Human adenovirus 7 strain HAdV-B/USA_PA/9761/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-10-06	US	PA	?	?	?	06-Oct-2018	USA: Pennsylvania
+MH697603.1	Human adenovirus 7 strain HAdV-B/USA_VA/1403/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-07-25	US	?	?	?	?	25-Jul-2017	USA
+MH697604.1	Human adenovirus 7 strain HAdV-B/USA_VA/1404/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-07-30	US	?	?	?	?	30-Jul-2017	USA
+MH697600.1	Human adenovirus 7 strain HAdV-B/USA_VA/5675/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-08-01	US	?	?	?	?	01-Aug-2017	USA
+MH697605.1	Human adenovirus 7 strain HAdV-B/USA_VA/5677/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-08-02	US	?	?	?	?	02-Aug-2017	USA
+MH697601.1	Human adenovirus 7 strain HAdV-B/USA_VA/5682/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-08-03	US	?	?	?	?	03-Aug-2017	USA
+MH697602.1	Human adenovirus 7 strain HAdV-B/USA_VA/5799/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-08-11	US	?	?	?	?	11-Aug-2017	USA
+MH697606.1	Human adenovirus 7 strain HAdV-B/USA_VA/5801/2017/P7H7F7, complete genome	10519	B	007	007	007	007	2017-08-09	US	?	?	?	?	09-Aug-2017	USA
+MN307161.1	Human adenovirus 7 strain HAdV-B/USA_WI/5539/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-06	US	WI	?	?	?	06-Dec-2018	USA: Wisconsin
+MN307162.1	Human adenovirus 7 strain HAdV-B/USA_WI/5542/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-07	US	WI	?	?	?	07-Dec-2018	USA: Wisconsin
+MN307163.1	Human adenovirus 7 strain HAdV-B/USA_WI/5555/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-17	US	WI	?	?	?	17-Dec-2018	USA: Wisconsin
+MN307159.1	Human adenovirus 7 strain HAdV-B/USA_WI/6001/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-01	US	WI	?	?	?	01-Dec-2018	USA: Wisconsin
+MN307157.1	Human adenovirus 7 strain HAdV-B/USA_WI/6005/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-11-19	US	WI	?	?	?	19-Nov-2018	USA: Wisconsin
+MN307158.1	Human adenovirus 7 strain HAdV-B/USA_WI/6007/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-11-27	US	WI	?	?	?	27-Nov-2018	USA: Wisconsin
+MN307160.1	Human adenovirus 7 strain HAdV-B/USA_WI/6013/2018/P7H7F7, complete genome	10519	B	007	007	007	007	2018-12-03	US	WI	?	?	?	03-Dec-2018	USA: Wisconsin
+MH910664.1	Human adenovirus 7 strain HAdV-B/USA/25-625/1997, complete genome	10519	B	007	007	007	007	1997-01-01	US	IL	?	?	?	1997	USA: Illinois
+MH910669.1	Human adenovirus 7 strain HAdV-B/USA/55142/1960s, complete genome	10519	B	007	007	007	007	?	US	?	?	?	?	NA	USA
+MH910668.1	Human adenovirus 7 strain HAdV-B/USA/6866/1997, complete genome	10519	B	007	007	007	007	1997-01-01	US	SC	?	?	?	1997	USA: South Carolina
+MH910663.1	Human adenovirus 7 strain HAdV-B/USA/750/1997, complete genome	10519	B	007	007	007	007	1997-01-01	US	IL	?	?	?	1997	USA: Illinois
+MH910665.1	Human adenovirus 7 strain HAdV-B/USA/8010/1998, complete genome	10519	B	007	007	007	007	1998-01-01	US	TX	?	?	?	1998	USA: Texas
+MH910667.1	Human adenovirus 7 strain HAdV-B/USA/R081586/1999, complete genome	10519	B	007	007	007	007	1999-01-01	US	NY	?	?	?	1999	USA: New York
+MH910662.1	Human adenovirus 7 strain HAdV-B/USA/S 1058/1955, complete genome	10519	B	007	007	007	007	1955-01-01	US	MD	?	?	?	1955	USA: Maryland
+MH910666.1	Human adenovirus 7 strain HAdV-B/USA/V9368/1996, complete genome	10519	B	007	007	007	007	1996-01-01	US	GA	?	?	?	1996	USA: Georgia
+MG923581.1	Human adenovirus 7 strain hAdV/Saint-Petersburg/40/2013, partial genome	10519	B	007	007	007	007	2013-09-28	RU	66	?	?	?	28-Sep-2013	Russia: Saint Petersburg
+MG923582.1	Human adenovirus 7 strain hAdV/Saint-Petersburg/43/2013, complete genome	10519	B	007	007	007	007	2013-09-16	RU	66	?	?	?	16-Sep-2013	Russia: Saint Petersburg
+KP896479.1	Human adenovirus 7 strain Hubei/JZ01/2013, complete genome	10519	B	007	007	007	007	2013-02-25	CN	?	?	?	?	25-Feb-2013	China
+KP896481.1	Human adenovirus 7 strain Hubei/XF/2013, complete genome	10519	B	007	007	007	007	2013-01-18	CN	?	?	?	?	18-Jan-2013	China
+KC440171.1	Human adenovirus 7 strain human/CHN/DG01/2011/7[P7H7F7], complete genome	10519	B	007	007	007	007	2011-03-06	CN	?	?	?	?	06-Mar-2011	China
+KP670858.1	Human adenovirus 7 strain human/CHN/GZ6080/2010/7[P7H7F7], complete genome	10519	B	007	007	007	007	2010-07-20	CN	?	?	?	?	20-Jul-2010	China
+KP670857.1	Human adenovirus 7 strain human/CHN/GZ6784/2011/7[P7H7F7], complete genome	10519	B	007	007	007	007	2011-03-09	CN	?	?	?	?	09-Mar-2011	China
+KP670856.2	Human adenovirus 7 strain human/CHN/GZ6965/2011/7[P7H7F7], complete genome	10519	B	007	007	007	007	2011-05-12	CN	?	?	?	?	12-May-2011	China
+KP670855.2	Human adenovirus 7 strain human/CHN/GZ7015/2011/7[P7H7F7], complete genome	10519	B	007	007	007	007	2011-07-08	CN	?	?	?	?	08-Jul-2011	China
+KP670861.1	Human adenovirus 7 strain human/CHN/GZ7052/2011/7[P7H7F7], complete genome	10519	B	007	007	007	007	2011-08-08	CN	?	?	?	?	08-Aug-2011	China
+KP670860.1	Human adenovirus 7 strain human/CHN/GZ8546/2012/7[P7H7F7], complete genome	10519	B	007	007	007	007	2012-04-26	CN	?	?	?	?	26-Apr-2012	China
+KP670859.1	Human adenovirus 7 strain human/CHN/GZ8987/2012/7[P7H7F7], complete genome	10519	B	007	007	007	007	2012-08-04	CN	?	?	?	?	04-Aug-2012	China
+KJ019887.1	Human adenovirus 7 strain JM11/JM/CHN/2013, complete genome	10519	B	007	007	007	007	2013-01-01	CN	?	?	?	?	2013	China
+KJ019883.1	Human adenovirus 7 strain K22/JM/CHN/2013, complete genome	10519	B	007	007	007	007	2013-01-01	CN	?	?	?	?	2013	China
+KJ019882.1	Human adenovirus 7 strain K57/JM/CHN/2012, complete genome	10519	B	007	007	007	007	2012-01-01	CN	?	?	?	?	2012	China
+KJ019888.1	Human adenovirus 7 strain L14/XY/CHN/2012, complete genome	10519	B	007	007	007	007	2012-01-01	CN	?	?	?	?	2012	China
+KJ019881.1	Human adenovirus 7 strain L34/XY/CHN/2012, complete genome	10519	B	007	007	007	007	2012-01-01	CN	?	?	?	?	2012	China
+KP896480.1	Human adenovirus 7 strain Shanxi/TY01/2013, complete genome	10519	B	007	007	007	007	2013-01-19	CN	?	?	?	?	19-Jan-2013	China
+KJ019880.1	Human adenovirus 7 strain XY1/XY/CHN/2012, complete genome	10519	B	007	007	007	007	2012-01-01	CN	?	?	?	?	2012	China
+KJ019879.1	Human adenovirus 7 strain XY6/XY/CHN/2013, complete genome	10519	B	007	007	007	007	2013-01-01	CN	?	?	?	?	2013	China
+JN860677.1	Human adenovirus 7d2 strain FS2154, complete genome	326124	B	007	007	007	007	2009-01-01	US	?	?	?	?	2009	USA
+JX423386.1	Human adenovirus B strain human/ARG/ak38_AdV7h/2003/7[P7H7F7], complete genome	108098	B	007	007	007	007	2003-01-01	AR	?	?	?	?	01-Jan-2003	Argentina
+KF268316.1	Human adenovirus B strain human/CHN/a238/2011/7[P7H7F7], complete genome	108098	B	007	007	007	007	2011-10-08	CN	30	?	?	?	08-Oct-2011	China: Guangzhou
+KF268314.1	Human adenovirus B strain human/CHN/DG/2011/7[P7H7F7], complete genome	108098	B	007	007	007	007	2011-03-05	CN	?	?	?	8721551	05-Mar-2011	China: Dongguan
+JX423383.1	Human adenovirus B strain human/USA/ak35_AdV7d2/2006/7[P7H7F7], complete genome	108098	B	007	007	007	007	2006-04-01	US	MO	?	?	?	01-Apr-2006	USA: Missouri
+JX423387.1	Human adenovirus B strain human/USA/ak39_AdV7d2/1997/7[P7H7F7], complete genome	108098	B	007	007	007	007	1997-09-01	US	?	?	?	?	01-Sep-1997	USA: Illinios
+JX423388.1	Human adenovirus B strain human/USA/ak40_AdV7b/1997/7[P7H7F7], complete genome	108098	B	007	007	007	007	1997-08-01	US	?	?	?	?	01-Aug-1997	USA: Illinios
+KF268134.1	Human adenovirus B strain human/USA/CL_43/1988/7[P7H7F7], complete genome	108098	B	007	007	007	007	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF268125.1	Human adenovirus B strain human/USA/CL_44/1988/7[P7H7F7], complete genome	108098	B	007	007	007	007	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF268117.1	Human adenovirus B strain human/USA/UFL_Adv7d2-2/unknown/7[P7H7F7], complete genome	108098	B	007	007	007	007	?	US	IA	?	?	?	NA	USA: Iowa
+KF268135.1	Human adenovirus B strain human/USA/UFL_Adv7d2-3/unknown/7[P7H7F7], complete genome	108098	B	007	007	007	007	?	US	IA	?	?	?	NA	USA: Iowa
+AY594255.1	Human adenovirus type 7 strain Gomen, complete genome	10519	B	007	007	007	007	?	?	?	?	?	?	NA	NA
+AY601634.1	Human adenovirus type 7 strain NHRC 1315, complete genome	10519	B	007	007	007	007	?	US	IL	?	?	?	NA	USA: Illinois, NTC Great Lakes
+AY594256.1	Human adenovirus type 7 vaccine strain, complete genome	10519	B	007	007	007	007	?	?	?	?	?	?	NA	NA
+AY495969.1	Human adenovirus type 7 vaccine strain, complete genome	10519	B	007	007	007	007	?	CN	?	?	?	?	NA	China
+AC_000018.1	Human adenovirus type 7, complete genome	10519	B	007	007	007	007	?	?	?	?	?	?	NA	NA
+MK836312.1	Human mastadenovirus B isolate Human/China/Shanghai/3418/2011/7[P7H7F7], complete genome	108098	B	007	007	007	007	2011-04-22	CN	?	?	?	?	22-Apr-2011	China
+MK836313.1	Human mastadenovirus B isolate human/China/Shanghai/3426/2011/7[P7H7F7], complete genome	108098	B	007	007	007	007	2011-04-26	CN	?	?	?	?	26-Apr-2011	China
+MK883609.1	Human mastadenovirus B isolate Human/China/Shanghai/4746/2013/7[P7H7F7], complete genome	108098	B	007	007	007	007	2013-04-07	CN	?	?	?	?	07-Apr-2013	China
+MK883612.1	Human mastadenovirus B isolate Human/China/Shanghai/6138/7/2014[P7H7F7], complete genome	108098	B	007	007	007	007	2014-01-13	CN	?	?	?	?	13-Jan-2014	China
+MK896857.1	Human mastadenovirus B isolate Human/China/Shanghai/8473/2016/7[P7H7F7], complete genome	108098	B	007	007	007	007	2016-01-15	CN	?	?	?	?	15-Jan-2016	China
+MN531562.1	Human mastadenovirus B strain HAdV 7/Haiti-0707/2014, complete genome	108098	B	007	007	007	007	2014-11-17	HT	?	?	?	?	17-Nov-2014	Haiti
+AB746853.1	Human adenovirus 8 DNA, complete genome, strain: Trim variant	31545	D	008	008	008	008	?	?	?	?	?	?	NA	NA
+AB448768.1	Human adenovirus 8 genomic DNA, complete genome, isolate: 8b	31545	D	008	008	008	008	?	?	?	?	?	?	NA	NA
+AB448769.1	Human adenovirus 8 genomic DNA, complete genome, isolate: 8e	31545	D	008	008	008	008	?	?	?	?	?	?	NA	NA
+AB448767.1	Human adenovirus 8 genomic DNA, complete genome, isolate: Trim	31545	D	008	008	008	008	?	?	?	?	?	?	NA	NA
+KF268205.1	Human adenovirus D strain human/USA/MEEI_00079/X/8[P8H8F8], complete genome	130310	D	008	008	008	008	?	US	?	?	?	?	NA	USA
+KF268321.1	Human adenovirus D strain human/USA/MEEI_0077/X/8[P8H8F8], complete genome	130310	D	008	008	008	008	?	US	?	?	?	?	NA	USA
+KF429751.1	Human adenovirus D strain human/USA/Pitts_00132/1992/8[P8H8F8], complete genome	130310	D	008	008	008	008	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+LC312461.1	Human adenovirus D8 DNA, complete genome, isolate: Fukuoka_2_2014	31545	D	008	008	008	008	2014-02-04	JP	07	?	?	?	2014-02-04	Japan:Fukuoka, Fukuoka University Hospital
+LC312462.1	Human adenovirus D8 DNA, complete genome, isolate: Fukuoka_5_2014	31545	D	008	008	008	008	2014-02-18	JP	07	?	?	?	2014-02-18	Japan:Fukuoka, Fukuoka University Hospital
+LC215432.1	Human adenovirus D8 DNA, complete genome, strain: case90_20131544	31545	D	008	008	008	008	2013-12-24	JP	21	?	?	?	2013-12-24	Japan:Kumamoto
+AB897885.1	Human adenovirus D8 DNA, complete genome, strain: S9	31545	D	008	008	008	008	2011-01-01	SA	?	?	?	?	2011	Saudi Arabia
+KT340071.1	Human adenovirus D8 isolate NYS05_2088, complete genome	31545	D	008	008	008	008	2005-01-01	US	?	?	?	?	2005	USA
+KT340055.1	Human adenovirus D8 isolate NYS05_2091, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340070.1	Human adenovirus D8 isolate NYS12_13421, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340056.1	Human adenovirus D8 isolate NYS12_4716, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340057.1	Human adenovirus D8 isolate NYS12_4717, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340058.1	Human adenovirus D8 isolate NYS12_4718, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340059.1	Human adenovirus D8 isolate NYS12_4719, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340060.1	Human adenovirus D8 isolate NYS12_4720, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340061.1	Human adenovirus D8 isolate NYS12_4721, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340062.1	Human adenovirus D8 isolate NYS12_5493, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340063.1	Human adenovirus D8 isolate NYS12_5670, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340064.1	Human adenovirus D8 isolate NYS12_5671, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340065.1	Human adenovirus D8 isolate NYS12_5673, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340066.1	Human adenovirus D8 isolate NYS12_5676, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340067.1	Human adenovirus D8 isolate NYS12_5678, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340068.1	Human adenovirus D8 isolate NYS12_5792, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+KT340069.1	Human adenovirus D8 isolate NYS12_6095, complete genome	31545	D	008	008	008	008	2012-01-01	US	?	?	?	?	2012	USA
+MN431241.1	Human adenovirus D8 isolate VN2017, complete genome	31545	D	008	008	008	008	2017-01-01	VN	?	?	?	?	2017	Viet Nam
+KP016735.1	Human adenovirus D8 strain Ger/Arnsberg/12_2012, complete genome	31545	D	008	008	008	008	2012-12-01	DE	?	?	?	?	Dec-2012	Germany
+KT862545.1	Human adenovirus D8 strain Ger/Berlin/04_2003, complete genome	31545	D	008	008	008	008	2003-04-01	DE	?	?	?	?	Apr-2003	Germany
+KP016740.1	Human adenovirus D8 strain Ger/Bottrop/02_2013, complete genome	31545	D	008	008	008	008	2013-02-01	DE	?	?	?	?	Feb-2013	Germany
+KP016728.1	Human adenovirus D8 strain Ger/Bottrop/06_2012, complete genome	31545	D	008	008	008	008	2012-06-01	DE	?	?	?	?	Jun-2012	Germany
+KP016724.1	Human adenovirus D8 strain Ger/Bottrop/12_2011, complete genome	31545	D	008	008	008	008	2011-12-01	DE	?	?	?	?	Dec-2011	Germany
+KP016723.1	Human adenovirus D8 strain Ger/Bottrop/12_2011, complete genome	31545	D	008	008	008	008	2011-12-01	DE	?	?	?	?	Dec-2011	Germany
+KP016722.1	Human adenovirus D8 strain Ger/Bottrop/12_2011, complete genome	31545	D	008	008	008	008	2011-12-01	DE	?	?	?	?	Dec-2011	Germany
+KP016727.1	Human adenovirus D8 strain Ger/Celle/03_2012, complete genome	31545	D	008	008	008	008	2012-03-01	DE	?	?	?	?	Mar-2012	Germany
+KP016720.1	Human adenovirus D8 strain Ger/Celle/06_2010, complete genome	31545	D	008	008	008	008	2010-06-01	DE	?	?	?	?	Jun-2010	Germany
+KP016719.1	Human adenovirus D8 strain Ger/Celle/06_2010, complete genome	31545	D	008	008	008	008	2010-06-01	DE	?	?	?	?	Jun-2010	Germany
+KT862547.1	Human adenovirus D8 strain Ger/Celle/09_2014, complete genome	31545	D	008	008	008	008	2014-09-01	DE	?	?	?	?	Sep-2014	Germany
+KP016734.1	Human adenovirus D8 strain Ger/Celle/12_2012, complete genome	31545	D	008	008	008	008	2012-12-01	DE	?	?	?	?	Dec-2012	Germany
+KP016733.1	Human adenovirus D8 strain Ger/Cologne/12_2012, complete genome	31545	D	008	008	008	008	2012-12-01	DE	?	?	?	?	Dec-2012	Germany
+KP016739.1	Human adenovirus D8 strain Ger/Cottbus/02_2013, complete genome	31545	D	008	008	008	008	2013-02-01	DE	?	?	?	?	Feb-2013	Germany
+KP016736.1	Human adenovirus D8 strain Ger/Dortmund/01_2013, complete genome	31545	D	008	008	008	008	2013-01-01	DE	?	?	?	?	Jan-2013	Germany
+KP016737.1	Human adenovirus D8 strain Ger/Freiburg/12_2012, complete genome	31545	D	008	008	008	008	2012-12-01	DE	?	?	?	?	Dec-2012	Germany
+KP016721.1	Human adenovirus D8 strain Ger/Hannover/07_2010, complete genome	31545	D	008	008	008	008	2010-07-01	DE	?	?	?	?	Jul-2010	Germany
+KP016726.1	Human adenovirus D8 strain Ger/Hannover/08_2012, complete genome	31545	D	008	008	008	008	2012-08-01	DE	?	?	?	?	Aug-2012	Germany
+KT862549.1	Human adenovirus D8 strain Ger/Hannover/10_2014, complete genome	31545	D	008	008	008	008	2014-10-01	DE	?	?	?	?	Oct-2014	Germany
+KP016742.1	Human adenovirus D8 strain Ger/Heidelberg/11_2013, complete genome	31545	D	008	008	008	008	2013-11-01	DE	?	?	?	?	Nov-2013	Germany
+KP016741.1	Human adenovirus D8 strain Ger/Heidelberg/12_2013, complete genome	31545	D	008	008	008	008	2013-12-01	DE	?	?	?	?	Dec-2013	Germany
+KP016725.1	Human adenovirus D8 strain Ger/Karlsruhe/01_2012, complete genome	31545	D	008	008	008	008	2012-01-01	DE	?	?	?	?	Jan-2012	Germany
+KT862548.1	Human adenovirus D8 strain Ger/Krefeld/11_2005, complete genome	31545	D	008	008	008	008	2005-11-01	DE	?	?	?	?	Nov-2005	Germany
+KP016729.1	Human adenovirus D8 strain Ger/Lanshut/08_2012, complete genome	31545	D	008	008	008	008	2012-08-01	DE	?	?	?	?	Aug-2012	Germany
+KP016732.1	Human adenovirus D8 strain Ger/Luneburg/11_2012, complete genome	31545	D	008	008	008	008	2012-11-01	DE	?	?	?	?	Nov-2012	Germany
+KP016731.1	Human adenovirus D8 strain Ger/Luneburg/11_2012, complete genome	31545	D	008	008	008	008	2012-11-01	DE	?	?	?	?	Nov-2012	Germany
+KP016738.1	Human adenovirus D8 strain Ger/Mulheim-Ruhr/01_2013, complete genome	31545	D	008	008	008	008	2013-01-01	DE	?	?	?	?	Jan-2013	Germany
+KT862546.1	Human adenovirus D8 strain Ger/Neubrandenburg/08_2006, complete genome	31545	D	008	008	008	008	2006-08-01	DE	?	?	?	?	Aug-2006	Germany
+KP016743.1	Human adenovirus D8 strain Ger/Regensburg/07_2012, complete genome	31545	D	008	008	008	008	2012-07-01	DE	?	?	?	?	Jul-2012	Germany
+KP016730.1	Human adenovirus D8 strain Ger/Teltow/09_2012, complete genome	31545	D	008	008	008	008	2012-09-01	DE	?	?	?	?	Sep-2012	Germany
+NC_010956.1	Human adenovirus D, complete genome	130310	D	009	009	009	009	?	?	?	?	?	?	NA	NA
+AJ854486.1	Human adenovirus type 9 complete genome	10527	D	009	009	009	009	?	?	?	?	?	?	NA	NA
+AB695621.1	Human adenovirus 10 DNA, complete genome, isolate: HAdV-10_NIID-1	28275	D	010	010	010	010	?	?	?	?	?	?	NA	NA
+AB746854.1	Human adenovirus 10 DNA, complete genome, strain: contaminant in the ATCC HAdV-8 stock	28275	D	010	010	010	010	?	?	?	?	?	?	NA	NA
+AB724351.1	Human adenovirus 10 DNA, complete genome, strain: J.J.; ATCC VR-1504	28275	D	010	010	010	010	?	?	?	?	?	?	NA	NA
+JN226746.1	Human adenovirus 10, complete genome	28275	D	010	010	010	010	?	US	?	?	?	?	NA	USA
+AB695622.1	Human adenovirus D10 DNA, complete genome, isolate: HAdV-10_NIID-2	28275	D	010	010	010	010	?	?	?	?	?	?	NA	NA
+AY598970.1	Human adenovirus B strain 11p, complete genome	108098	B	011	011	011	011	?	?	?	?	?	?	NA	NA
+KF268121.1	Human adenovirus B strain human/USA/UFL_Adv11/2005/11[P11H11F11], complete genome	108098	B	011	011	011	011	2005-08-01	US	WI	?	?	?	Aug-2005	USA: Wisconsin
+NC_011202.1	Human adenovirus B2, complete genome	108098	B	011	011	011	011	?	?	?	?	?	?	NA	NA
+AY163756.1	Human adenovirus type 11 strain Ad11p Slobitski, complete genome	10541	B	011	011	011	011	?	?	?	?	?	?	NA	NA
+AF532578.1	Human adenovirus type 11 strain Slobitski, complete genome	10541	B	011	011	011	011	?	?	?	?	?	?	NA	NA
+X73487.1	Adenovirus type 12 DNA, complete genome	28282	A	012	012	012	012	?	?	?	?	?	?	NA	NA
+KX868289.2	Human adenovirus 12 isolate GyK010, complete genome	28282	A	012	012	012	012	1978-01-01	SE	?	?	?	?	1978	Sweden
+NC_001460.1	Human adenovirus A, complete genome	129875	A	012	012	012	012	?	?	?	?	?	?	NA	NA
+AC_000005.1	Human mastadenovirus A, complete genome	129875	A	012	012	012	012	?	?	?	?	?	?	NA	NA
+JN226747.1	Human adenovirus 13, complete genome	46921	D	013	013	013	013	1955-01-01	US	?	?	?	?	1955	USA
+FJ822614.1	Human adenovirus 14 isolate Ad14-303600, complete genome	10521	B	014	014	014	014	2007-01-01	US	TX	?	?	?	2007	USA: Lackland, TX
+JX892927.2	Human adenovirus 14 isolate CHN 2012, complete genome	10521	B	014	014	014	014	2012-02-01	CN	?	?	?	?	01-Feb-2012	China
+JQ824845.1	Human adenovirus 14 isolate HAdV-B/CHN/GZ01/2010/14[P14H14F14], complete genome	10521	B	014	014	014	014	2010-10-07	CN	?	?	?	?	07-Oct-2010	China
+MF062484.1	Human adenovirus 14 isolate HAdV-B/CHN/GZ02-6161/2010/14[P14H14F14], complete genome	10521	B	014	014	014	014	2010-09-09	CN	?	?	?	?	09-Sep-2010	China
+KP896482.1	Human adenovirus 14 strain Gansu/DH01/2013, complete genome	10521	B	014	014	014	014	2013-01-23	CN	?	?	?	?	23-Jan-2013	China
+JN032132.1	Human adenovirus 14 strain HAdV14-BJ430/CHN2010, complete genome	10521	B	014	014	014	014	2011-10-22	CN	?	?	?	?	22-Oct-2011	China
+JX423384.1	Human adenovirus B strain human/ARG/ak36_AdV11a/2005/55[P14H11F14], complete genome	108098	B	014	014	014	014	2005-01-01	AR	?	?	?	?	01-Jan-2005	Argentina
+AY803294.1	Human adenovirus type 14 strain de Wit, complete genome	10521	B	014	014	014	014	?	?	?	?	?	?	NA	NA
+MH546114.1	Human mastadenovirus B isolate 70536, complete genome	108098	B	014	014	014	014	2017-07-25	US	?	?	?	?	25-Jul-2017	USA
+MH546113.1	Human mastadenovirus B isolate 75657, complete genome	108098	B	014	014	014	014	2017-07-13	US	?	?	?	?	13-Jul-2017	USA
+MH668280.1	Human mastadenovirus B isolate 75658, complete genome	108098	B	014	014	014	014	2017-07-25	US	?	?	?	?	25-Jul-2017	USA
+MH668281.1	Human mastadenovirus B isolate 75668, complete genome	108098	B	014	014	014	014	2017-08-03	US	?	?	?	?	03-Aug-2017	USA
+KY021426.1	Human mastadenovirus B isolate HAdV-B/CAN_New Brunswick/VC5093R/2011/P14H14F14, complete genome	108098	B	014	014	014	014	2011-01-01	CA	?	?	?	?	2011	Canada
+KY021429.1	Human mastadenovirus B isolate HAdV-B/USA_New York/1224/2008/P14H14F14, complete genome	108098	B	014	014	014	014	2008-01-28	US	?	?	?	?	28-Jan-2008	USA
+KY021432.1	Human mastadenovirus B isolate HAdV-B/USA_New York/45278/2015/P14H14F14, complete genome	108098	B	014	014	014	014	2015-05-05	US	?	?	?	?	05-May-2015	USA
+KY021430.1	Human mastadenovirus B isolate HAdV-B/USA_New York/5491/2015/P14H14F14, complete genome	108098	B	014	014	014	014	2015-02-15	US	?	?	?	?	15-Feb-2015	USA
+KY021431.1	Human mastadenovirus B isolate HAdV-B/USA_New York/6295/2015/P14H14F14, complete genome	108098	B	014	014	014	014	2015-02-27	US	?	?	?	?	27-Feb-2015	USA
+MH669070.1	Human mastadenovirus B isolate HAdV-B/USA_New_York/1550/2006/P14H14F14, complete genome	108098	B	014	014	014	014	2006-05-14	US	?	?	?	?	14-May-2006	USA
+MH669071.1	Human mastadenovirus B isolate HAdV-B/USA_Pennsylvania/VT5079/2009/P14H14F14, complete genome	108098	B	014	014	014	014	2009-01-01	US	?	?	?	?	2009	USA
+MH669072.1	Human mastadenovirus B isolate HAdV-B/USA_Pennsylvania/VT7536/2009/P14H14F14, complete genome	108098	B	014	014	014	014	2009-01-01	?	?	?	?	?	2009	NA
+MH669073.1	Human mastadenovirus B isolate HAdV-B/USA_Pennsylvania/VT7603/2009/P14H14F14, complete genome	108098	B	014	014	014	014	?	?	?	?	?	?	NA	NA
+MH499479.1	Human mastadenovirus B isolate HAdV-B14/South Carolina_NHRC_75650_2017_P14H14F14, partial genome	108098	B	014	014	014	014	?	US	?	?	?	?	NA	USA
+KY021428.1	Human mastadenovirus B isolate HAdVB/CAN_New Brunswick/VC50585/2011/P14H14F14, complete genome	108098	B	014	014	014	014	2011-01-01	CA	?	?	?	?	2011	Canada
+KY021427.1	Human mastadenovirus B isolate HAdVB/CAN_New Brunswick/VC5600R/2011/P14H14F14, complete genome	108098	B	014	014	014	014	2011-01-01	CA	?	?	?	?	2011	Canada
+AB562586.1	Human adenovirus 15 DNA, complete genome, isolate: CH38	28276	D	015	015	015	015	?	?	?	?	?	?	NA	NA
+KF268204.1	Human adenovirus D strain human/DEU/HEIM_00082/1988/15[P15H15F15], complete genome	130310	D	015	015	015	015	1988-05-20	DE	?	?	?	?	20-May-1988	Germany
+JN860680.1	Human adenovirus 16 strain E26, complete genome	31544	B	016	016	016	016	?	EG	?	?	?	?	NA	Egypt
+AY601636.1	Human adenovirus type 16 strain ch. 79, complete genome	31544	B	016	016	016	016	?	?	?	?	?	?	NA	NA
+HQ910407.1	Human adenovirus 17 isolate D17, complete genome	46922	D	017	017	017	017	1955-01-01	SA	?	?	?	?	1955	Saudi Arabia
+AC_000006.1	Human adenovirus D, complete genome	130310	D	017	017	017	017	?	?	?	?	?	?	NA	NA
+AF108105.1	Human adenovirus type 17 complete genome	46922	D	017	017	017	017	?	?	?	?	?	?	NA	NA
+GU191019.1	Human adenovirus 18 isolate D.C., complete genome	10528	A	018	018	018	018	1954-01-01	US	?	?	?	?	1954	USA: Washington D.C.
+AB448773.1	Human adenovirus 19 genomic DNA, complete genome, isolate: 1997	28278	D	019	019	019	019	?	?	?	?	?	?	NA	NA
+AB448772.1	Human adenovirus 19 genomic DNA, complete genome, isolate: 19a	28278	D	019	019	019	019	?	?	?	?	?	?	NA	NA
+AB448774.1	Human adenovirus 19 genomic DNA, complete genome, isolate: 2001	28278	D	019	019	019	019	?	?	?	?	?	?	NA	NA
+AB448771.1	Human adenovirus 19 genomic DNA, complete genome, isolate: AV-587	28278	D	019	019	019	019	?	?	?	?	?	?	NA	NA
+JQ326209.1	Human adenovirus 19, complete genome	28278	D	019	019	019	019	?	US	?	?	?	?	NA	USA
+JN226749.1	Human adenovirus 20, complete genome	46923	D	020	020	020	020	1955-01-01	SA	?	?	?	?	1955	Saudi Arabia
+MF502426.1	Human adenovirus 21 isolate OHT-006, complete genome	32608	B	021	021	021	021	2016-04-01	US	?	?	?	?	Apr-2016	USA
+KJ364577.1	Human adenovirus 21 strain CDC RU8176, complete genome	32608	B	021	021	021	021	1978-01-01	US	TN	?	?	?	1978	USA: TN
+KJ364579.1	Human adenovirus 21 strain CDC V1375E, complete genome	32608	B	021	021	021	021	1984-01-01	US	UT	?	?	?	1984	USA: UT
+KJ364588.1	Human adenovirus 21 strain CDC V2148A, complete genome	32608	B	021	021	021	021	1988-01-01	US	CT	?	?	?	1988	USA: CT
+KJ364586.1	Human adenovirus 21 strain NHRC 10030, complete genome	32608	B	021	021	021	021	1998-01-01	US	IL	?	?	?	1998	USA: NRTC Great Lakes, IL
+KJ364580.1	Human adenovirus 21 strain NHRC 20007, complete genome	32608	B	021	021	021	021	1998-01-01	US	CA	?	?	?	1998	USA: MCRD San Diego, CA
+KJ364573.1	Human adenovirus 21 strain NHRC 32389, complete genome	32608	B	021	021	021	021	2005-01-01	US	MO	?	?	?	2005	USA: FT Leonard Wood, MO
+KJ364574.1	Human adenovirus 21 strain NHRC 32493, complete genome	32608	B	021	021	021	021	2005-01-01	US	MO	?	?	?	2005	USA: FT Leonard Wood, MO
+KJ364576.1	Human adenovirus 21 strain NHRC 44288, complete genome	32608	B	021	021	021	021	2006-01-01	US	SC	?	?	?	2006	USA: FT Jackson, SC
+KJ364578.1	Human adenovirus 21 strain NHRC 5, complete genome	32608	B	021	021	021	021	1996-01-01	US	IL	?	?	?	1996	USA: NRTC Great Lakes, IL
+KJ364581.1	Human adenovirus 21 strain NHRC 52331, complete genome	32608	B	021	021	021	021	2006-01-01	US	TX	?	?	?	2006	USA: Lackland AFB, TX
+KJ364575.1	Human adenovirus 21 strain NHRC 63218, complete genome	32608	B	021	021	021	021	2006-01-01	US	GA	?	?	?	2006	USA: FT Benning, GA
+KJ364582.1	Human adenovirus 21 strain NHRC 64589, complete genome	32608	B	021	021	021	021	2007-01-01	US	GA	?	?	?	2007	USA: Ft Benning, GA
+KJ364583.1	Human adenovirus 21 strain NHRC 71139, complete genome	32608	B	021	021	021	021	2004-01-01	US	SC	?	?	?	2004	USA: MCRD Parris Island, SC
+KJ364584.1	Human adenovirus 21 strain NHRC 71227, complete genome	32608	B	021	021	021	021	2005-01-01	US	SC	?	?	?	2005	USA: MCRD Parris Island, SC
+KJ364585.1	Human adenovirus 21 strain NHRC 71252, complete genome	32608	B	021	021	021	021	2005-01-01	US	SC	?	?	?	2005	USA: MCRD Parris Island, SC
+KJ364590.1	Human adenovirus 21 strain NHRC 91447, complete genome	32608	B	021	021	021	021	2007-01-01	US	NJ	?	?	?	2007	USA: CGTC Cape May, NJ
+KJ364587.1	Human adenovirus 21 strain PEL0066, complete genome	32608	B	021	021	021	021	2005-01-01	?	?	?	?	?	2005	NA
+KJ364591.1	Human adenovirus 21 strain VRDL T87-0342, complete genome	32608	B	021	021	021	021	1987-01-01	US	CA	?	?	?	1987	USA: CA
+KJ364589.1	Human adenovirus 21 strain VRDL T97-1745, complete genome	32608	B	021	021	021	021	1997-01-01	US	CA	?	?	?	1997	USA: CA
+KJ364592.1	Human adenovirus 21 strain VRDL T98-1269, complete genome	32608	B	021	021	021	021	1998-01-01	US	CA	?	?	?	1998	USA: CA
+KF528688.1	Human adenovirus 21, complete genome	32608	B	021	021	021	021	?	DE	?	?	?	?	NA	Germany
+MN686206.1	Human adenovirus 21a isolate human/CHN/BB/201903/21, complete genome	1521028	B	021	021	021	021	2019-03-01	CN	?	?	?	?	Mar-2019	China: Bengbu City
+KF577599.1	Human adenovirus 21a isolate LRTI-1, complete genome	1521028	B	021	021	021	021	2005-05-01	DE	?	?	?	?	May-2005	Germany
+KF577595.1	Human adenovirus 21a isolate LRTI-1, complete genome	1521028	B	021	021	021	021	2005-05-01	DE	?	?	?	?	May-2005	Germany
+KF802426.1	Human adenovirus 21a isolate LRTI-2, complete genome	1521028	B	021	021	021	021	2008-08-01	DE	?	?	?	?	Aug-2008	Germany
+KF577593.1	Human adenovirus 21a isolate LRTI-3, complete genome	1521028	B	021	021	021	021	2010-07-01	DE	?	?	?	?	Jul-2010	Germany
+KF938576.1	Human adenovirus 21a isolate LRTI-4, complete genome	1521028	B	021	021	021	021	2012-05-01	DE	?	?	?	?	May-2012	Germany
+KF938575.1	Human adenovirus 21a isolate LRTI-4, complete genome	1521028	B	021	021	021	021	2012-05-01	DE	?	?	?	?	May-2012	Germany
+KF802425.1	Human adenovirus 21a isolate LRTI-5, complete genome	1521028	B	021	021	021	021	2012-11-01	DE	?	?	?	?	Nov-2012	Germany
+KF577597.1	Human adenovirus 21a isolate LRTI-5, complete genome	1521028	B	021	021	021	021	2012-11-01	DE	?	?	?	?	Nov-2012	Germany
+KF577598.1	Human adenovirus 21a isolate LRTI-6, complete genome	1521028	B	021	021	021	021	2013-02-01	DE	?	?	?	?	Feb-2013	Germany
+KY307857.1	Human adenovirus 21a isolate LRTI-7, complete genome	1521028	B	021	021	021	021	2013-01-01	CH	BE	?	?	?	2013	Switzerland: Bern
+KY307858.1	Human adenovirus 21a isolate LRTI-8, complete genome	1521028	B	021	021	021	021	2016-01-01	DE	?	?	?	?	2016	Germany
+KY307859.1	Human adenovirus 21a isolate LRTI-9, complete genome	1521028	B	021	021	021	021	2016-01-01	CH	BE	?	?	?	2016	Switzerland: Bern
+KY307860.1	Human adenovirus 21a isolate Sibu-97, complete genome	1521028	B	021	021	021	021	1997-01-01	MY	11	?	?	?	1997	Malaysia: Sarawak
+AY601633.1	Human adenovirus type 21 strain AV-1645, complete genome	32608	B	021	021	021	021	?	?	?	?	?	?	NA	NA
+FJ404771.1	Human adenovirus 22 isolate AV-2711, complete genome	46924	D	022	022	022	022	1956-01-01	SA	?	?	?	?	1956	Saudi Arabia
+FJ619037.1	Human adenovirus 22 strain AV-2711, complete genome	46924	D	022	022	022	022	1956-01-01	SA	?	?	?	?	1956	Saudi Arabia
+KF279629.1	Human adenovirus 23 isolate Aids32/Manchester/1993, complete genome	46925	D	023	023	023	023	1993-01-01	GB	?	?	?	?	1993	United Kingdom
+JN226750.1	Human adenovirus 23, complete genome	46925	D	023	023	023	023	1956-01-01	SA	?	?	?	?	1956	Saudi Arabia
+JN226751.1	Human adenovirus 24, complete genome	46926	D	024	024	024	024	1956-01-01	SA	?	?	?	?	1956	Saudi Arabia
+JN226752.1	Human adenovirus 25, complete genome	46927	D	025	025	025	025	1956-01-01	US	?	?	?	?	1956	USA
+EF153474.1	Human adenovirus type 26, complete genome	46928	D	026	026	026	026	?	?	?	?	?	?	NA	NA
+JN226753.1	Human adenovirus 27, complete genome	46929	D	027	027	027	027	1958-01-01	US	?	?	?	?	1958	USA
+FJ824826.1	Human adenovirus 28 strain BP-5, complete genome	46930	D	028	028	028	028	?	US	?	?	?	?	NA	USA
+AB562587.1	Human adenovirus 29 DNA, complete genome, isolate: BP6	46931	D	029	029	029	029	?	?	?	?	?	?	NA	NA
+JN226754.1	Human adenovirus 29, complete genome	46931	D	029	029	029	029	1959-01-01	US	?	?	?	?	1959	USA
+JN226755.1	Human adenovirus 30 isolate USA/BP-7-1/1959/30 [P30H30F30], complete genome	46932	D	030	030	030	030	1959-01-01	US	?	?	?	?	1959	USA
+MG872324.1	Human adenovirus 31 isolate S75/2012, complete genome	10529	A	031	031	031	031	2012-01-01	TN	?	?	?	?	2012	Tunisia
+KF268119.1	Human adenovirus A strain human/USA/UFL_Adv31/2005/31[P31H31F31], complete genome	129875	A	031	031	031	031	2005-01-01	US	CO	?	?	?	Jan-2005	USA: Colorado
+AM749299.1	Human adenovirus type 31 complete genome, serotype 31	10529	A	031	031	031	031	?	?	?	?	?	?	NA	NA
+JN226756.1	Human adenovirus 32, complete genome	46933	D	032	032	032	032	1965-01-01	?	?	?	?	?	1965	NA
+JN226758.1	Human adenovirus 33, complete genome	46934	D	033	033	033	033	1965-01-01	?	?	?	?	?	1965	NA
+KF268196.1	Human adenovirus B strain human/USA/UFL_Adv34/2005/34[P34/H34/F34], complete genome	108098	B	034	034	034	034	2005-10-01	US	TX	?	?	?	Oct-2005	USA: Texas
+AY737797.1	Human adenovirus type 34 strain Compton, complete genome	10548	B	034	034	034	034	?	?	?	?	?	?	NA	NA
+AY271307.1	Human adenovirus type 35 strain 35p, complete genome	10522	B	035	035	035	035	?	?	?	?	?	?	NA	NA
+AY128640.2	Human adenovirus type 35 strain Holden, complete genome	10522	B	035	035	035	035	?	?	?	?	?	?	NA	NA
+AC_000019.1	Human adenovirus type 35, complete genome	10522	B	035	035	035	035	?	?	?	?	?	?	NA	NA
+GQ384080.1	Human adenovirus 36 from USA, complete genome	46936	D	036	036	036	036	2008-01-01	US	?	?	?	?	2008	USA
+AB448776.1	Human adenovirus 37 genomic DNA, complete genome, isolate: 1991	52275	D	037	037	037	037	?	?	?	?	?	?	NA	NA
+AB448777.1	Human adenovirus 37 genomic DNA, complete genome, isolate: 1996	52275	D	037	037	037	037	?	?	?	?	?	?	NA	NA
+AB448778.1	Human adenovirus 37 genomic DNA, complete genome, isolate: 2004	52275	D	037	037	037	037	?	?	?	?	?	?	NA	NA
+AB448775.1	Human adenovirus 37 genomic DNA, complete genome, isolate: GW	52275	D	037	037	037	037	?	?	?	?	?	?	NA	NA
+KF268122.1	Human adenovirus D strain human/USA/CL_47/1989/37[P37/H37/F37], complete genome	130310	D	037	037	037	037	1989-01-01	US	PA	003	?	?	1989	USA: Pittsburgh, Pennsylvania
+KF268203.1	Human adenovirus D strain human/USA/MEEI_00074/X/37[P37H37F37], complete genome	130310	D	037	037	037	037	?	US	?	?	?	?	NA	USA
+LC215438.1	Human adenovirus D37 DNA, complete genome, strain: case120_20131590	52275	D	037	037	037	037	2014-02-21	JP	21	?	?	?	2014-02-21	Japan:Kumamoto
+LC215439.1	Human adenovirus D37 DNA, complete genome, strain: case124_20131598	52275	D	037	037	037	037	2014-03-03	JP	21	?	?	?	2014-03-03	Japan:Kumamoto
+LC215440.1	Human adenovirus D37 DNA, complete genome, strain: case126_20131602	52275	D	037	037	037	037	2014-03-06	JP	21	?	?	?	2014-03-06	Japan:Kumamoto
+LC215441.1	Human adenovirus D37 DNA, complete genome, strain: case127_20131603	52275	D	037	037	037	037	2014-03-07	JP	21	?	?	?	2014-03-07	Japan:Kumamoto
+LC215443.1	Human adenovirus D37 DNA, complete genome, strain: case136_20131618	52275	D	037	037	037	037	2014-03-25	JP	21	?	?	?	2014-03-25	Japan:Kumamoto
+LC215444.1	Human adenovirus D37 DNA, complete genome, strain: case140_20141501	52275	D	037	037	037	037	2014-03-27	JP	21	?	?	?	2014-03-27	Japan:Kumamoto
+LC215433.1	Human adenovirus DNA, complete genome, strain: case110_20131573	1907210	D	037	037	037	037	2014-01-27	JP	21	?	?	?	2014-01-27	Japan:Kumamoto
+LC215434.1	Human adenovirus DNA, complete genome, strain: case111_20131575	1907210	D	037	037	037	037	2014-01-27	JP	21	?	?	?	2014-01-27	Japan:Kumamoto
+LC215435.1	Human adenovirus DNA, complete genome, strain: case112_20131578	1907210	D	037	037	037	037	2014-01-31	JP	21	?	?	?	2014-01-31	Japan:Kumamoto
+LC215436.1	Human adenovirus DNA, complete genome, strain: case113_20131581	1907210	D	037	037	037	037	2014-02-04	JP	21	?	?	?	2014-02-04	Japan:Kumamoto
+LC215437.1	Human adenovirus DNA, complete genome, strain: case118_20131587	1907210	D	037	037	037	037	2014-02-17	JP	21	?	?	?	2014-02-17	Japan:Kumamoto
+LC215429.1	Human adenovirus DNA, complete genome, strain: case67_20121578	1907210	D	037	037	037	037	2012-12-20	JP	21	?	?	?	2012-12-20	Japan:Kumamoto
+DQ900900.1	Human adenovirus type 37 isolate GW [76-19026], complete genome	52275	D	037	037	037	037	?	NL	?	?	?	?	NA	Netherlands
+JN226759.1	Human adenovirus 38, complete genome	46943	D	038	038	038	038	?	NL	?	?	?	?	NA	Netherlands
+JN226760.1	Human adenovirus 39, complete genome	46935	D	039	039	039	039	1977-01-01	SV	?	?	?	?	1977	El Salvador
+KU162869.1	Human adenovirus 40 strain HoviX, complete genome	28284	F	040	040	040	040	1979-01-01	FI	?	?	?	?	1979	Finland
+NC_001454.1	Human adenovirus F, complete genome	130309	F	040	040	040	040	?	?	?	?	?	?	NA	NA
+L19443.1	Human adenovirus F, complete genome	130309	F	040	040	040	040	?	?	?	?	?	?	NA	NA
+MK883611.1	Human mastadenovirus F isolate Human/China/Shanghai/FX3-1613263/F40, complete genome	130309	F	040	040	040	040	2016-03-03	CN	?	?	?	?	03-Mar-2016	China
+MK955319.1	Human mastadenovirus F strain SA12303, complete genome	130309	F	040	040	040	040	?	ZA	?	?	?	?	2009/2014	South Africa
+MK955318.1	Human mastadenovirus F strain SA12383, complete genome	130309	F	040	040	040	040	?	ZA	?	?	?	?	2009/2014	South Africa
+MK955316.1	Human mastadenovirus F strain SA12683, complete genome	130309	F	040	040	040	040	?	ZA	?	?	?	?	2009/2014	South Africa
+MK955317.1	Human mastadenovirus F strain SA12730, complete genome	130309	F	040	040	040	040	?	ZA	?	?	?	?	2009/2014	South Africa
+MK955315.1	Human mastadenovirus F strain SA14320, complete genome	130309	F	040	040	040	040	?	ZA	?	?	?	?	2009/2014	South Africa
+AB728839.1	Human adenovirus 41 DNA, complete genome, strain: SaP3-3F	10524	F	041	041	041	041	?	?	?	?	?	?	NA	NA
+KF303071.1	Human adenovirus 41 isolate 10-4851, complete genome	10524	F	041	041	041	041	2010-01-01	US	?	?	?	?	2010	USA
+MH465394.1	Human adenovirus 41 isolate Anhui/2018, complete genome	10524	F	041	041	041	041	2017-12-30	CN	?	?	?	?	30-Dec-2017	China
+KX868523.2	Human adenovirus 41 isolate GyK253, complete genome	10524	F	041	041	041	041	2000-01-01	SE	?	?	?	?	2000	Sweden
+MG925782.1	Human adenovirus 41 isolate MU22, complete genome	10524	F	041	041	041	041	2016-01-01	IQ	?	?	?	?	2016	Iraq
+MG925783.1	Human adenovirus 41 isolate MU35, complete genome	10524	F	041	041	041	041	2016-01-01	IQ	?	?	?	?	2016	Iraq
+HM565136.3	Human adenovirus 41 isolate NIVD103, complete genome	10524	F	041	041	041	041	2007-09-01	CN	?	?	?	?	01-Sep-2007	China
+KF303070.1	Human adenovirus 41 isolate NY/2010/4845, complete genome	10524	F	041	041	041	041	2010-01-01	US	?	?	?	?	2010	USA
+KF303069.1	Human adenovirus 41 isolate NY/2010/4849, complete genome	10524	F	041	041	041	041	2010-01-01	US	?	?	?	?	2010	USA
+KY316160.1	Human adenovirus 41 isolate SH/2015/D16, complete genome	10524	F	041	041	041	041	2015-01-01	CN	?	?	?	?	Jan-2015	China
+KY316161.1	Human adenovirus 41 isolate SH/2015/D187, complete genome	10524	F	041	041	041	041	2015-03-01	CN	?	?	?	?	Mar-2015	China
+KY316162.1	Human adenovirus 41 isolate SH/2015/D240, complete genome	10524	F	041	041	041	041	2015-04-01	CN	?	?	?	?	Apr-2015	China
+KY316163.1	Human adenovirus 41 isolate SH/2015/D363, complete genome	10524	F	041	041	041	041	2015-06-01	CN	?	?	?	?	Jun-2015	China
+KY316164.1	Human adenovirus 41 isolate SH/2015/D381, complete genome	10524	F	041	041	041	041	2015-07-01	CN	?	?	?	?	Jul-2015	China
+DQ315364.2	Human adenovirus 41 isolate Tak, complete genome	10524	F	041	041	041	041	?	NL	?	?	?	?	NA	Netherlands
+MK883610.1	Human mastadenovirus F isolate Human/China/Shanghai/FX1-152772/2015/41, complete genome	130309	F	041	041	041	041	2015-05-14	CN	?	?	?	?	14-May-2015	China
+MK962810.1	Human mastadenovirus F strain SA12680, complete genome	130309	F	041	041	041	041	?	ZA	?	?	?	?	2009/2014	South Africa
+MK962808.1	Human mastadenovirus F strain SA13020, complete genome	130309	F	041	041	041	041	?	ZA	?	?	?	?	2009/2014	South Africa
+MK962806.1	Human mastadenovirus F strain SA13026, complete genome	130309	F	041	041	041	041	?	ZA	?	?	?	?	2009/2014	South Africa
+MK962807.1	Human mastadenovirus F strain SA6749, complete genome	130309	F	041	041	041	041	?	ZA	?	?	?	?	2009/2014	South Africa
+MK962809.1	Human mastadenovirus F strain SA7335, complete genome	130309	F	041	041	041	041	?	ZA	?	?	?	?	2009/2014	South Africa
+JN226761.1	Human adenovirus 42, complete genome	46937	D	042	042	042	042	1982-01-01	FR	?	?	?	?	1982	France
+KC529648.1	Human adenovirus 43 strain 1309 from USA, complete genome	46938	D	043	043	043	043	1981-01-01	US	?	?	?	?	1981	USA
+JN226762.1	Human adenovirus 43, complete genome	46938	D	043	043	043	043	1981-01-01	US	?	?	?	?	1981	USA
+JN226763.1	Human adenovirus 44, complete genome	46939	D	044	044	044	044	1982-01-01	US	?	?	?	?	1982	USA
+JN226764.1	Human adenovirus 45, complete genome	46940	D	045	045	045	045	1982-01-01	US	?	?	?	?	1982	USA
+KF268200.1	Human mastadenovirus D strain human/USA/UFL/2005[P-NEW/H45/F-NEW], partial genome	130310	D	045	045	045	045	2005-01-01	US	IN	?	?	?	Jan-2005	USA: Indiana
+AY875648.1	Human adenovirus type 46, complete genome	46941	D	046	046	046	046	?	?	?	?	?	?	NA	NA
+JN226757.1	Human adenovirus 47, complete genome	46942	D	047	047	047	047	1982-01-01	US	?	?	?	?	1982	USA
+EF153473.1	Human adenovirus type 48, complete genome	39641	D	048	048	048	048	?	?	?	?	?	?	NA	NA
+DQ393829.1	Human adenovirus type 49, complete genome	218120	D	049	049	049	049	?	?	?	?	?	?	NA	NA
+AY737798.1	Human adenovirus type 50 strain Wan, complete genome	107462	B	050	050	050	050	?	?	?	?	?	?	NA	NA
+JN226765.1	Human adenovirus 51, complete genome	245072	D	051	051	051	051	1989-01-01	NL	?	?	?	?	1989	Netherlands
+DQ923122.2	Human adenovirus 52 isolate T03-2244, complete genome	332179	G	052	052	052	052	?	US	?	?	?	?	NA	USA
+AB605243.1	Human adenovirus 53 DNA, complete genome, isolate: 960528C/Hiroshima/1996	556926	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+AB605244.1	Human adenovirus 53 DNA, complete genome, isolate: C075/Matsuyama/2003	556926	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+AB605245.1	Human adenovirus 53 DNA, complete genome, isolate: FS161/Fukui/2004	556926	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+AB605246.1	Human adenovirus 53 DNA, complete genome, isolate: FS165/Fukui/2004	556926	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+LC215442.1	Human adenovirus 53 DNA, complete genome, strain: case128_20131604	556926	D	053	037	022	008	2014-03-08	JP	21	?	?	?	2014-03-08	Japan:Kumamoto
+LC215422.1	Human adenovirus 53 DNA, complete genome, strain: case22_20111549	556926	D	053	037	022	008	2012-02-07	JP	21	?	?	?	2012-02-07	Japan:Kumamoto
+LC215424.1	Human adenovirus 53 DNA, complete genome, strain: case28_20121506	556926	D	053	037	022	008	2012-04-12	JP	21	?	?	?	2012-04-12	Japan:Kumamoto
+LC215426.1	Human adenovirus 53 DNA, complete genome, strain: case43_20121515	556926	D	053	037	022	008	2012-05-31	JP	21	?	?	?	2012-05-31	Japan:Kumamoto
+LC215428.1	Human adenovirus 53 DNA, complete genome, strain: case47_20121537	556926	D	053	037	022	008	2012-09-20	JP	21	?	?	?	2012-09-20	Japan:Kumamoto
+AB550823.1	Human adenovirus 53 DNA, complete genome, strain: K5/Sapporo/2007	556926	D	053	037	022	008	?	JP	12	2128291	?	?	NA	Japan: Hokkaido, Sapporo
+AB568096.1	Human adenovirus 53 hexon gene for hexon, complete cds, strain: 53/C075/Matsuyama/2003	556926	D	053	037	022	008	2003-01-01	JP	?	?	?	?	2003	Japan
+AB568098.1	Human adenovirus 53 hexon gene for hexon, complete cds, strain: 53/FS161/Fukui/2004	556926	D	053	037	022	008	?	JP	06	?	?	?	NA	Japan: Fukui
+AB568097.1	Human adenovirus 53 hexon gene for hexon, complete cds, strain: 53/K5/Sapporo/2007	556926	D	053	037	022	008	2007-01-01	JP	12	?	?	?	2007	Japan: Sapporo
+MK116618.1	Human adenovirus 53 strain USA/2017/CA-RGDS-1004, complete genome	556926	D	053	037	022	008	2017-06-30	US	CA	037	?	?	30-Jun-2017	USA: CA,Los Angeles
+AB605240.1	Human adenovirus D DNA, complete genome, isolate: 870006C/Hiroshima/1987	130310	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+AB605241.1	Human adenovirus D DNA, complete genome, isolate: 880249C/Hiroshima/1988	130310	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+AB605242.1	Human adenovirus D DNA, complete genome, isolate: 890357C/Hiroshima/1989	130310	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+FJ169625.1	Human adenovirus D strain human/DEU/IAI-1/2005/53[P37H22F8], complete genome	130310	D	053	037	022	008	?	?	?	?	?	?	NA	NA
+KF268197.1	Human adenovirus D strain human/USA/UFL_Adv22/2005/53[P53/H53/F53], complete genome	130310	D	053	037	022	008	2005-01-01	US	CT	?	?	?	Jan-2005	USA: Connecticut
+AB448770.2	Human adenovirus 54 DNA, complete genome	651580	D	054	054	054	008	?	?	?	?	?	?	NA	NA
+AB333801.2	Human adenovirus 54 DNA, complete genome	651580	D	054	054	054	008	?	?	?	?	?	?	NA	NA
+LC215446.1	Human adenovirus 54 DNA, complete genome, strain: case15_20111534	651580	D	054	054	054	008	2011-12-24	JP	21	?	?	?	2011-12-24	Japan:Kumamoto
+LC215423.1	Human adenovirus 54 DNA, complete genome, strain: case23_20111540	651580	D	054	054	054	008	2012-01-17	JP	21	?	?	?	2012-01-17	Japan:Kumamoto
+LC215427.1	Human adenovirus 54 DNA, complete genome, strain: case44_20121523	651580	D	054	054	054	008	2012-08-10	JP	21	?	?	?	2012-08-10	Japan:Kumamoto
+NC_012959.1	Human adenovirus 54, complete genome	651580	D	054	054	054	008	?	?	?	?	?	?	NA	NA
+KY002685.1	Human adenovirus isolate Yunnan/KM04/2016, complete genome	1907210	B	055	014	011	014	2016-06-08	CN	?	?	?	?	08-Jun-2016	China
+FJ597732.1	Human adenovirus 11a strain SGN1222, complete genome	343463	B	055	014	011	014	2005-05-26	SG	?	?	?	?	26-May-2005	Singapore
+KY780931.1	Human adenovirus 55 isolate 100-GD_CHN_2016 E1A protein, E1B protein, 54.7 kDa protein E1B, and pIX protein genes, complete cds	714978	B	055	014	011	014	2016-06-01	CN	?	?	?	?	Jun-2016	China
+KY070248.1	Human adenovirus 55 isolate 60-GD-2016, complete genome	714978	B	055	014	011	014	2016-06-30	CN	?	?	?	?	30-Jun-2016	China
+KY780933.1	Human adenovirus 55 isolate 73-GD_CHN_2016 E1A protein, E1B protein, 54.7 kDa protein E1B, and pIX protein genes, complete cds	714978	B	055	014	011	014	2016-06-01	CN	?	?	?	?	Jun-2016	China
+KY780932.1	Human adenovirus 55 isolate 80-GD_CHN_2016 E1A protein, E1B protein, 54.7 kDa protein E1B, and pIX protein genes, complete cds	714978	B	055	014	011	014	2016-06-01	CN	?	?	?	?	Jun-2016	China
+MN654394.1	Human adenovirus 55 isolate CADOH VRDL 76-0669, complete genome	714978	B	055	014	011	014	1976-01-01	US	?	?	?	?	1976	USA
+MN654392.1	Human adenovirus 55 isolate CDC97026382, complete genome	714978	B	055	014	011	014	1997-01-01	US	?	?	?	?	1997	USA
+MT513753.1	Human adenovirus 55 isolate CHOP6887, complete genome	714978	B	055	014	011	014	2006-01-01	US	?	?	?	?	2006	USA
+JX123028.1	Human adenovirus 55 isolate CQ-1657, complete genome	714978	B	055	014	011	014	2011-04-22	CN	?	?	?	?	22-Apr-2011	China
+JX123029.1	Human adenovirus 55 isolate CQ-2903, complete genome	714978	B	055	014	011	014	2012-01-08	CN	?	?	?	?	08-Jan-2012	China
+JX123027.1	Human adenovirus 55 isolate CQ-814, complete genome	714978	B	055	014	011	014	2010-08-18	CN	?	?	?	?	18-Aug-2010	China
+MN654395.1	Human adenovirus 55 isolate HAdV-11/14 strain 273, complete genome	714978	B	055	014	011	014	1969-01-01	ES	?	?	?	?	1969	Spain
+JX491639.1	Human adenovirus 55 isolate HAdV-B/CHN/BJ01/2011/55[P14H11F14], complete genome	714978	B	055	014	011	014	2011-03-24	CN	?	?	?	?	24-Mar-2011	China
+MK886831.1	Human adenovirus 55 isolate HAdV-B55/CHN/BJDX01/2015, complete genome	714978	B	055	014	011	014	2015-08-31	CN	?	?	?	?	31-Aug-2015	China
+KJ883520.1	Human adenovirus 55 isolate Hebei/BD6728/2013, complete genome	714978	B	055	014	011	014	2013-04-06	CN	?	?	?	?	06-Apr-2013	China
+KJ883521.1	Human adenovirus 55 isolate Hebei/BD6729/2013, complete genome	714978	B	055	014	011	014	2013-04-07	CN	?	?	?	?	07-Apr-2013	China
+KX289874.1	Human adenovirus 55 isolate JS201501, complete genome	714978	B	055	014	011	014	2015-11-12	CN	?	?	?	?	12-Nov-2015	China
+MN654391.1	Human adenovirus 55 isolate NAMRU3 2005-908017, complete genome	714978	B	055	014	011	014	2005-01-01	EG	?	?	?	?	2005	Egypt
+MN654390.1	Human adenovirus 55 isolate NAMRU3 2005-909685, complete genome	714978	B	055	014	011	014	2005-01-01	EG	?	?	?	?	2005	Egypt
+MN654386.1	Human adenovirus 55 isolate NAMRU3 2007-905716, complete genome	714978	B	055	014	011	014	2007-01-01	EG	?	?	?	?	2007	Egypt
+MN654384.1	Human adenovirus 55 isolate NAMRU3 2008-905223, complete genome	714978	B	055	014	011	014	2008-01-01	EG	?	?	?	?	2008	Egypt
+MN654387.1	Human adenovirus 55 isolate NAMRU3 2009-908968, complete genome	714978	B	055	014	011	014	2009-01-01	EG	?	?	?	?	2009	Egypt
+MN654380.1	Human adenovirus 55 isolate NAMRU3-E3, complete genome	714978	B	055	014	011	014	2000-01-01	EG	?	?	?	?	2000	Egypt
+MN654381.1	Human adenovirus 55 isolate NAMRU3-E4, complete genome	714978	B	055	014	011	014	2000-01-01	EG	?	?	?	?	2000	Egypt
+MN654385.1	Human adenovirus 55 isolate NAMRU3-E6, complete genome	714978	B	055	014	011	014	2000-01-01	EG	?	?	?	?	2000	Egypt
+MN654382.1	Human adenovirus 55 isolate NAMRU3-E66, complete genome	714978	B	055	014	011	014	2002-01-01	EG	?	?	?	?	2002	Egypt
+MN654383.1	Human adenovirus 55 isolate NAMRU3-E72, complete genome	714978	B	055	014	011	014	2000-01-01	EG	?	?	?	?	2000	Egypt
+KJ883522.1	Human adenovirus 55 isolate Shanxi/QZ01/2011, complete genome	714978	B	055	014	011	014	2011-12-05	CN	?	?	?	?	05-Dec-2011	China
+MN654388.1	Human adenovirus 55 isolate SNG1218, complete genome	714978	B	055	014	011	014	2005-01-01	SG	?	?	?	?	2005	Singapore
+MN654389.1	Human adenovirus 55 isolate SNG1223, complete genome	714978	B	055	014	011	014	2005-01-01	SG	?	?	?	?	2005	Singapore
+MN654379.1	Human adenovirus 55 isolate WPAFB24, complete genome	714978	B	055	014	011	014	2009-01-01	KR	?	?	?	?	2009	South Korea
+MN654378.1	Human adenovirus 55 isolate WPAFB25, complete genome	714978	B	055	014	011	014	2009-01-01	KR	?	?	?	?	2009	South Korea
+MN654393.1	Human adenovirus 55 isolate WPAFB415, complete genome	714978	B	055	014	011	014	2012-01-01	JP	?	?	?	?	2012	Japan
+MN654377.1	Human adenovirus 55 isolate WPAFB48, complete genome	714978	B	055	014	011	014	2009-01-01	KR	?	?	?	?	2009	South Korea
+MN654375.1	Human adenovirus 55 isolate WPAFB69, complete genome	714978	B	055	014	011	014	2009-01-01	KR	?	?	?	?	2009	South Korea
+MN654376.1	Human adenovirus 55 isolate WPAFB75, complete genome	714978	B	055	014	011	014	2009-01-01	KR	?	?	?	?	2009	South Korea
+MK123978.1	Human adenovirus 55 strain 267, complete genome	714978	B	055	014	011	014	2018-06-01	CN	30	?	?	?	Jun-2018	China: Guangzhou
+KY471318.1	Human adenovirus 55 strain AFMC 16-0007, complete genome	714978	B	055	014	011	014	?	KR	?	?	?	?	NA	South Korea
+KX494979.1	Human adenovirus 55 strain AFMC 16-0011, complete genome	714978	B	055	014	011	014	2016-02-23	KR	?	?	?	?	23-Feb-2016	South Korea
+KY471322.1	Human adenovirus 55 strain AFMC 16-0035, complete genome	714978	B	055	014	011	014	?	KR	?	?	?	?	NA	South Korea
+KY471320.1	Human adenovirus 55 strain AFMC 16-0074, complete genome	714978	B	055	014	011	014	?	KR	?	?	?	?	NA	South Korea
+KY471321.1	Human adenovirus 55 strain AFMC 16-0081, complete genome	714978	B	055	014	011	014	?	KR	?	?	?	?	NA	South Korea
+KY471319.1	Human adenovirus 55 strain AFMC 16-0094, complete genome	714978	B	055	014	011	014	?	KR	?	?	?	?	NA	South Korea
+KY471323.1	Human adenovirus 55 strain AFMC 16-0096, complete genome	714978	B	055	014	011	014	?	KR	?	?	?	?	NA	South Korea
+KC857701.1	Human adenovirus 55 strain HAdV B55 XZ2012-492, complete genome	714978	B	055	014	011	014	2012-04-26	CN	?	?	?	?	26-Apr-2012	China
+KP279748.1	Human adenovirus 55 strain human/CHN/AQ-1/2012/55[P14/H11/F14], complete genome	714978	B	055	014	011	014	2012-04-18	CN	?	?	?	?	18-Apr-2012	China
+FJ643676.1	Human adenovirus 55 strain QS-DLL, complete genome	714978	B	055	014	011	014	2006-04-01	CN	?	3306	?	?	Apr-2006	China: Shanxi, Qishan
+KF908851.1	Human adenovirus 55 strain TJ-2013-90, complete genome	714978	B	055	014	011	014	2013-01-14	CN	?	?	?	?	14-Jan-2013	China
+MK123980.1	Human adenovirus 55 strain TY12, complete genome	714978	B	055	014	011	014	2013-01-01	CN	?	?	?	?	2013	China
+MK123981.1	Human adenovirus 55 strain TY26, complete genome	714978	B	055	014	011	014	2013-01-01	CN	?	?	?	?	2013	China
+MN052861.1	Human adenovirus 55, complete genome	714978	B	055	014	011	014	2018-04-26	CN	?	?	?	?	26-Apr-2018	China
+MK123979.1	Human adenovirus 55, complete genome	714978	B	055	014	011	014	2011-01-01	CN	?	?	?	?	2011	China
+JX423385.1	Human adenovirus B strain human/EGY/ak37_AdV11a/2001/55[P14H11F14], complete genome	108098	B	055	014	011	014	2001-05-01	EG	?	?	?	?	01-May-2001	Egypt
+KP896478.1	Human adenovirus B55 strain Hebei/BD01/2012, complete genome	714978	B	055	014	011	014	2012-02-11	CN	?	?	?	?	11-Feb-2012	China
+KP896483.1	Human adenovirus B55 strain Liaoning/LS01/2013, complete genome	714978	B	055	014	011	014	2013-02-25	CN	?	?	?	?	25-Feb-2013	China
+KP896484.1	Human adenovirus B55 strain Tianjin/TJ01/2013, complete genome	714978	B	055	014	011	014	2013-01-15	CN	?	?	?	?	15-Jan-2013	China
+MK883606.1	Human mastadenovirus B isolate Human/China/Shanghai/3961/2012/55[P14H11F14], complete genome	108098	B	055	014	011	014	2012-02-28	CN	?	?	?	?	28-Feb-2012	China
+LC215445.1	Human adenovirus 56 DNA, complete genome, strain: case157_20101537	880565	D	056	056	015	009	2010-11-08	JP	21	?	?	?	2010-11-08	Japan:Kumamoto
+LC215425.1	Human adenovirus 56 DNA, complete genome, strain: case37_20121516	880565	D	056	056	015	009	2012-05-31	JP	21	?	?	?	2012-05-31	Japan:Kumamoto
+LC215430.1	Human adenovirus 56 DNA, complete genome, strain: case69_20121569	880565	D	056	056	015	009	2012-11-22	JP	21	?	?	?	2012-11-22	Japan:Kumamoto
+LC215431.1	Human adenovirus 56 DNA, complete genome, strain: case77_20131505	880565	D	056	056	015	009	2013-05-29	JP	21	?	?	?	2013-05-29	Japan:Kumamoto
+HM770721.2	Human adenovirus 56, complete genome	880565	D	056	056	015	009	2008-01-01	FR	?	?	?	?	2008	France
+KF268329.1	Human adenovirus D strain human/DEU/HEIM_00081/1982/56[P56H56F56], complete genome	130310	D	056	056	015	009	1982-07-03	DE	?	?	?	?	03-Jul-1982	Germany
+KF268333.1	Human adenovirus D strain human/USA/CL_50/1992/56[P56/H56/F56], complete genome	130310	D	056	056	015	009	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+KF268209.1	Human adenovirus D strain human/USA/MEEI_00078/X/56[P56H56F56], complete genome	130310	D	056	056	015	009	?	US	?	?	?	?	NA	USA
+MF476840.1	Human mastadenovirus D strain human/USA/MEE-CHBR/1995/56[P9H15F9], complete genome	130310	D	056	056	015	009	?	?	?	?	?	?	NA	NA
+HQ003817.1	Human adenovirus C strain human/RUS/16700/2001/57[P1H57F6], complete genome	129951	C	057	001	057	006	1997-11-01	RU	?	?	?	?	Nov-1997	Russia
+HQ883276.1	Human adenovirus 58 strain human/ARG/AdCor-96-487/1996/58[P58H58F29], complete genome	980087	D	058	058	058	029	1996-02-01	AR	?	?	?	?	Feb-1996	Argentina
+KF268319.1	Human adenovirus D strain human/ARG/arg_00101/2010/58[P58H58F58], complete genome	130310	D	058	058	058	029	2010-01-01	AR	05	?	?	?	2010	Argentina: Cordoba
+JF799911.1	Human adenovirus D strain human/USA/CDPH/2007/59[P64H25F56], complete genome	130310	D	059	064	025	056	2007-11-18	US	?	?	?	?	18-Nov-2007	USA
+JN162672.1	Human adenovirus 60a isolate Aids59/Manchester/1992, complete genome	1091198	D	060	060	020	060	1992-01-01	GB	?	?	?	?	1992	United Kingdom
+HQ007053.1	Human adenovirus D strain human/CAN/SW/2009/60[P60H20F60], complete genome	130310	D	060	060	020	060	2008-01-01	CA	?	?	?	?	2008	Canada
+JF964962.1	Human adenovirus 61 strain JPN/2004/5082/[P31/H-NEW/F31], complete genome	1069441	A	061	031	061	031	2004-01-01	JP	?	?	?	?	2004	Japan
+JN162671.1	Human adenovirus 62 isolate Aids25/Manchester/1993, complete genome	1091197	D	062	062	062	062	1993-01-01	GB	?	?	?	?	1993	United Kingdom
+JN935766.1	Human adenovirus 63 strain human/USA/BP-7-2/1959/63[P30H30F29], complete genome	1124795	D	063	030	030	029	1959-01-01	US	?	?	?	?	1959	USA
+JQ326206.1	Human adenovirus 64 strain 2, complete genome	1145295	D	064	022	019	037	1955-01-01	US	?	086	?	?	1955	USA: Miami
+JQ326207.1	Human adenovirus 64 strain 3, complete genome	1145295	D	064	022	019	037	1955-01-01	US	?	086	?	?	1955	USA: Miami
+JQ326208.1	Human adenovirus 64 strain 88, complete genome	1145295	D	064	022	019	037	1989-01-01	US	?	003	?	?	1989	USA: Pittsburgh
+EF121005.1	Human adenovirus 64 strain human/USA/C/1993/64[P22H19F37], complete genome	1145295	D	064	022	019	037	?	US	?	?	?	?	NA	USA
+KF268213.1	Human adenovirus D strain human/USA/MEEI_0076/X/64[P64H64F64], complete genome	130310	D	064	022	019	037	?	US	?	?	?	?	NA	USA
+AP012285.1	Human adenovirus 65 DNA, complete genome, strain: BGD/2004/B172/[P58/H10/F9]	1094363	D	065	058	010	009	?	?	?	?	?	?	NA	NA
+JN860676.1	Human adenovirus 66 strain 87-922, complete genome	1337398	B	066	066	007	003	1987-01-01	AR	?	?	?	?	1987	Argentina
+AP012302.1	Human adenovirus 67 DNA, complete genome, strain: BGD/2005/B109/[P67/H9/F67]	1101371	D	067	067	009	067	?	?	?	?	?	?	NA	NA
+JN860678.1	Human adenovirus 68 strain Arg 827/04, complete genome	1096763	B	068	016	003	016	2004-01-01	AR	?	?	?	?	2004	Argentina
+KF268315.1	Human adenovirus B strain human/DEU/HEIM_00097/1988/NEW[P16H3F16], complete genome	108098	B	068	016	003	016	1988-04-13	DE	?	?	?	?	13-Apr-1988	Germany
+JN226748.1	Human adenovirus 69 isolate Human adenovirus D human/SAU/CH38/1955/69[P53H15F69], complete genome	1604283	D	069	053	015	069	1955-01-01	SA	?	?	?	?	1955	Saudi Arabia
+MF476839.1	Human mastadenovirus D strain human/USA/MEE-CH38/1955/69[P69H15F42], complete genome	130310	D	069	053	015	069	1955-01-01	?	?	?	?	?	1955	NA
+KP641339.1	Human mastadenovirus D isolate human/DEU/Leipzig/2014/70[P70H70F29], complete genome	130310	D	070	070	070	029	2013-01-01	DE	?	?	?	?	2013	Germany
+KF268207.1	Human adenovirus 71 strain human/DEU/HEIM_00085/1987/71[P9H20F71], complete genome	1643649	D	071	009	020	071	1987-11-01	DE	?	?	?	?	Nov-1987	Germany
+KF268335.1	Human mastadenovirus D strain human/DEU/HEIM_00088/1985/72[P72H30F72], complete genome	130310	D	072	072	030	072	1985-09-03	DE	?	?	?	?	03-Sep-1985	Germany
+KY618676.1	Human mastadenovirus D isolate human/DEU/Leipzig/2015/73[P67H45F27], complete genome	130310	D	073	067	045	027	2015-01-01	DE	?	?	?	?	2015	Germany
+KY618677.1	Human mastadenovirus D isolate human/DEU/Leipzig/2015/74[P70H74F51], complete genome	130310	D	074	070	074	051	2015-01-01	DE	?	?	?	?	2015	Germany
+KY618678.1	Human mastadenovirus D isolate human/DEU/Leipzig/2015/75[P75H26F58], complete genome	130310	D	075	075	026	029	2015-01-01	DE	?	?	?	?	2015	Germany
+KF633445.1	Human adenovirus B strain human/DEU/HEIM_00086/X/X[PXHXFX], complete genome	108098	B	076	021	021	016	?	DE	?	?	?	?	NA	Germany
+KF268328.1	Human adenovirus B strain human/DEU/HEIM_00092/1985/NEW[P35H34F7], complete genome	108098	B	077	035	034	007	1985-01-29	DE	?	?	?	?	29-Jan-1985	Germany
+KT970440.1	Human mastadenovirus B strain HAdV-B/ARG/18017/2000/[P11H11F7], complete genome	108098	B	078	011	011	007	2000-09-01	AR	?	?	?	?	Sep-2000	Argentina
+KT970442.1	Human mastadenovirus B strain HAdV-B/USA/12146/2012/[P11H11F7], complete genome	108098	B	078	011	011	007	2012-04-15	US	NY	?	?	?	15-Apr-2012	USA: New York
+KT970441.1	Human mastadenovirus B strain HAdV-B/USA/CHOP2146-10810/2013/[P11H11F7], complete genome	108098	B	078	011	011	007	2013-10-01	US	PA	?	?	?	Oct-2013	USA: Pennsylvania
+KF906413.1	Human adenovirus 11+34 strain IC763, complete genome	1461395	B	079	011	034	011	2010-08-24	KR	?	?	?	?	24-Aug-2010	South Korea
+LC177352.1	Human mastadenovirus B strain HAdV-B/JPN/T150125/2015/79[P11H34F11], complete genome	108098	B	079	011	034	011	2015-01-08	JP	07	?	?	?	2015-01-08	Japan:Fukuoka, Tatara river
+KY618679.1	Human mastadenovirus D isolate human/DEU/Berlin/2014/80[P19/23H28F22], complete genome	130310	D	080	022	028	022	2014-01-01	DE	?	?	?	?	2014	Germany
+AB765926.1	Human adenovirus 81 DNA, complete genome, strain: Chiba_E086/2012	1972755	D	081	065	048	060	?	?	?	?	?	?	NA	NA
+LC066535.1	Human mastadenovirus D DNA, complete genome, strain: human/JPN/OIPH23/2011/82[P56H15F37]	130310	D	082	056	015	037	2011-01-01	JP	32	?	?	?	2011	Japan: Osaka
+KX827426.1	Human mastadenovirus D strain human/PAR/Py52A/2010/83[P83H9F15], complete genome	130310	D	083	083	009	015	2010-07-12	PY	?	?	?	?	12-Jul-2010	Paraguay
+MF416150.1	Human mastadenovirus D strain Hu/PAN/P309886/2011/84 [P43H17F84], complete genome	130310	D	084	043	017	084	2011-01-01	PA	?	?	?	?	2011	Panama
+LC314153.1	Human mastadenovirus D DNA, complete genome, isolate: Kumamoto_20151587_JPN	130310	D	085	037	019	008	2015-12-09	JP	21	?	?	?	2015-12-09	Japan:Kumamoto
+KX868297.2	Human adenovirus 86 isolate GyK018, complete genome	2461378	D	086	009	025	025	1978-01-01	SE	?	?	?	?	1978	Sweden
+MF476841.1	Human mastadenovirus D strain human/USA/MEE-KIPA/1967/87[P9H15F25], complete genome	130310	D	087	009	015	025	?	?	?	?	?	?	NA	NA
+MF476843.1	Human mastadenovirus D strain human/USA/MEE-TIER/1967/87[P9H15F25], complete genome	130310	D	087	009	015	025	?	?	?	?	?	?	NA	NA
+MF476844.1	Human mastadenovirus D strain human/USA/MEE-TWSC/1964/87[P9H15F25], complete genome	130310	D	087	009	015	025	?	?	?	?	?	?	NA	NA
+MF476842.1	Human mastadenovirus D strain human/USA/MEE-MOLD/1963/88[P88H15F9], complete genome	130310	D	088	088	015	009	?	?	?	?	?	?	NA	NA
+MH121097.1	Human mastadenovirus C strain 29C2, partial genome	129951	C	089	089	002	002	?	DE	?	?	?	?	NA	Germany
+KF268208.1	Human mastadenovirus D strain human/DEU/HEIM_00093/X/91[P37H37F17], complete genome	130310	D	091	037	037	017	?	DE	?	?	?	?	NA	Germany
+KF268325.1	Human mastadenovirus D strain human/DEU/HEIM_00090/1986/92[P92H32F27], complete genome	130310	D	092	092	032	027	1986-05-20	DE	?	?	?	?	20-May-1986	Germany
+KF268334.1	Human mastadenovirus D strain human/DEU/HEIM_00094/1988/93[P28H37F38], complete genome	130310	D	093	028	037	038	1988-03-28	DE	?	?	?	?	28-Mar-1988	Germany
+KF268201.1	Human mastadenovirus D strain human/DEU/HEIM_00080/1982/94[P33H15F9], complete genome	130310	D	094	033	015	009	1982-05-11	DE	?	?	?	?	11-May-1982	Germany
+KF268206.1	Human mastadenovirus D strain human/DEU/HEIM_00100/1984/95[P95H9F15], complete genome	130310	D	095	095	009	015	1984-04-10	DE	?	?	?	?	10-Apr-1984	Germany
+KF268327.1	Human mastadenovirus D strain human/DEU/HEIM_00089/1988/96[P23H32F62], complete genome	130310	D	096	023	032	062	1988-05-26	DE	?	?	?	?	26-May-1988	Germany
+KF268320.1	Human mastadenovirus D strain human/DEU/HEIM_00087/1987/97[P67H28F60], complete genome	130310	D	097	067	028	060	1987-12-14	DE	?	?	?	?	14-Dec-1987	Germany
+KF268332.1	Human mastadenovirus D strain human/DEU/HEIM_00099/1986/98[P98H46F9], complete genome	130310	D	098	098	046	009	1986-04-07	DE	?	?	?	?	07-Apr-1986	Germany
+KF268211.1	Human mastadenovirus D strain human/DEU/HEIM_00098/1987/99[P9H46F39], complete genome	130310	D	099	009	046	039	1987-04-10	DE	?	?	?	?	10-Apr-1987	Germany
+KF268330.1	Human mastadenovirus D strain human/DEU/HEIM_00083/1986/100[P100H17F30], complete genome	130310	D	100	100	017	030	1986-03-08	DE	?	?	?	?	08-Mar-1986	Germany
+KF268324.1	Human mastadenovirus D strain human/DEU/HEIM_00095/1988/101[P101H37F45], complete genome	130310	D	101	101	037	045	1988-01-01	DE	?	?	?	?	1988	Germany
+KF268312.1	Human mastadenovirus D strain human/DEU/HEIM_00096/1984/102[P102H38F30], complete genome	130310	D	102	102	038	030	1984-02-06	DE	?	?	?	?	06-Feb-1984	Germany
+KF268322.1	Human mastadenovirus D strain human/DEU/HEIM_00091/1986/103[P103H33F30], complete genome	130310	D	103	103	033	030	1986-05-20	DE	?	?	?	?	20-May-1986	Germany
+MK357715.1	Human adenovirus sp. isolate DT-4, complete genome	1907210	?	?	?	?	?	2016-05-05	CN	?	?	?	?	05-May-2016	China
+MK241690.1	Human adenovirus sp. isolate DT5, complete genome	1907210	?	?	?	?	?	2017-05-22	CN	?	1402	?	?	22-May-2017	China: Datong
+JN860679.1	Human adenovirus 3+7 strain Takeuchi, complete genome	260047	?	?	?	?	?	1958-01-01	JP	?	?	?	?	1958	Japan
+KF268311.1	Human adenovirus B strain human/CHN/Ad4/2007/NEW[P3H3F7], complete genome	108098	?	?	?	?	?	2007-01-01	CN	30	?	?	?	01-Jan-2007	China: Guangzhou
+KF268210.1	Human adenovirus B strain human/IND/MEEI_00057/2011/3[P7H3F3], complete genome	108098	?	?	?	?	?	2011-04-01	IN	25	?	?	?	Apr-2011	India: Tamil Nadu
+KF268212.1	Human adenovirus B strain human/IND/MEEI_00062/2011/3[P7H3F3], complete genome	108098	?	?	?	?	?	2011-04-06	IN	25	?	?	?	06-Apr-2011	India: Tamil Nadu
+KF268132.1	Human adenovirus B strain human/USA/CL_45/1988/3[P3H7F3], complete genome	108098	?	?	?	?	?	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF268126.1	Human adenovirus B strain human/USA/UFL_Adv7h/2005/66[P7H7F3], complete genome	108098	?	?	?	?	?	2005-02-01	US	IA	?	?	?	Feb-2005	USA: Iowa
+KF951595.1	Human adenovirus C strain DD28, complete genome	129951	?	?	?	?	?	2013-02-23	CN	?	?	?	?	23-Feb-2013	China
+KF268199.1	Human adenovirus C strain human/USA/UFL_Adv5/2008/5[P2/H5/F5], complete genome	129951	?	?	?	?	?	2008-02-01	US	CT	?	?	?	Feb-2008	USA: Connecticut
+NC_001405.1	Human adenovirus C, complete genome	129951	?	?	?	?	?	?	?	?	?	?	?	NA	NA
+AB562588.1	Human adenovirus D DNA, complete genome, isolate: 2307-S	130310	?	?	?	?	?	?	?	?	?	?	?	NA	NA
+KJ194509.1	Human adenovirus D isolate Adenovirus_Amsterdam_1993, partial genome	130310	?	?	?	?	?	1993-01-11	NL	?	?	?	?	11-Jan-1993	Netherlands
+KF268326.1	Human adenovirus D strain human/DEU/HEIM_00084/1988/NEW[P29H17F30], partial genome	130310	?	?	?	?	?	1988-05-20	DE	?	?	?	?	20-May-1988	Germany
+KF268118.1	Human adenovirus D strain human/USA/CL_48/1991/8[P8/H8F/F53], complete genome	130310	?	?	?	?	?	1991-01-01	US	PA	003	?	?	1991	USA: Pittsburgh, Pennsylvania
+KF268198.1	Human adenovirus D strain human/USA/CL_49/1991/8[P8/H8/F53], complete genome	130310	?	?	?	?	?	1991-01-01	US	PA	003	?	?	1991	USA: Pittsburgh, Pennsylvania
+KF268313.1	Human adenovirus D strain human/USA/Pitts_00150/1992/NEW[P26H56F56], complete genome	130310	?	?	?	?	?	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+MN011575.1	Human mastadenovirus B isolate SH6220, complete genome	108098	?	?	?	?	?	2014-02-10	CN	?	?	?	?	10-Feb-2014	China
+MN628615.1	Human mastadenovirus C isolate 211-Carolina-MA, complete genome	129951	?	?	?	?	?	2015-08-14	BR	?	?	?	?	14-Aug-2015	Brazil
+MN628614.1	Human mastadenovirus C isolate 245-Araguaina, complete genome	129951	?	?	?	?	?	2015-10-12	BR	?	?	?	?	12-Oct-2015	Brazil
+MN088492.1	Human mastadenovirus C isolate GD4163, partial genome	129951	?	?	?	?	?	2017-05-10	CN	?	?	?	?	10-May-2017	China
+MK883605.1	Human mastadenovirus C isolate Human/China/Shanghai/3759/2011/2[P1H2F2], complete genome	129951	?	?	?	?	?	2011-10-25	CN	?	?	?	?	25-Oct-2011	China
+MK883607.1	Human mastadenovirus C isolate Human/China/Shanghai/3987/2012/2[P1H2F2], complete genome	129951	?	?	?	?	?	2012-03-09	CN	?	?	?	?	09-Mar-2012	China
+MK905735.1	Human mastadenovirus C isolate Human/China/Shanghai/5657/2013/2[P1H2F2], complete genome	129951	?	?	?	?	?	2013-08-09	CN	?	?	?	?	09-Aug-2013	China
+MF315028.1	Human mastadenovirus C isolate human/CHN/BJ04/2012/[P1/H2/F2], complete genome	129951	?	?	?	?	?	2012-11-07	CN	?	?	?	?	07-Nov-2012	China
+MF315029.1	Human mastadenovirus C isolate human/CHN/BJ09/2013/[P1/H2/F2], complete genome	129951	?	?	?	?	?	2013-03-16	CN	?	?	?	?	16-Mar-2013	China
+MK165452.1	Human mastadenovirus C isolate SX-2000-140, complete genome	129951	?	?	?	?	?	2000-07-05	CN	?	?	?	?	05-Jul-2000	China
+MK165453.1	Human mastadenovirus C isolate SX-2004-327, complete genome	129951	?	?	?	?	?	2004-12-25	CN	?	?	?	?	25-Dec-2004	China
+KM190941.1	Human mastadenovirus C isolate VIROAF12, partial genome	129951	?	?	?	?	?	2012-10-19	TH	?	?	?	?	19-Oct-2012	Thailand
+LC504572.1	Human mastadenovirus C K19-85 DNA, complete genome	129951	?	?	?	?	?	2012-01-01	JP	?	?	?	?	2012	Japan
+LC504573.1	Human mastadenovirus C K67-339 DNA, complete genome	129951	?	?	?	?	?	2016-01-01	JP	?	?	?	?	2016	Japan
+MH121079.1	Human mastadenovirus C strain 10C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121080.1	Human mastadenovirus C strain 11C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121081.1	Human mastadenovirus C strain 12C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121082.1	Human mastadenovirus C strain 13C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121083.1	Human mastadenovirus C strain 14C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121084.1	Human mastadenovirus C strain 15C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121085.1	Human mastadenovirus C strain 16C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121086.1	Human mastadenovirus C strain 17C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121087.1	Human mastadenovirus C strain 18C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121088.1	Human mastadenovirus C strain 19C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121089.1	Human mastadenovirus C strain 20C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121090.1	Human mastadenovirus C strain 21C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121091.1	Human mastadenovirus C strain 22C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121092.1	Human mastadenovirus C strain 23C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121093.1	Human mastadenovirus C strain 24C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121095.1	Human mastadenovirus C strain 26C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121096.1	Human mastadenovirus C strain 27C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121070.1	Human mastadenovirus C strain 2C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121098.1	Human mastadenovirus C strain 30C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121099.1	Human mastadenovirus C strain 31C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121100.1	Human mastadenovirus C strain 32C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121101.1	Human mastadenovirus C strain 33C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121102.1	Human mastadenovirus C strain 34C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121103.1	Human mastadenovirus C strain 35C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121104.1	Human mastadenovirus C strain 36C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121105.1	Human mastadenovirus C strain 37C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121106.1	Human mastadenovirus C strain 38C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121108.1	Human mastadenovirus C strain 41C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121109.1	Human mastadenovirus C strain 42C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121110.1	Human mastadenovirus C strain 43C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121111.1	Human mastadenovirus C strain 44C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121114.1	Human mastadenovirus C strain 47C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121073.1	Human mastadenovirus C strain 4C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121116.1	Human mastadenovirus C strain 50C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121117.1	Human mastadenovirus C strain 51C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121074.1	Human mastadenovirus C strain 5C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121075.1	Human mastadenovirus C strain 6C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121076.1	Human mastadenovirus C strain 7C1, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121077.1	Human mastadenovirus C strain 8C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121078.1	Human mastadenovirus C strain 9C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+KR699642.1	Human mastadenovirus C strain CBJ113, complete genome	129951	?	?	?	?	?	2009-01-20	CN	?	?	?	?	20-Jan-2009	China
+MF681662.1	Human mastadenovirus C strain HAdV-5var, complete genome	129951	?	?	?	?	?	?	?	?	?	?	?	NA	NA
+MH558113.1	Human mastadenovirus C strain human/CHN/GD2467/2017/87'[P1H1F2], complete genome	129951	?	?	?	?	?	2017-04-10	CN	?	?	?	?	10-Apr-2017	China
+KJ626291.1	Human mastadenovirus D isolate 21-10-vt10230, complete genome	130310	?	?	?	?	?	2010-01-01	US	?	?	?	?	2010	USA
+KJ626292.1	Human mastadenovirus D isolate 21-10-VT9763, complete genome	130310	?	?	?	?	?	2010-01-01	US	?	?	?	?	2010	USA
+MK174992.1	Human mastadenovirus D isolate BCCDC/Vancouver/2010, complete genome	130310	?	?	?	?	?	2010-08-01	CA	?	?	?	?	Aug-2010	Canada
+MH256655.1	UNVERIFIED: Human adenovirus 55 isolate 1804001, complete genome	714978	?	?	?	?	?	2018-02-13	CN	?	?	?	?	13-Feb-2018	China
+MH256656.1	UNVERIFIED: Human adenovirus 55 isolate 1806003, complete genome	714978	?	?	?	?	?	2018-02-13	CN	?	?	?	?	13-Feb-2018	China
+MH256653.1	UNVERIFIED: Human adenovirus 55 isolate 24-1, complete genome	714978	?	?	?	?	?	2018-02-12	CN	?	?	?	?	12-Feb-2018	China
+MH256654.1	UNVERIFIED: Human adenovirus 55 isolate 24-2, complete genome	714978	?	?	?	?	?	2018-02-12	CN	?	?	?	?	12-Feb-2018	China
+MH256657.1	UNVERIFIED: Human adenovirus 55 isolate DYN, complete genome	714978	?	?	?	?	?	2018-03-03	CN	?	?	?	?	03-Mar-2018	China
+KF429748.1	UNVERIFIED: Human adenovirus B strain human/USA/Pitts_00102/1988/7[P7H7F7] genomic sequence	108098	?	?	?	?	?	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF429752.1	UNVERIFIED: Human adenovirus B strain human/USA/Pitts_00112/1988/NEW[P3H3F7] genomic sequence	108098	?	?	?	?	?	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF429744.1	UNVERIFIED: Human adenovirus C strain human/USA/Pitts_00107/1988/1[P1H1F1] genomic sequence	129951	?	?	?	?	?	1988-01-01	US	PA	003	?	?	1988	USA: Pittsburgh, Pennsylvania
+KF268331.1	UNVERIFIED: Human adenovirus C strain human/USA/UFL_Adv1/2005/1[P1H1F1] genomic sequence	129951	?	?	?	?	?	2005-02-01	US	CO	?	?	?	Feb-2005	USA: Colorado
+KJ194501.1	UNVERIFIED: Human adenovirus D isolate Adenovirus_Amsterdam_1995, partial genome	130310	?	?	?	?	?	1995-01-30	NL	?	?	?	?	30-Jan-1995	Netherlands
+KF429750.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00110/1992/NEW[P26H56F56] genomic sequence	130310	?	?	?	?	?	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+KF429747.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00114/1992/NEW[P26H56F56] genomic sequence	130310	?	?	?	?	?	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+KF429745.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00115/1992/NEW[P9H22F44] genomic sequence	130310	?	?	?	?	?	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+KF429753.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00119/1989/8[P8H8F8] genomic sequence	130310	?	?	?	?	?	1989-01-01	US	PA	003	?	?	1989	USA: Pittsburgh, Pennsylvania
+KF429746.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00121/1991/8[P8H8F8] genomic sequence	130310	?	?	?	?	?	1991-01-01	US	PA	003	?	?	1991	USA: Pittsburgh, Pennsylvania
+KF429749.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00131/1992/8[P8H8F8] genomic sequence	130310	?	?	?	?	?	1992-01-01	US	PA	003	?	?	1992	USA: Pittsburgh, Pennsylvania
+KF429743.1	UNVERIFIED: Human adenovirus D strain human/USA/Pitts_00134/1991/8[P8H8F8] genomic sequence	130310	?	?	?	?	?	1991-01-01	US	PA	003	?	?	1991	USA: Pittsburgh, Pennsylvania
+KF268323.1	UNVERIFIED: Human adenovirus D strain human/USA/UFL_Adv19/2005/64[P64H64F64] genomic sequence	130310	?	?	?	?	?	2005-09-01	US	TN	?	?	?	Sep-2005	USA: Tennessee
+MH634393.1	UNVERIFIED: Human adenovirus D8 isolate YN/7/2018, complete genome	31545	?	?	?	?	?	?	CN	?	?	?	?	NA	China: Yunnan Province
+KY002684.1	UNVERIFIED: Human adenovirus isolate Sichuan/SF04/2016, complete genome	1907210	?	?	?	?	?	2016-05-24	CN	?	?	?	?	24-May-2016	China
+KY002683.1	UNVERIFIED: Human adenovirus isolate Tibet/LS89/2016, complete genome	1907210	?	?	?	?	?	2016-01-26	CN	?	?	?	?	26-Jan-2016	China
+MK570618.1	UNVERIFIED: Human adenovirus sp. isolate M32/TS/CHN/2019, complete genome	1907210	?	?	?	?	?	2019-02-16	CN	?	?	?	?	16-Feb-2019	China
+MK570619.1	UNVERIFIED: Human adenovirus sp. isolate S179/TS/CHN/2019, complete genome	1907210	?	?	?	?	?	2019-02-16	CN	?	?	?	?	16-Feb-2019	China
+MG872075.1	UNVERIFIED: Human mastadenovirus A strain human/UK/GOSH_2011_Adv31/ sequence	129875	?	?	?	?	?	2016-01-01	GB	ENG	?	?	?	2016	United Kingdom: London
+MK809510.1	UNVERIFIED: Human mastadenovirus B isolate Human/China/Shanghai/190/P7H7F7/2009, complete genome	108098	?	?	?	?	?	2009-06-12	CN	?	?	?	?	12-Jun-2009	China
+MK847516.1	UNVERIFIED: Human mastadenovirus B isolate Human/Shanghai/Shanghai/3447/2011/7[P7H7F7], complete genome	108098	?	?	?	?	?	2011-06-28	CN	?	?	?	?	28-Jun-2011	China
+MK888693.1	UNVERIFIED: Human mastadenovirus C isolate Human/China/Shanghai/6259/2014/2[P1H2F2], complete genome	129951	?	?	?	?	?	2014-03-06	CN	?	?	?	?	06-Mar-2014	China
+MH121072.1	UNVERIFIED: Human mastadenovirus C strain 1C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121107.1	UNVERIFIED: Human mastadenovirus C strain 39C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121071.1	UNVERIFIED: Human mastadenovirus C strain 3C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121118.1	UNVERIFIED: Human mastadenovirus C strain 40C5, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121115.1	UNVERIFIED: Human mastadenovirus C strain 48C2, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+MH121119.1	UNVERIFIED: Human mastadenovirus C strain 49C5, partial genome	129951	?	?	?	?	?	?	DE	?	?	?	?	NA	Germany
+KF302429.1	UNVERIFIED: Human mastadenovirus D isolate LN2012-14, complete genome	130310	?	?	?	?	?	2012-11-06	CN	?	?	?	?	06-Nov-2012	China
+MH574893.1	UNVERIFIED: Human mastadenovirus D strain human/BGD/Dhaka/2017/90[P33H27F67] genomic sequence	130310	?	?	?	?	?	2017-01-01	BD	?	?	?	?	2017	Bangladesh
