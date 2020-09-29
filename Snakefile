@@ -2,22 +2,22 @@ from pathlib import Path
 
 root = Path(config["root"])
 
-input_alignment = root / "seq.fasta"
+input_alignment = root / "msa.fasta"
 input_metadata = root / "meta.tsv"
 reference = root / "ref.gb"
 lat_longs = root / "coor.tsv"
-auspice_config = "auspice.json"
+auspice_config = root / "config.json"
 
 rule all:
     input:
-        auspice_json = "auspice.json",
+        auspice_json = root / "auspice.json",
 
 rule tree:
     message: "Building tree"
     input:
         alignment = input_alignment
     output:
-        tree = "results/tree_raw.nwk"
+        tree = root / "results" / "tree_raw.nwk"
     shell:
         """
         augur tree \
@@ -36,11 +36,11 @@ rule refine:
         """
     input:
         tree = rules.tree.output.tree,
-        alignment = rules.align.output,
+        alignment = input_alignment,
         metadata = input_metadata
     output:
-        tree = "results/tree.nwk",
-        node_data = "results/branch_lengths.json"
+        tree = root / "results" / "tree.nwk",
+        node_data = root / "results" / "branch_lengths.json"
     params:
         coalescent = "opt",
         date_inference = "marginal",
@@ -64,9 +64,9 @@ rule ancestral:
     message: "Reconstructing ancestral sequences and mutations"
     input:
         tree = rules.refine.output.tree,
-        alignment = rules.align.output
+        alignment = input_alignment
     output:
-        node_data = "results/nt_muts.json"
+        node_data = root / "results" / "nt_muts.json"
     params:
         inference = "joint"
     shell:
@@ -85,7 +85,7 @@ rule translate:
         node_data = rules.ancestral.output.node_data,
         reference = reference
     output:
-        node_data = "results/aa_muts.json"
+        node_data = root / "results" / "aa_muts.json"
     shell:
         """
         augur translate \
@@ -101,9 +101,9 @@ rule traits:
         tree = rules.refine.output.tree,
         metadata = input_metadata
     output:
-        node_data = "results/traits.json",
+        node_data = root / "results" / "traits.json",
     params:
-        columns = "region country"
+        columns = "country"
     shell:
         """
         augur traits \

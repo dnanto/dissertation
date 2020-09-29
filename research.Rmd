@@ -13,6 +13,10 @@ library(tidyr)
 library(stringr)
 library(tibble)
 library(IRanges)
+library(lubridate)
+library(BactDating)
+library(ggplot2)
+library(ggtree)
 do.call(Sys.setenv, params)
 ```
 
@@ -52,21 +56,19 @@ query_coverage <- function(start, end) {
 ```
 
 ```{r}
-list.files(pattern = "^[A-G]-.*\\.fasta$") %>%
-  sapply(read_lines, n_max = 1) %>%
-  enframe() %>%
-  separate("name", c("species", "region"), "[-\\.]", extra = "drop") %>%
-  separate("value", "accver", " ", extra = "drop") %>%
-  mutate(across(accver, str_remove, "^>")) ->
-df.qaccver
-```
-
-```{r}
+df.qaccver <- 
+  read_tsv("query.tsv", comment = "#", col_types = "cdddcc") %>% 
+  mutate(accver = ifelse(
+    strand == 1, 
+    paste0(accver, ":", start, "-", stop), 
+    paste0(accver, ":c", stop, "-", start))
+  )
 df.genome <- read_tsv("genome.tsv", col_types = "ccifffffcccccddccc", na = "?")
 ```
 
 ```{r}
-parse_blast("hits.tsv") %>%
+Sys.glob("[A-G]-gen/hits.tsv") %>% 
+  lapply(parse_blast) %>%
   bind_rows() %>%
   group_by(`subject acc.ver`, `query acc.ver`) %>%
   summarise(
@@ -78,7 +80,10 @@ parse_blast("hits.tsv") %>%
     strand = dplyr::first(`subject strand`),
     .groups = "drop"
   ) %>%
-  left_join(df.qaccver, by = c(`query acc.ver` = "accver")) ->
+  left_join(
+    select(df.qaccver, accver, species, region),
+    by = c(`query acc.ver` = "accver")
+  ) ->
 df.qpidcov
 ```
 
@@ -109,11 +114,10 @@ left_join(
   ungroup() %>%
   group_by(species.x, region) %>%
   group_walk(function(.x, .y) {
-    root <- paste0(.y[1], "-", .y[2])
-    dir.create(root, showWarnings = F)
-    write_tsv(.x, file.path(root, "meta.tsv"))
+    root <- paste0(.y, collapse = "-")
+    write_tsv(mutate(.x, strain = `subject acc.ver`), file.path(root, "meta.tsv"))
     write_tsv(
-      cbind("country", .x[c("country", "latitude", "longitude")]), 
+      cbind("country", distinct(.x[c("country", "latitude", "longitude")])),
       file.path(root, "coor.tsv"),
       col_names = F
     )
@@ -125,23 +129,20 @@ left_join(
 ```
 
 ```{bash}
-ls *-*/bat.txt | \
+#ls [A-G]-*/bat.txt | \
+ls [A-G]-gen/bat.txt | \
 while read -r ele
 do
-  blastdbcmd -db genome -entry_batch "$ele" > "${ele/.txt/.fasta}"
-  mafft --auto --thread "$cpu" "${ele/.txt/.fasta}" > "${ele/.txt/.msa.fasta}" 2> "${ele/.txt/.msa.log}"
-  sed -i '' -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' "${ele/.txt/.msa.fasta}"
-  run_gubbins.py "${ele/.txt/.msa.fasta}" -p "${ele/.txt/.gub}" -c "$cpu" > "${ele/.txt/.gub.log}"
+  root="$(dirname "$ele")"
+  blastdbcmd -db blast/genome -entry_batch "$ele" > "$root/seq.fasta"
+  mafft --auto --thread "$cpu" "$root/seq.fasta" > "$root/msa.fasta" 2> "$root/msa.log"
+  sed -i '' -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' "$root/msa.fasta"
+  run_gubbins.py "$root/msa.fasta" -p "$root/gub" -c "$cpu" > "$root/gub.log"
 done
 ```
 
-```{r}
-library(lubridate)
-library(BactDating)
-```
-
 ```{r, fig.height=4, fig.width=10}
-tree <- loadGubbins("bat-B-gen.gub")
+tree <- loadGubbins("B-gen/bat.gub")
 tip.date <- decimal_date(ymd(with(df.genome, date[match(tree$tip.label, accver)])))
 tip.type <- as.integer(with(df.genome, type[match(tree$tip.label, accver)]))
 tip.geo <- with(df.genome, ac0[match(tree$tip.label, accver)])
