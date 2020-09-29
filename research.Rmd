@@ -62,7 +62,7 @@ df.qaccver
 ```
 
 ```{r}
-df.genome <- read_tsv("genome.tsv", col_types = "ccifffffcccccccc")
+df.genome <- read_tsv("genome.tsv", col_types = "ccifffffcccccddccc", na = "?")
 ```
 
 ```{r}
@@ -70,8 +70,9 @@ parse_blast("hits.tsv") %>%
   bind_rows() %>%
   group_by(`subject acc.ver`, `query acc.ver`) %>%
   summarise(
-    qpidcov = sum(query_coverage(`q. start`, `q. end`)) /
-      dplyr::first(`query length`) * mean(`% identity`),
+    qpidcov =
+      sum(query_coverage(`q. start`, `q. end`)) /
+        dplyr::first(`query length`) * mean(`% identity`),
     start = min(`s. start`, `s. end`),
     end = max(`s. start`, `s. end`),
     strand = dplyr::first(`subject strand`),
@@ -92,21 +93,39 @@ arrange(df.qpidcov, species, region) %>%
 ```
 
 ```{r}
-left_join(df.qpidcov, select(df.genome, accver, species), by = c(`subject acc.ver` = "accver")) %>%
+left_join(
+  df.qpidcov, 
+  select(df.genome, accver, species, date, ac0, latitude, longitude), 
+  by = c(`subject acc.ver` = "accver")
+) %>%
   filter(!(region %in% c("fib1", "fib2"))) %>%
-  filter(!(species.y %in% c("G", "?"))) %>%
+  filter(species.y != "G") %>%
+  filter(!is.na(species.y)) %>%
+  filter(!is.na(date)) %>%
+  filter(!is.na(ac0)) %>%
+  dplyr::rename(country = ac0) %>%
   group_by(`subject acc.ver`, region) %>%
   slice_max(qpidcov, n = 1) %>%
   ungroup() %>%
   group_by(species.x, region) %>%
-  group_walk(~ write_lines(
-    with(.x, sprintf("%s %d-%d %s", `subject acc.ver`, start, end, strand)),
-    paste0("bat-", .y[1], "-", .y[2], ".txt")
-  ))
+  group_walk(function(.x, .y) {
+    root <- paste0(.y[1], "-", .y[2])
+    dir.create(root, showWarnings = F)
+    write_tsv(.x, file.path(root, "meta.tsv"))
+    write_tsv(
+      cbind("country", .x[c("country", "latitude", "longitude")]), 
+      file.path(root, "coor.tsv"),
+      col_names = F
+    )
+    write_lines(
+      with(.x, sprintf("%s %d-%d %s", `subject acc.ver`, start, end, strand)),
+      file.path(root, "bat.txt")
+    )
+  })
 ```
 
 ```{bash}
-ls bat-*\.txt | grep -v gen | \
+ls *-*/bat.txt | \
 while read -r ele
 do
   blastdbcmd -db genome -entry_batch "$ele" > "${ele/.txt/.fasta}"
@@ -115,3 +134,49 @@ do
   run_gubbins.py "${ele/.txt/.msa.fasta}" -p "${ele/.txt/.gub}" -c "$cpu" > "${ele/.txt/.gub.log}"
 done
 ```
+
+```{r}
+library(lubridate)
+library(BactDating)
+```
+
+```{r, fig.height=4, fig.width=10}
+tree <- loadGubbins("bat-B-gen.gub")
+tip.date <- decimal_date(ymd(with(df.genome, date[match(tree$tip.label, accver)])))
+tip.type <- as.integer(with(df.genome, type[match(tree$tip.label, accver)]))
+tip.geo <- with(df.genome, ac0[match(tree$tip.label, accver)])
+tree <- initRoot(tree, tip.date, useRec = T)
+roottotip(tree, tip.date)
+```
+
+```{r}
+res <- bactdate(tree, tip.date, nbIts = 250000, thin = 10, model = "relaxedgamma", useRec = T, showProgress = T)
+```
+
+```{r}
+plot(res, "trace")
+```
+
+```{r}
+coda::effectiveSize(as.mcmc.resBactDating(res))
+```
+
+```{r, fig.width=10}
+chron <- as.treedata.resBactDating(res)
+chron <- methods::new(
+  "treedata", 
+  phylo = chron[[1]], 
+  data = tibble::as_tibble(chron[[2]])
+)
+chron@phylo <- groupOTU(chron@phylo, split(chron@phylo$tip.label, tip.type), "type")
+ggtree(chron, mrsd = decimal2Date(min(tip.date)), size = 0.75) +
+  aes(color = type) +
+  geom_range("height_0.95_HPD", alpha = 0.5, size = 1) +
+  theme_tree2() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.major.x = element_line(color = "black", size = .25),
+    panel.grid.minor.x = element_line(color = "grey", size = .25)
+  )
+```
+
