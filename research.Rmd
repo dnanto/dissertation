@@ -21,87 +21,79 @@ do.call(Sys.setenv, params)
 ```
 
 ```{r}
-parse_blast <- function(path) {
+parse_8C <- function(path) {
   i <- 0
-  hits <- list()
-  conn <- file(path)
-  open(conn)
   col_types <- cols(
-    `% identity` = "d", `alignment length` = "i", mismatches = "i", `gap opens` = "i",
-    `q. start` = "i", `q. end` = "i", `s. start` = "i", `s. end` = "i",
-    evalue = "d", `bit score` = "d", `query length` = "i",
+    `% identity` = "d", `alignment length` = "i",
+    mismatches = "i", `gap opens` = "i",
+    `q. start` = "i", `q. end` = "i",
+    `s. start` = "i", `s. end` = "i",
+    evalue = "d", `bit score` = "d",
     .default = "c"
   )
-  while (!startsWith(header <- readLines(conn, n = 1), "# BLAST processed")) {
-    header <- readLines(conn, n = 4)
-    fields <- strsplit(substr(header[3], 11, nchar(header[3])), ", ")[[1]]
-    n_max <- as.integer(strsplit(header[4], " ")[[1]][2])
-    hits[[(i <- i + 1)]] <- read_tsv(
-      readLines(conn, n = n_max),
-      col_names = fields, col_types = col_types
-    )
-  }
-  close(conn)
+  header <- read_lines(path, n_max = 6)
+  qlen <- as.integer(tail(strsplit(header[3], " ")[[1]], 2)[1])
+  fields <- strsplit(substr(header[5], 11, nchar(header[5])), ", ")[[1]]
+  hits <- cbind(
+    read_tsv(
+      path,
+      col_names = fields,
+      col_types = col_types,
+      comment = "#"
+    ),
+    `query length` = qlen
+  )
   hits
 }
-
-query_coverage <- function(start, end) {
-  ranges <- IRanges(start, end)
-  cbind(start, end, g = subjectHits(findOverlaps(ranges, reduce(ranges)))) %>%
-    as.data.frame() %>%
-    group_by(g) %>%
-    summarise(start = min(start), end = max(end), .groups = "drop") %>%
-    with(end - start + 1)
-}
 ```
 
 ```{r}
-df.qaccver <- 
-  read_tsv("query.tsv", comment = "#", col_types = "cdddcc") %>% 
+df.qaccver <-
+  read_tsv("query.tsv", comment = "#", col_types = "cdddccc") %>%
   mutate(accver = ifelse(
-    strand == 1, 
-    paste0(accver, ":", start, "-", stop), 
-    paste0(accver, ":c", stop, "-", start))
-  )
-df.genome <- read_tsv("genome.tsv", col_types = "ccifffffcccccddccc", na = "?")
+    strand == 1,
+    paste0(accver, ":", start, "-", stop),
+    paste0(accver, ":c", stop, "-", start)
+  ))
+df.genome <- read_tsv(
+  "genome.tsv",
+  col_types = "ccifffffcccccccddcc", na = "?"
+)
 ```
 
 ```{r}
-Sys.glob("[A-G]-gen/hits.tsv") %>% 
-  lapply(parse_blast) %>%
+Sys.glob("[A-G]-*/hits.tsv") %>%
+  lapply(parse_8C) %>%
   bind_rows() %>%
-  group_by(`subject acc.ver`, `query acc.ver`) %>%
-  summarise(
-    qpidcov =
-      sum(query_coverage(`q. start`, `q. end`)) /
-        dplyr::first(`query length`) * mean(`% identity`),
-    start = min(`s. start`, `s. end`),
-    end = max(`s. start`, `s. end`),
-    strand = dplyr::first(`subject strand`),
-    .groups = "drop"
+  mutate(
+    qpidcov = abs(`q. end` - `q. start`) / `query length` * `% identity`,
+    strand = if_else(`q. start` < `q. end`, "plus", "minus")
   ) %>%
+  group_by(`query id`, `subject id`) %>%
+  slice_max(qpidcov) %>%
+  ungroup() %>%
   left_join(
     select(df.qaccver, accver, species, region),
-    by = c(`query acc.ver` = "accver")
+    by = c(`query id` = "accver")
   ) ->
 df.qpidcov
 ```
 
 ```{r}
-arrange(df.qpidcov, species, region) %>%
-  pivot_wider(
-    names_from = c("species", "region"),
-    names_sep = "-",
-    values_from = "qpidcov",
-    -c(`query acc.ver`, start, end, strand)
-  )
+select(df.qpidcov, `subject id`, qpidcov, species, region) %>%
+arrange(species, region) %>%
+pivot_wider(
+  names_from = c("species", "region"),
+  names_sep = "-",
+  values_from = "qpidcov"
+)
 ```
 
 ```{r}
 left_join(
-  df.qpidcov, 
-  select(df.genome, accver, species, date, ac0, latitude, longitude), 
-  by = c(`subject acc.ver` = "accver")
+  df.qpidcov,
+  select(df.genome, accver, species, date, ac0, latitude, longitude),
+  by = c(`subject id` = "accver")
 ) %>%
   filter(!(region %in% c("fib1", "fib2"))) %>%
   filter(species.y != "G") %>%
@@ -109,35 +101,51 @@ left_join(
   filter(!is.na(date)) %>%
   filter(!is.na(ac0)) %>%
   dplyr::rename(country = ac0) %>%
-  group_by(`subject acc.ver`, region) %>%
+  group_by(`subject id`, region) %>%
   slice_max(qpidcov, n = 1) %>%
   ungroup() %>%
-  group_by(species.x, region) %>%
+  group_by(species.x, region, strand) %>%
   group_walk(function(.x, .y) {
-    root <- paste0(.y, collapse = "-")
-    write_tsv(mutate(.x, strain = `subject acc.ver`), file.path(root, "meta.tsv"))
+    root <- paste0(.y[1:2], collapse = "-")
+    write_tsv(
+      mutate(.x, strain = `subject id`),
+      file.path(root, "meta.tsv")
+    )
     write_tsv(
       cbind("country", distinct(.x[c("country", "latitude", "longitude")])),
       file.path(root, "coor.tsv"),
       col_names = F
     )
     write_lines(
-      with(.x, sprintf("%s %d-%d %s", `subject acc.ver`, start, end, strand)),
-      file.path(root, "bat.txt")
+      with(.x, sprintf("%s:%d-%d", `subject id`, `s. start`, `s. end`)),
+      file.path(root, paste0("reg", "-", .y[3], ".txt"))
     )
-  })
+  }) ->
+df.reg
+```
+
+```{r, fig.height=20, fig.width=10}
+df.reg <- df.reg[order(ordered(df.reg$species.x, levels = c("A", "B", "C", "D", "E", "F", "G"))), ]
+df.reg$`subject id` <- factor(df.reg$`subject id`, levels = unique(df.reg$`subject id`))
+ggplot(df.reg) +
+  geom_segment(aes(x = `s. start`, xend = `s. end`, y = `subject id`, yend = `subject id`, color = species.x)) +
+  facet_wrap( ~ region, scales = "free_x", nrow = 1) +
+  theme_minimal()
+
+ggsave("blast.pdf")
 ```
 
 ```{bash}
-#ls [A-G]-*/bat.txt | \
-ls [A-G]-gen/bat.txt | \
+find . -name "[A-F]-*" -type d | \
 while read -r ele
 do
-  root="$(dirname "$ele")"
-  blastdbcmd -db blast/genome -entry_batch "$ele" > "$root/seq.fasta"
-  mafft --auto --thread "$cpu" "$root/seq.fasta" > "$root/msa.fasta" 2> "$root/msa.log"
-  sed -i '' -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' "$root/msa.fasta"
-  run_gubbins.py "$root/msa.fasta" -p "$root/gub" -c "$cpu" > "$root/gub.log"
+  {
+    [[ -f "$ele/reg-plus.txt" ]] && samtools faidx -r "$ele/reg-plus.txt" blast/genome.fasta
+    [[ -f "$ele/reg-minus.txt" ]] && samtools faidx -r "$ele/reg-minus.txt" -i --mark-strand no blast/genome.fasta
+  } > "$ele/seq.fasta"
+  mafft --auto --thread "$cpu" "$ele/seq.fasta" > "$ele/msa.fasta" 2> "$ele/msa.log"
+  sed -i '' -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' "$ele/msa.fasta"
+  run_gubbins.py "$ele/msa.fasta" -p "$ele/gub" -c "$cpu" > "$ele/gub.log"
 done
 ```
 
@@ -165,8 +173,8 @@ coda::effectiveSize(as.mcmc.resBactDating(res))
 ```{r, fig.width=10}
 chron <- as.treedata.resBactDating(res)
 chron <- methods::new(
-  "treedata", 
-  phylo = chron[[1]], 
+  "treedata",
+  phylo = chron[[1]],
   data = tibble::as_tibble(chron[[2]])
 )
 chron@phylo <- groupOTU(chron@phylo, split(chron@phylo$tip.label, tip.type), "type")
@@ -180,4 +188,3 @@ ggtree(chron, mrsd = decimal2Date(min(tip.date)), size = 0.75) +
     panel.grid.minor.x = element_line(color = "grey", size = .25)
   )
 ```
-
