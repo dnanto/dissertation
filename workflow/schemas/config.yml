@@ -1,0 +1,51 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: the parameters for the workflow
+
+properties:
+
+  # inputs
+  meta:
+    type: string
+    description: the tab-separated file of metadata
+  coor:
+    type: string
+    description: the tab-separated file of query coordinates
+
+  # Gubbins
+  itr:
+    type: integer
+    description: the maximum number of iterations
+    default: 10
+  gap:
+    type: integer
+    description: the value to filter out taxa with more than this percentage of gaps
+    default: 25
+
+  # BactDating
+  model:
+    type: array
+    description: the models to use (poisson, negbin, strictgamma, relaxedgamma, mixedgamma, arc, carc, or mixedcarc)
+    default:
+      - poisson
+      - strictgamma
+      - relaxedgamma
+      - mixedgamma
+  nbIts:
+    type: integer
+    description: the number of MCMC iterations to perform
+    default: 100000
+  thin:
+    type: integer
+    description: the thining interval between recorded MCMC samples
+    default: 100000
+  nbac:
+    type: integer
+    description: the number of replicates per model
+    default: 3
+
+  # threads
+  threads:
+    type: integer
+    description: the number of threads to use for parallel tasks
+    default: 32
