@@ -8,9 +8,9 @@ properties:
   meta:
     type: string
     description: the tab-separated file of metadata
-  coor:
+  gene:
     type: string
-    description: the tab-separated file of query coordinates
+    description: the tab-separated file of gene coordinates
 
   # Gubbins
   itr:
@@ -38,7 +38,7 @@ properties:
   thin:
     type: integer
     description: the thining interval between recorded MCMC samples
-    default: 100000
+    default: 10
   nbac:
     type: integer
     description: the number of replicates per model

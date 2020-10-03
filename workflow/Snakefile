@@ -16,89 +16,163 @@ validate(config, "schemas/config.yml")
 root = Path("results")
 logs = Path("logs")
 
-with open(config["coor"]) as file:
-    rows = list(DictReader(file, delimiter="\t"))
-    dirs = [Path(row["species"]) / row["gene"] for row in rows]
-    species = {row["species"] for row in rows if row["species"]}
+with open(config["gene"]) as file:
+  rows = list(DictReader(file, delimiter="\t"))
+  dirs = [Path(row["species"]) / row["gene"] for row in rows]
+  species = {row["species"] for row in rows if row["species"]}
 
 ## rules ##
 
 rule all:
-    input:
-        expand(root / "{species}" / "lib.fasta", species = species),
-        expand(root / "{dir}" / "qry.{fmt}", dir = dirs, fmt = ("gb", "fasta")),
-        expand(root / "{dir}" / "hits.tsv", dir = dirs)
+  input:
+    expand(root / "{species}" / "coor.tsv", species = species),
+    expand(root / "{species}" / "lib.fasta", species = species),
+    expand(root / "{dir}" / "qry.{fmt}", dir = dirs, fmt = ("gb", "fasta")),
+    expand(root / "{dir}" / "gub.final_tree.tre", dir = dirs),
+    expand(
+      root / "{dir}" / "{model}-{nbac}.qs",
+      dir = dirs,
+      model=config["model"],
+      nbac=range(1, config["nbac"] + 1)
+    )
 
-rule meta:
-    message: "Split metadata by species."
-    input: config["meta"]
-    output: expand(root / "{species}" / "meta.tsv", species = species)
-    params: root = root, species = species
-    run:
-        getter = itemgetter("species")
-        with open(input[0]) as file1:
-            reader = DictReader(file1, delimiter="\t")
-            for key, val in groupby(sorted(reader, key = getter), key = getter):
-                if key in params.species:
-                    path = Path(params.root) / key / "meta.tsv"
-                    with path.open("w") as file2:
-                        writer = DictWriter(file2, reader.fieldnames, delimiter="\t")
-                        writer.writeheader()
-                        writer.writerows(list(val))
+rule species_meta:
+  message: "Split metadata by species."
+  input: config["meta"]
+  output: expand(root / "{species}" / "meta.tsv", species = species)
+  params: root = root, species = species
+  run:
+    getter = itemgetter("species")
+    with open(input[0]) as file1:
+      reader = DictReader(file1, delimiter="\t")
+      for key, val in groupby(sorted(reader, key = getter), key = getter):
+        if key in params.species:
+          path = Path(params.root) / key / "meta.tsv"
+          with path.open("w") as file2:
+            writer = DictWriter(file2, reader.fieldnames, delimiter="\t")
+            writer.writeheader()
+            writer.writerows(list(val))
+
+rule species_coor:
+  input: root / "{species}" / "meta.tsv"
+  output: root / "{species}" / "coor.tsv"
+  script: "scripts/neogeocoor.R"
+
+rule download_gene:
+  message: "Download query sequences from GenBank with coordinates."
+  input: config["gene"]
+  output: expand(root / "{dir}" / "qry.{fmt}", dir = dirs, fmt = ("gb", "fasta"))
+  params: root
+  threads: 1
+  shell:
+    """
+    tail -n +2 {input:q} | \
+    while IFS=$'\t' read -r id seq_start seq_stop strand species gene protein_id
+    do
+      for fmt in gb fasta
+      do
+        efetch \
+          -db nuccore -id "$id" \
+          -seq_start "$seq_start" -seq_stop "$seq_stop" -strand "$strand" \
+          -format $fmt > {params:q}/"$species/$gene/qry.$fmt"
+      done
+    done
+    """
 
 rule download_libs:
-    input: config["meta"]
-    output: root / "db.fasta"
-    shell:
-        """
-        awk 'NR > 1 {{ print $1 }}' {input:q} | \
-           xargs -L 250 | tr ' ' ',' | \
-           xargs -L 1 efetch -db nuccore -format fasta -id > {output:q}
-        """
+  input: config["meta"]
+  output: root / "db.fasta"
+  shell:
+    """
+    awk 'NR > 1 {{ print $1 }}' {input:q} | \
+       xargs -L 250 | tr ' ' ',' | \
+       xargs -L 1 efetch -db nuccore -format fasta -id > {output:q}
+    """
 
 rule extract_libs:
-    input:
-        root / "{species}" / "meta.tsv",
-        rules.download_libs.output
-    output:
-        root / "{species}" / "lib.fasta"
-    shell:
-        """
-        awk 'NR > 1 {{ print $1 }}' {input[0]:q} | \
-            samtools faidx -r - {input[1]:q} > {output:q}
-        """
-
-rule download_coor:
-    message: "Download query sequences from GenBank with coordinates."
-    input: config["coor"]
-    output: expand(root / "{dir}" / "qry.{fmt}", dir = dirs, fmt = ("gb", "fasta"))
-    params: root
-    threads: 1
-    shell:
-        """
-        tail -n +2 {input:q} | \
-        while IFS=$'\t' read -r id seq_start seq_stop strand species gene protein_id
-        do
-          for fmt in gb fasta
-          do
-            efetch \
-              -db nuccore -id "$id" \
-              -seq_start "$seq_start" -seq_stop "$seq_stop" -strand "$strand" \
-              -format $fmt > {params:q}/"$species/$gene/qry.$fmt"
-          done
-        done
-        """
+  input:
+    root / "{species}" / "meta.tsv",
+    rules.download_libs.output
+  output:
+    root / "{species}" / "lib.fasta"
+  shell:
+    """
+    awk 'NR > 1 {{ print $1 }}' {input[0]:q} | \
+      samtools faidx -r - {input[1]:q} > {output:q}
+    """
 
 rule glsearch:
-    message: "Run global/local alignment."
-    input:
-        qry = root / "{species}" / "{gene}" / "qry.fasta",
-        lib = root / "{species}" / "lib.fasta"
-    output:
-        root / "{species}" / "{gene}" / "hits.tsv"
-    params: lambda wildcards, output: Path(output[0]).parent.parent
-    threads: config["threads"]
-    shell:
-        """
-        glsearch36 -T {threads} -m 8C {input.qry:q} {input.lib:q} > {output:q}
-        """
+  message: "Run global/local alignment."
+  input:
+    qry = root / "{species}" / "{gene}" / "qry.fasta",
+    lib = root / "{species}" / "lib.fasta"
+  output:
+    root / "{species}" / "{gene}" / "hits.tsv"
+  params: lambda wildcards, output: Path(output[0]).parent.parent
+  threads: config["threads"]
+  shell:
+    """
+    glsearch36 -T {threads} -m 8C {input.qry:q} {input.lib:q} > {output:q}
+    """
+
+rule extract_hits:
+  input:
+    hits = root / "{species}" / "{gene}" / "hits.tsv",
+    meta = root / "{species}" / "meta.tsv"
+  output:
+    tsv = root / "{species}" / "{gene}" / "reg.tsv",
+    sed = root / "{species}" / "{gene}" / "reg.sed"
+  script: "scripts/extract_hits.R"
+
+rule extract_seqs:
+  input:
+    tsv = root / "{species}" / "{gene}" / "reg.tsv",
+    sed = root / "{species}" / "{gene}" / "reg.sed",
+    lib = root / "{species}" / "lib.fasta"
+  output:
+    root / "{species}" / "{gene}" / "seq.fasta"
+  shell:
+    """
+    {{
+      grep plus  {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r -    {input.lib:q} || true
+      grep minus {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r - -i {input.lib:q} || true
+    }} | \
+      sed -E -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' -f {input.sed:q} | \
+      tr '.' 'v' > {output:q}
+    """
+
+rule mafft:
+  input: root / "{species}" / "{gene}" / "seq.fasta"
+  output: root / "{species}" / "{gene}" / "msa.fasta"
+  log: root / "{species}" / "{gene}" / "msa.log"
+  threads: config["threads"]
+  shell: "mafft --auto --thread {threads} {input:q} > {output:q} 2> {log:q}"
+
+rule gubbins:
+  message: "Infer maximum-likelihood tree and recombination events."
+  input: root / "{species}" / "{gene}" / "msa.fasta"
+  output: root / "{species}" / "{gene}" / "gub.final_tree.tre"
+  log: root / "{species}" / "{gene}" / "gub.log"
+  params:
+    pfx = lambda wildcards, output: Path(output[0]).parent,
+    itr = config["itr"],
+    gap = config["gap"]
+  threads: config["threads"]
+  shell:
+    """
+    run_gubbins.py {input:q} \
+        -i {params.itr} -f {params.gap} -p {params.pfx:q}/gub -c {threads} > {log:q}
+    """
+
+rule bactdate:
+  message:
+    """
+    Infer recombination-aware chronogram using BactDating.
+    """
+  input: rules.gubbins.output
+  output: root / "{species}" / "{gene}" / "{model}-{nbac}.qs"
+  params:
+    mod = lambda wildcards, output: Path(output[0]).stem.split("-")[0],
+    nbi = config["nbIts"],
+    thn = config["thin"]
+  script: "scripts/bactdate.R"
