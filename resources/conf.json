@@ -1,0 +1,40 @@
+{
+  "title": "title",
+  "maintainers": [
+    {
+      "name": "Daniel Negrón",
+      "url": "https://github.com/dnanto"
+    }
+  ],
+  "build_url": "https://github.com/dnanto",
+  "colorings": [
+    {
+      "key": "gt",
+      "title": "Genotype",
+      "type": "categorical"
+    },
+    {
+      "key": "num_date",
+      "title": "Date",
+      "type": "continuous"
+    },
+    {
+      "key": "country",
+      "title": "Country",
+      "type": "categorical"
+    }
+  ],
+  "geo_resolutions": [
+    "country"
+  ],
+  "panels": [
+     "tree",
+     "map"
+  ],
+  "display_defaults": {
+    "map_triplicate": true
+  },
+  "filters": [
+    "country"
+  ]
+}

@@ -1,2 +1,3 @@
 meta: "resources/meta.tsv"
 gene: "resources/gene.tsv"
+conf: "resources/conf.json"

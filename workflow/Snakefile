@@ -1,7 +1,12 @@
+import fileinput
+
 from pathlib import Path
 from csv import DictReader, DictWriter
 from itertools import groupby
 from operator import itemgetter
+
+from Bio import SeqIO
+from Bio.SeqFeature import FeatureLocation
 
 from snakemake.io import expand, glob_wildcards
 from snakemake.utils import validate
@@ -25,16 +30,7 @@ with open(config["gene"]) as file:
 
 rule all:
   input:
-    expand(root / "{species}" / "coor.tsv", species = species),
-    expand(root / "{species}" / "lib.fasta", species = species),
-    expand(root / "{dir}" / "qry.{fmt}", dir = dirs, fmt = ("gb", "fasta")),
-    expand(root / "{dir}" / "gub.final_tree.tre", dir = dirs),
-    expand(
-      root / "{dir}" / "{model}-{nbac}.qs",
-      dir = dirs,
-      model=config["model"],
-      nbac=range(1, config["nbac"] + 1)
-    )
+    expand(root / "{dir}" / "auspice.json", dir = dirs)
 
 rule species_meta:
   message: "Split metadata by species."
@@ -59,25 +55,41 @@ rule species_coor:
   script: "scripts/neogeocoor.R"
 
 rule download_gene:
-  message: "Download query sequences from GenBank with coordinates."
+  message: "Download sequences from GenBank with coordinates."
   input: config["gene"]
-  output: expand(root / "{dir}" / "qry.{fmt}", dir = dirs, fmt = ("gb", "fasta"))
+  output: expand(root / "{dir}" / "ref.gb", dir = dirs)
   params: root
-  threads: 1
   shell:
     """
     tail -n +2 {input:q} | \
     while IFS=$'\t' read -r id seq_start seq_stop strand species gene protein_id
     do
-      for fmt in gb fasta
-      do
-        efetch \
-          -db nuccore -id "$id" \
-          -seq_start "$seq_start" -seq_stop "$seq_stop" -strand "$strand" \
-          -format $fmt > {params:q}/"$species/$gene/qry.$fmt"
-      done
+      efetch \
+        -db nuccore -id "$id" \
+        -seq_start "$seq_start" -seq_stop "$seq_stop" -strand "$strand" \
+        -format gb > {params:q}/"$species/$gene/ref.gb"
     done
     """
+
+rule exactify_gene:
+    input: root / "{species}" / "{gene}" / "ref.gb"
+    output: root / "{species}" / "{gene}" / "qry.gb"
+    run:
+      def exactify(features):
+        for ele in features:
+          loc = ele.location
+          if loc is not None:
+            ele.location = FeatureLocation(int(loc.start), int(loc.end), loc.strand)
+            yield ele
+
+      rec = SeqIO.read(input[0], "gb")
+      rec.features = list(exactify(rec.features))
+      SeqIO.write(rec, output[0], "gb")
+
+rule fastafy_gene:
+  input: root / "{species}" / "{gene}" / "qry.gb"
+  output: root / "{species}" / "{gene}" / "qry.fasta"
+  run: SeqIO.convert(input[0], "gb", output[0], "fasta")
 
 rule download_libs:
   input: config["meta"]
@@ -85,20 +97,19 @@ rule download_libs:
   shell:
     """
     awk 'NR > 1 {{ print $1 }}' {input:q} | \
-       xargs -L 250 | tr ' ' ',' | \
-       xargs -L 1 efetch -db nuccore -format fasta -id > {output:q}
+      xargs -L 250 | tr ' ' ',' | \
+      xargs -L 1 efetch -db nuccore -format fasta -id > {output:q}
     """
 
 rule extract_libs:
   input:
     root / "{species}" / "meta.tsv",
-    rules.download_libs.output
+    root / "db.fasta"
   output:
     root / "{species}" / "lib.fasta"
   shell:
     """
-    awk 'NR > 1 {{ print $1 }}' {input[0]:q} | \
-      samtools faidx -r - {input[1]:q} > {output:q}
+    awk 'NR > 1 {{ print $1 }}' {input[0]:q} | samtools faidx -r - {input[1]:q} > {output:q}
     """
 
 rule glsearch:
@@ -108,11 +119,16 @@ rule glsearch:
     lib = root / "{species}" / "lib.fasta"
   output:
     root / "{species}" / "{gene}" / "hits.tsv"
-  params: lambda wildcards, output: Path(output[0]).parent.parent
+  params:
+    lambda wildcards, output: Path(output[0]).parent.name
   threads: config["threads"]
   shell:
     """
-    glsearch36 -T {threads} -m 8C {input.qry:q} {input.lib:q} > {output:q}
+    if [ {params:q} = "genome" ]; then
+      glsearch36 -3 -m 8C {input.qry:q} {input.qry:q} > {output:q}
+    else
+      glsearch36 -T {threads} -m 8C {input.qry:q} {input.lib:q} > {output:q}
+    fi
     """
 
 rule extract_hits:
@@ -120,25 +136,29 @@ rule extract_hits:
     hits = root / "{species}" / "{gene}" / "hits.tsv",
     meta = root / "{species}" / "meta.tsv"
   output:
-    tsv = root / "{species}" / "{gene}" / "reg.tsv",
-    sed = root / "{species}" / "{gene}" / "reg.sed"
+    tsv = root / "{species}" / "{gene}" / "reg.tsv"
   script: "scripts/extract_hits.R"
 
 rule extract_seqs:
   input:
     tsv = root / "{species}" / "{gene}" / "reg.tsv",
-    sed = root / "{species}" / "{gene}" / "reg.sed",
     lib = root / "{species}" / "lib.fasta"
   output:
     root / "{species}" / "{gene}" / "seq.fasta"
+  params:
+    lambda wildcards, output: Path(output[0]).parent.name
   shell:
     """
-    {{
-      grep plus  {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r -    {input.lib:q} || true
-      grep minus {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r - -i {input.lib:q} || true
-    }} | \
-      sed -E -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' -f {input.sed:q} | \
-      tr '.' 'v' > {output:q}
+    if [ {params:q} = "genome" ]; then
+      cp {input.lib:q} {output:q}
+    else
+      echo "you"
+      {{
+        grep plus  {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r -    {input.lib:q} || true
+        grep minus {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r - -i {input.lib:q} || true
+      }} | \
+        sed -E -e '/^>/ s/:.*//g' -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' > {output:q}
+    fi
     """
 
 rule mafft:
@@ -150,29 +170,121 @@ rule mafft:
 
 rule gubbins:
   message: "Infer maximum-likelihood tree and recombination events."
-  input: root / "{species}" / "{gene}" / "msa.fasta"
+  input: rules.mafft.output
   output: root / "{species}" / "{gene}" / "gub.final_tree.tre"
-  log: root / "{species}" / "{gene}" / "gub.log"
   params:
-    pfx = lambda wildcards, output: Path(output[0]).parent,
+    pwd = Path().absolute(),
+    root = lambda wildcards, output: Path(output[0]).parent,
     itr = config["itr"],
     gap = config["gap"]
   threads: config["threads"]
   shell:
     """
-    run_gubbins.py {input:q} \
-        -i {params.itr} -f {params.gap} -p {params.pfx:q}/gub -c {threads} > {log:q}
+    mkdir -p {params.root:q} && cd {params.root:q} || exit
+    run_gubbins.py {params.pwd:q}/{input:q} \
+      -i {params.itr} -f {params.gap} -p gub -c {threads} > gub.log
     """
 
 rule bactdate:
-  message:
-    """
-    Infer recombination-aware chronogram using BactDating.
-    """
-  input: rules.gubbins.output
-  output: root / "{species}" / "{gene}" / "{model}-{nbac}.qs"
+  message: "Infer recombination-aware chronogram using BactDating."
+  input:
+    tree = rules.gubbins.output,
+    meta = root / "{species}" / "meta.tsv"
+  output:
+    res = root / "{species}" / "{gene}" / "bactdate-{model}.qs"
   params:
-    mod = lambda wildcards, output: Path(output[0]).stem.split("-")[0],
+    mod = lambda wildcards, output: Path(output[0]).stem.split("-", maxsplit = 1)[-1],
     nbi = config["nbIts"],
-    thn = config["thin"]
+    thn = config["thin"],
+    seed = config["seed"]
   script: "scripts/bactdate.R"
+
+rule bestmodel:
+  input: expand(root / "{{species}}" / "{{gene}}" / "bactdate-{model}.qs", model = config["model"])
+  output:
+    tree = root / "{species}" / "{gene}" / "bactdate.tree",
+    json = root / "{species}" / "{gene}" / "bactdate.json"
+  params: config["threads"]
+  threads: config["threads"]
+  script: "scripts/bestmodel.R"
+
+rule ancestral:
+  message: "Reconstructing ancestral sequences and mutations"
+  input:
+    tree = rules.bestmodel.output.tree,
+    alignment = rules.mafft.output
+  output:
+    root / "{species}" / "{gene}" / "nt_muts.json"
+  params:
+    inference = "joint"
+  shell:
+    """
+    augur ancestral \
+      --tree {input.tree:q} \
+      --alignment {input.alignment:q} \
+      --output-node-data {output:q} \
+      --inference {params.inference}
+    """
+
+rule translate:
+  message: "Translating amino acid sequences"
+  input:
+    tree = rules.bestmodel.output.tree,
+    node_data = rules.ancestral.output,
+    reference = root / "{species}" / "{gene}" / "qry.gb"
+  output:
+    root / "{species}" / "{gene}" / "aa_muts.json"
+  shell:
+    """
+    touch {output:q} && \
+    augur translate \
+      --tree {input.tree:q} \
+      --ancestral-sequences {input.node_data:q} \
+      --reference-sequence {input.reference:q} \
+      --output-node-data {output:q}
+    """
+
+rule traits:
+  message: "Inferring ancestral traits for {params.columns!s}"
+  input:
+    tree = rules.bestmodel.output.tree,
+    metadata = root / "{species}" / "meta.tsv"
+  output:
+    root / "{species}" / "{gene}" / "traits.json"
+  params:
+    columns = "country"
+  shell:
+    """
+    touch {output:q} && \
+    augur traits \
+      --tree {input.tree:q} \
+      --metadata {input.metadata:q} \
+      --output-node-data {output:q} \
+      --columns {params.columns} \
+      --confidence
+    """
+
+rule export:
+  message: "Exporting data files for for auspice"
+  input:
+    tree = rules.bestmodel.output.tree,
+    metadata = root / "{species}" / "meta.tsv",
+    branch_lengths = rules.bestmodel.output.json,
+    traits = rules.traits.output,
+    nt_muts = rules.ancestral.output,
+    aa_muts = rules.translate.output,
+    lat_longs = root / "{species}" / "coor.tsv"
+  output:
+    auspice_json = root / "{species}" / "{gene}" / "auspice.json",
+  params:
+    auspice_config = config["conf"]
+  shell:
+    """
+    augur export v2 \
+      --tree {input.tree:q} \
+      --metadata {input.metadata:q} \
+      --node-data {input.branch_lengths:q} {input.nt_muts:q} {input.aa_muts:q} {input.traits:q} \
+      --lat-longs {input.lat_longs:q} \
+      --auspice-config {params.auspice_config:q} \
+      --output {output.auspice_json:q}
+    """

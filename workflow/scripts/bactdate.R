@@ -1,20 +1,24 @@
 #!/usr/bin/env RScript --vanilla
 
-library(stringr, warn.conflicts = F, quietly = T, verbose = F)
-library(lubridate, warn.conflicts = F, quietly = T, verbose = F)
-library(BactDating, warn.conflicts = F, quietly = T, verbose = F)
+suppressPackageStartupMessages({
+  library(readr)
+  library(stringr)
+  library(lubridate)
+  library(BactDating)
+})
 
+path.tree <- snakemake@input[["tree"]]
+path.meta <- snakemake@input[["meta"]]
 
-path <- snakemake@input[[1]]
-pre <- file.path(dirname(path), str_split_fixed(basename(path), "\\.", 2)[, 1])
+meta <- read_tsv(path.meta, col_types = cols(.default = "c"))
 
+pre <- file.path(dirname(path.tree), str_split_fixed(basename(path.tree), "\\.", 2)[, 1])
 gub <- loadGubbins(pre)
 
-tip.date <- decimal_date(ymd(str_match(gub$tip.label, "(\\d{4}-\\d{2}-\\d{2})$")[, 2]))
+tip.date <- decimal_date(ymd(with(meta, date[match(gub$tip.label, accver)])))
 
-res <- with(
-  snakemake@params,
-  bactdate(gub, tip.date, model = mod, nbIts = nbi, thin = thn, useRec = T)
-)
+p <- snakemake@params
+set.seed(p$seed)
+res <- bactdate(gub, tip.date, model = p$mod, nbIts = p$nbi, thin = p$thn, useRec = T)
 
-qs::qsave(res, snakemake@output[[1]])
+qs::qsave(res, snakemake@output[["res"]])

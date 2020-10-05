@@ -25,7 +25,11 @@ parse_8C <- function(path) {
   )
 }
 
-df.meta <- read_tsv(snakemake@input[["meta"]], col_types = cols(.default = "c"), na = "?")
+df.meta <- read_tsv(
+  snakemake@input[["meta"]],
+  col_types = cols(.default = "c"),
+  na = "?"
+)
 
 parse_8C(snakemake@input[["hits"]]) %>%
   bind_rows() %>%
@@ -37,18 +41,14 @@ parse_8C(snakemake@input[["hits"]]) %>%
   slice_max(qpidcov) %>%
   ungroup() %>%
   left_join(df.meta, by = c(`subject id` = "accver")) ->
-df.qpidcov
+  df.qpidcov
 
 with(
   df.qpidcov,
   {
     writeLines(
-      paste0(strand, "\t", `subject id`, ":", `s. start`, "-", `s. end`), 
+      paste0(strand, "\t", `subject id`, ":", `s. start`, "-", `s. end`),
       snakemake@output[["tsv"]]
-    )
-    writeLines(
-      sprintf("s/^(>%s)/\\1_%s/", `subject id`, date), 
-      snakemake@output[["sed"]]
     )
   }
 )

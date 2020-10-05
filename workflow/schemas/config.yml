@@ -11,6 +11,9 @@ properties:
   gene:
     type: string
     description: the tab-separated file of gene coordinates
+  conf:
+    type: string
+    description: the auspice JSON configuration file
 
   # Gubbins
   itr:
@@ -43,6 +46,12 @@ properties:
     type: integer
     description: the number of replicates per model
     default: 3
+
+  # seed
+  seed:
+    type: integer
+    description: "the seed for the PRNG"
+    default: 7080
 
   # threads
   threads:
