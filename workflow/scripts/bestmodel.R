@@ -12,8 +12,9 @@ suppressPackageStartupMessages({
 node_json <- function(res, file) {
   root <- min(res$tree$edge[, 1])
   iden <- c(root, res$tree$edge[, 2])
-  label = c(res$tree$tip.label, res$tree$node.label)[iden]
+  label <- c(res$tree$tip.label, res$tree$node.label)[iden]
   data <- data.frame(
+    branch_length = c(0, res$tree$edge.length),
     clock_length = c(0, res$tree$edge.length),
     num_date = c(leafDates(res$tree), nodeDates(res$tree))[iden],
     num_date_confidence = I(res$CI[iden, ])
@@ -36,6 +37,6 @@ data.frame(
   group_walk(function(x, y) {
     path <- x[which.min(x$dic), ]$path
     res <- qread(path, nthreads = ncpu)
-    write(node_json(res, file.path(dirname(path), "bactdate.json")), snakemake@output[["json"]])
+    write(node_json(res), snakemake@output[["json"]])
     write.tree(res$tree, snakemake@output[["tree"]])
   })

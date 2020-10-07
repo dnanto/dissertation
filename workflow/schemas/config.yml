@@ -14,6 +14,13 @@ properties:
   conf:
     type: string
     description: the auspice JSON configuration file
+    default: "config/conf.json"
+
+  # output
+  out:
+    type: string
+    description: the output file directory
+    default: "auspice"
 
   # Gubbins
   itr:

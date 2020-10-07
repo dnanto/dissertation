@@ -24,13 +24,14 @@ logs = Path("logs")
 with open(config["gene"]) as file:
   rows = list(DictReader(file, delimiter="\t"))
   dirs = [Path(row["species"]) / row["gene"] for row in rows]
+  outs = [row["species"] + "-" + row["gene"] for row in rows]
   species = {row["species"] for row in rows if row["species"]}
 
 ## rules ##
 
 rule all:
   input:
-    expand(root / "{dir}" / "auspice.json", dir = dirs)
+    expand(root / config["out"] / "{out}.json", out = outs)
 
 rule species_meta:
   message: "Split metadata by species."
@@ -150,9 +151,8 @@ rule extract_seqs:
   shell:
     """
     if [ {params:q} = "genome" ]; then
-      cp {input.lib:q} {output:q}
+      sed -e '/^[^>]/ s/[^ACGTNacgtn-]/n/g' {input.lib:q} > {output:q}
     else
-      echo "you"
       {{
         grep plus  {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r -    {input.lib:q} || true
         grep minus {input.tsv:q} | cut -f 2 | samtools faidx --mark-strand no -r - -i {input.lib:q} || true
@@ -212,36 +212,29 @@ rule ancestral:
   message: "Reconstructing ancestral sequences and mutations"
   input:
     tree = rules.bestmodel.output.tree,
-    alignment = rules.mafft.output
+    msa = rules.mafft.output
   output:
-    root / "{species}" / "{gene}" / "nt_muts.json"
-  params:
-    inference = "joint"
-  shell:
-    """
-    augur ancestral \
-      --tree {input.tree:q} \
-      --alignment {input.alignment:q} \
-      --output-node-data {output:q} \
-      --inference {params.inference}
-    """
+    seqs = root / "{species}" / "{gene}" / "ancestral.fasta",
+    json = root / "{species}" / "{gene}" / "nt_muts.json"
+  params: config["threads"]
+  threads: config["threads"]
+  script: "scripts/ancestral.R"
 
 rule translate:
   message: "Translating amino acid sequences"
   input:
     tree = rules.bestmodel.output.tree,
-    node_data = rules.ancestral.output,
+    node_data = rules.ancestral.output.json,
     reference = root / "{species}" / "{gene}" / "qry.gb"
   output:
     root / "{species}" / "{gene}" / "aa_muts.json"
   shell:
     """
-    touch {output:q} && \
     augur translate \
       --tree {input.tree:q} \
       --ancestral-sequences {input.node_data:q} \
       --reference-sequence {input.reference:q} \
-      --output-node-data {output:q}
+      --output-node-data {output:q} \
     """
 
 rule traits:
@@ -271,11 +264,11 @@ rule export:
     metadata = root / "{species}" / "meta.tsv",
     branch_lengths = rules.bestmodel.output.json,
     traits = rules.traits.output,
-    nt_muts = rules.ancestral.output,
+    nt_muts = rules.ancestral.output.json,
     aa_muts = rules.translate.output,
     lat_longs = root / "{species}" / "coor.tsv"
   output:
-    auspice_json = root / "{species}" / "{gene}" / "auspice.json",
+    auspice_json = root / config["out"] / "{species}-{gene}.json"
   params:
     auspice_config = config["conf"]
   shell:
