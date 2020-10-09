@@ -41,7 +41,7 @@ parse_8C(snakemake@input[["hits"]]) %>%
   slice_max(qpidcov) %>%
   ungroup() %>%
   left_join(df.meta, by = c(`subject id` = "accver")) ->
-  df.qpidcov
+df.qpidcov
 
 with(
   df.qpidcov,

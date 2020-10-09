@@ -34,17 +34,18 @@ s <- split(snp, snp$rowname.x)
 s <- setNames(lapply(seq_along(s), function(idx) {
   x <- s[[idx]]
   k <- names(s)[[idx]]
+  muts <- with(filter(x, value.y != value.x), toupper(paste0(value.y, name, value.x)))
   list(
-    muts = with(filter(x, value.y != value.x), toupper(paste0(value.y, name, value.x))),
+    muts = (if(length(muts) == 1) list(muts) else muts),
     sequence = toupper(paste0(anc[which(rownames(anc) == k), ], collapse = ""))
   )
 }), names(s))
 write(rjson::toJSON(
-    list(
-      nodes = s, 
-      reference = list(
-        nuc = toupper(paste0(anc[which(rownames(anc) == ref), ], collapse = ""))
-      )
-    ),
-    indent = 1
-  ), snakemake@output[["json"]])
+  list(
+    nodes = s,
+    reference = list(
+      nuc = toupper(paste0(anc[which(rownames(anc) == ref), ], collapse = ""))
+    )
+  ),
+  indent = 1
+), snakemake@output[["json"]])

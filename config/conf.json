@@ -27,14 +27,6 @@
   "geo_resolutions": [
     "country"
   ],
-  "panels": [
-     "tree",
-     "map",
-     "entropy"
-  ],
-  "display_defaults": {
-    "map_triplicate": true
-  },
   "filters": [
     "country"
   ]

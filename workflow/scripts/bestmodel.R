@@ -16,6 +16,7 @@ node_json <- function(res, file) {
   data <- data.frame(
     branch_length = c(0, res$tree$edge.length),
     clock_length = c(0, res$tree$edge.length),
+    mutation_length = c(0, res$tree$subs),
     num_date = c(leafDates(res$tree), nodeDates(res$tree))[iden],
     num_date_confidence = I(res$CI[iden, ])
   )
