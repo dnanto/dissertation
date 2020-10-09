@@ -20,12 +20,12 @@ df.meta <- read_tsv(
 levels <- as.vector(do.call(c, neogeonames::akfc))
 geoname <- select(
   neogeonames::geoname,
-  feature_code, codes, latitude, longitude
+  feature_code, all_of(codes), latitude, longitude
 )
 geoname <- geoname[order(ordered(geoname$feature_code, levels = levels)), ]
 
-separate(df.meta, "location", codes, "\\.", extra = "drop", fill = "right", remove = F) %>%
-  select(location, all_of(codes)) %>%
+select(df.meta, location) %>%
+  separate("location", codes, "\\.", extra = "drop", fill = "right", remove = F) %>%
   distinct() %>%
   apply(1, function(row) {
     Filter(Negate(is.na), row) %>%
