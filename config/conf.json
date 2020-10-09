@@ -9,6 +9,16 @@
   "build_url": "https://github.com/dnanto",
   "colorings": [
     {
+      "key": "location",
+      "title": "Location",
+      "type": "categorical"
+    },
+    {
+      "key": "type",
+      "title": "Type",
+      "type": "categorical"
+    },
+    {
       "key": "gt",
       "title": "Genotype",
       "type": "categorical"
@@ -17,17 +27,12 @@
       "key": "num_date",
       "title": "Date",
       "type": "continuous"
-    },
-    {
-      "key": "country",
-      "title": "Country",
-      "type": "categorical"
     }
   ],
   "geo_resolutions": [
-    "country"
+    "location"
   ],
   "filters": [
-    "country"
+    "location"
   ]
 }

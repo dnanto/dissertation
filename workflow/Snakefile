@@ -60,7 +60,7 @@ rule download_gene:
     done
     """
 
-rule species_meta:
+rule metadata:
   message: "Split metadata by species."
   input: config["meta"]
   output: expand(root / "{species}" / "meta.tsv", species = species)
@@ -77,8 +77,8 @@ rule species_meta:
             writer.writeheader()
             writer.writerows(list(val))
 
-rule species_coor:
-  input: rules.species_meta.output
+rule coordinates:
+  input: root / "{species}" / "meta.tsv"
   output: root / "{species}" / "coor.tsv"
   script: "scripts/neogeocoor.R"
 
@@ -104,7 +104,7 @@ rule fastafy_gene:
 
 rule extract_libs:
   input:
-    rules.species_meta.output,
+    rules.metadata.output,
     rules.download_db.output
   output:
     root / "{species}" / "lib.fasta"
@@ -243,11 +243,11 @@ rule traits:
   message: "Inferring ancestral traits for {params.columns!s}"
   input:
     tree = rules.bestmodel.output.tree,
-    metadata = root / "{species}" / "meta.tsv"
+    metadata = rules.metadata.output
   output:
     root / "{species}" / "{gene}" / "traits.json"
   params:
-    columns = "country"
+    columns = "location type"
   shell:
     """
     augur traits \
@@ -262,12 +262,12 @@ rule export:
   message: "Exporting data files for for auspice"
   input:
     tree = rules.bestmodel.output.tree,
-    metadata = root / "{species}" / "meta.tsv",
+    metadata = rules.metadata.output,
     branch_lengths = rules.bestmodel.output.json,
     traits = rules.traits.output,
     nt_muts = rules.ancestral.output.json,
     aa_muts = rules.translate.output,
-    lat_longs = root / "{species}" / "coor.tsv"
+    lat_longs = rules.coordinates.output
   output:
     auspice_json = root / config["out"] / "{species}-{gene}.json"
   params:
