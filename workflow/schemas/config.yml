@@ -41,6 +41,9 @@ properties:
       - strictgamma
       - relaxedgamma
       - mixedgamma
+      - arc
+      - carc
+      - mixedcarc
   nbIts:
     type: integer
     description: the number of MCMC iterations to perform

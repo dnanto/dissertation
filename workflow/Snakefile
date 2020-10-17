@@ -215,6 +215,7 @@ rule bactdate:
 rule bestmodel:
   input: expand(root / "{{species}}" / "{{gene}}" / "bactdate-{model}.qs", model = config["model"])
   output:
+    tsv  = root / "{species}" / "{gene}" / "bactdate.tsv",
     tree = root / "{species}" / "{gene}" / "bactdate.tree",
     json = root / "{species}" / "{gene}" / "bactdate.json"
   params: config["threads"]

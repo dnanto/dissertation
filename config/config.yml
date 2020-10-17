@@ -1,2 +1,4 @@
 meta: "resources/meta.tsv"
 gene: "resources/gene.tsv"
+itr: 10
+nbIts: 250000

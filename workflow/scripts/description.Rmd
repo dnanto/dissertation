@@ -1,0 +1,90 @@
+---
+title: "description"
+output: html_document
+params:
+  ess: 100
+---
+
+```{r setup, include=FALSE}
+suppressPackageStartupMessages({
+  library(readr)
+  library(dplyr)
+  library(stringr)
+  library(ggplot2)
+  library(ggtree)
+})
+```
+
+```{r models}
+df.bact <- read_tsv(params$bact, col_types = "ccccdddd")
+knitr::kable(select(df.bact, -path, -species, -gene))
+```
+
+```{r trace, fig.width=10}
+filter(df.bact, mu >= params$ess & alpha >= params$ess) %>%
+  filter(model %in% c("poisson", "strictgamma") | sigma >= params$ess) %>%
+  slice_min(dic) %>%
+  pull(path) %>%
+  str_c("../../", .) %>%
+  qs::qread() %>%
+  plot("trace")
+```
+
+```{r recombination, fig.width=10, fig.height=10}
+df.meta <- read_tsv(path$meta, col_types = cols(.default = "c"))
+tree <- loadGubbins(path$tree)
+groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
+  ggtree(ladderize = F) +
+  geom_tiplab(align = T) +
+  aes(color = type) +
+  theme_tree2() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.major.x = element_line(color = "black", size = .25),
+    panel.grid.minor.x = element_line(color = "grey", size = .25)
+  ) ->
+p.phy
+
+df.gff <- ape::read.gff(path$reco)
+
+if (nrow(df.gff) > 0) {
+  select(df.gff, start, end, attributes) %>%
+    apply(1, function(row) {
+      attr <- str_split_fixed(Filter(nchar, str_split(row[["attributes"]], ";")[[1]]), "=", 2)
+      attr[, 2] <- substr(attr[, 2], 2, nchar(attr[, 2]) - 1)
+      attr <- setNames(attr[, 2], attr[, 1])
+      taxa <- Filter(nchar, str_split(attr[["taxa"]], " ")[[1]])
+      data.frame(
+        taxa, t(row[c("start", "end")]), t(attr[setdiff(names(attr), "taxa")]),
+        stringsAsFactors = F
+      )
+    }) %>%
+    bind_rows() %>%
+    mutate(across(all_of(c("start", "end", "snp_count")), as.integer)) %>%
+    mutate(
+      neg_log_likelihood = as.numeric(neg_log_likelihood),
+      taxa = as.factor(taxa)
+    ) %>%
+    add_count(start, end) %>%
+    mutate(unique = n == 1) %>%
+    ggplot() +
+    geom_rect(
+      aes(
+        xmin = start, xmax = end,
+        ymin = as.numeric(taxa) - 0.5, ymax = as.numeric(taxa) + 0.5,
+        fill = unique, alpha = snp_count
+      ),
+      size = 2
+    ) +
+    scale_y_discrete(limits = tree$tip.label) +
+    xlab("position") +
+    ylab("taxon") +
+    theme_minimal() +
+    theme(legend.position = "bottom", axis.text.y = element_blank()) ->
+  p.gff
+  
+  p.phy <- cowplot::plot_grid(p.phy, p.gff, ncol = 2, align = "h", rel_widths = c(2, 1))
+}
+
+p.phy
+```

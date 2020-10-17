@@ -4,6 +4,7 @@ suppressPackageStartupMessages({
   library(qs)
   library(rjson)
   library(dplyr)
+  library(readr)
   library(stringr)
   library(treeio)
   library(BactDating)
@@ -31,9 +32,15 @@ data.frame(
   species = basename(dirname(dirname(path))),
   gene = basename(dirname(path)),
   model = str_split(basename(tools::file_path_sans_ext(path)), "-", n = 2, simplify = T)[, 2],
-  dic = sapply(path, function(ele) qread(ele, nthreads = ncpu)$dic),
+  bind_rows(
+    lapply(path, function(ele) {
+      res <- qs::qread(ele, nthreads = ncpu)
+      c(dic = res$dic, coda::effectiveSize(as.mcmc.resBactDating(res)))
+    })
+  ),
   stringsAsFactors = F
 ) %>%
+  write_tsv(snakemake@output[["tsv"]]) %>%
   group_by(species, gene) %>%
   group_walk(function(x, y) {
     path <- x[which.min(x$dic), ]$path
