@@ -11,6 +11,7 @@ from Bio.SeqFeature import FeatureLocation
 
 from snakemake.io import expand, glob_wildcards
 from snakemake.utils import validate
+from snakemake.workflow import srcdir
 
 
 ## configuration ##
@@ -32,11 +33,6 @@ with open(config["meta"]) as file:
   ntype = defaultdict(set)
   for row in DictReader(file, delimiter="\t"):
       ntype[row["species"]].add(row["type"])
-
-## functions ##
-
-def trait_columns(wildcards, output):
-    return "location" + " type" * (len(ntype[Path(output[0]).parent.parent.name]) > 1)
 
 ## rules ##
 
@@ -183,7 +179,9 @@ rule mafft:
 rule gubbins:
   message: "Infer maximum-likelihood tree and recombination events."
   input: rules.mafft.output
-  output: root / "{species}" / "{gene}" / "gub.final_tree.tre"
+  output:
+    tree = root / "{species}" / "{gene}" / "gub.final_tree.tre",
+    reco = root / "{species}" / "{gene}" / "gub.recombination_predictions.gff"
   params:
     pwd = Path().absolute(),
     root = lambda wildcards, output: Path(output[0]).parent,
@@ -201,7 +199,7 @@ rule gubbins:
 rule bactdate:
   message: "Infer recombination-aware chronogram using BactDating."
   input:
-    tree = rules.gubbins.output,
+    tree = rules.gubbins.output.tree,
     meta = root / "{species}" / "meta.tsv"
   output:
     res = root / "{species}" / "{gene}" / "bactdate-{model}.qs"
@@ -213,7 +211,9 @@ rule bactdate:
   script: "scripts/bactdate.R"
 
 rule bestmodel:
-  input: expand(root / "{{species}}" / "{{gene}}" / "bactdate-{model}.qs", model = config["model"])
+  input:
+    models = expand(root / "{{species}}" / "{{gene}}" / "bactdate-{model}.qs", model = config["model"]),
+    qry = rules.fastafy_gene.output
   output:
     tsv  = root / "{species}" / "{gene}" / "bactdate.tsv",
     tree = root / "{species}" / "{gene}" / "bactdate.tree",
@@ -221,6 +221,19 @@ rule bestmodel:
   params: config["threads"]
   threads: config["threads"]
   script: "scripts/bestmodel.R"
+
+rule description:
+    input:
+      root = root.parent.absolute(),
+      bact = rules.bestmodel.output.tsv,
+      reco = rules.gubbins.output.reco,
+      meta = root / "{species}" / "meta.tsv"
+    output:
+      root.absolute() / "{species}" / "{gene}" / "description.html",
+    params:
+      rmd = str(Path(workflow.basedir).joinpath("scripts/description.Rmd")),
+      out = str(Path(root / "{species}" / "{gene}"))
+    script: "scripts/description.R"
 
 rule ancestral:
   message: "Reconstructing ancestral sequences and mutations"
@@ -259,7 +272,7 @@ rule traits:
   output:
     root / "{species}" / "{gene}" / "traits.json"
   params:
-    columns = trait_columns
+    columns = "location"
   shell:
     """
     augur traits \
@@ -279,7 +292,8 @@ rule export:
     traits = rules.traits.output,
     nt_muts = rules.ancestral.output.json,
     aa_muts = rules.translate.output,
-    lat_longs = rules.coordinates.output
+    lat_longs = rules.coordinates.output,
+    description = rules.description.output
   output:
     auspice_json = root / config["out"] / "{species}-{gene}.json"
   params:
@@ -292,5 +306,6 @@ rule export:
       --node-data {input.branch_lengths:q} {input.nt_muts:q} {input.aa_muts:q} {input.traits:q} \
       --lat-longs {input.lat_longs:q} \
       --auspice-config {params.auspice_config:q} \
+      --description {input.description:q} \
       --output {output.auspice_json:q}
     """

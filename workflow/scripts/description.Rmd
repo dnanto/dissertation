@@ -1,8 +1,13 @@
 ---
 title: "description"
-output: html_document
+output:
+  html_document:
+    keep_md: yes
 params:
-  ess: 100
+  root: "hadvgt"
+  bact: "hadvgt/results/A/genome/bactdate.tsv"
+  reco: "hadvgt/results/A/genome/gub.recombination_predictions.gff"
+  meta: "hadvgt/results/A/meta.tsv"
 ---
 
 ```{r setup, include=FALSE}
@@ -12,27 +17,47 @@ suppressPackageStartupMessages({
   library(stringr)
   library(ggplot2)
   library(ggtree)
+  library(BactDating)
 })
+knitr::opts_chunk$set(echo = F, warning = F, message = F, fig.align = "center")
 ```
 
 ```{r models}
-df.bact <- read_tsv(params$bact, col_types = "ccccdddd")
-knitr::kable(select(df.bact, -path, -species, -gene))
+read_tsv(file.path(params$root, params$bact), col_types = "ccccdddddddd") %>%
+  select(-species, -gene) %>%
+  arrange(dic) ->
+df.bact
+```
+
+```{r, fig.height=2, fig.width=10}
+tidyr::pivot_longer(df.bact, cols = 3:ncol(df.bact)) %>%
+  mutate(model = factor(model, levels = rev(df.bact$model))) %>%
+  ggplot(aes(name, model)) +
+  geom_text(aes(label = round(value, 2))) +
+  scale_x_discrete(position = "top") +
+  xlab("") +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    panel.background = element_rect(fill = "grey95")
+  )
 ```
 
 ```{r trace, fig.width=10}
-filter(df.bact, mu >= params$ess & alpha >= params$ess) %>%
-  filter(model %in% c("poisson", "strictgamma") | sigma >= params$ess) %>%
-  slice_min(dic) %>%
+# filter(df.bact, mu >= params$ess & alpha >= params$ess) %>%
+#   filter(model %in% c("poisson", "strictgamma") | sigma >= params$ess) %>%
+slice_min(df.bact, dic) %>%
   pull(path) %>%
-  str_c("../../", .) %>%
-  qs::qread() %>%
-  plot("trace")
+  file.path(params$root, .) %>%
+  qs::qread() ->
+res
+
+plot(res, "trace")
 ```
 
 ```{r recombination, fig.width=10, fig.height=10}
-df.meta <- read_tsv(path$meta, col_types = cols(.default = "c"))
-tree <- loadGubbins(path$tree)
+df.meta <- read_tsv(file.path(params$root, params$meta), col_types = cols(.default = "c"))
+tree <- res$inputtree
 groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
   ggtree(ladderize = F) +
   geom_tiplab(align = T) +
@@ -45,7 +70,7 @@ groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
   ) ->
 p.phy
 
-df.gff <- ape::read.gff(path$reco)
+df.gff <- ape::read.gff(file.path(params$root, params$reco))
 
 if (nrow(df.gff) > 0) {
   select(df.gff, start, end, attributes) %>%
@@ -82,7 +107,7 @@ if (nrow(df.gff) > 0) {
     theme_minimal() +
     theme(legend.position = "bottom", axis.text.y = element_blank()) ->
   p.gff
-  
+
   p.phy <- cowplot::plot_grid(p.phy, p.gff, ncol = 2, align = "h", rel_widths = c(2, 1))
 }
 

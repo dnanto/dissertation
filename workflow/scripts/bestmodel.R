@@ -2,6 +2,7 @@
 
 suppressPackageStartupMessages({
   library(qs)
+  library(coda)
   library(rjson)
   library(dplyr)
   library(readr)
@@ -9,6 +10,7 @@ suppressPackageStartupMessages({
   library(treeio)
   library(BactDating)
 })
+
 
 node_json <- function(res, file) {
   root <- min(res$tree$edge[, 1])
@@ -24,7 +26,8 @@ node_json <- function(res, file) {
   toJSON(list(nodes = split(data, label)), indent = 1)
 }
 
-path <- do.call(c, snakemake@input)
+path <- do.call(c, snakemake@input["models"])
+qlen <- ncol(ape::read.dna(snakemake@input$qry, format = "fasta", as.character = T))
 ncpu <- snakemake@params[[1]]
 
 data.frame(
@@ -35,7 +38,14 @@ data.frame(
   bind_rows(
     lapply(path, function(ele) {
       res <- qs::qread(ele, nthreads = ncpu)
-      c(dic = res$dic, coda::effectiveSize(as.mcmc.resBactDating(res)))
+      # 50% burn-in
+      record <- res$record
+      record <- with(res, {
+        record[max(1, round(nrow(record) * 0.5)):nrow(record), c("mu", "sigma", "alpha")]
+      })
+      med <- setNames(apply(record, 2, median), c("median.mu", "median.sigma", "median.alpha"))
+      ess <- setNames(effectiveSize(as.mcmc(record)), c("ess.mu", "ess.sigma", "ess.alpha"))
+      c(dic = res$dic, ssy = med[1] / qlen, med, ess)
     })
   ),
   stringsAsFactors = F
