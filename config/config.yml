@@ -1,4 +1,2 @@
-meta: "resources/meta.tsv"
-gene: "resources/gene.tsv"
-itr: 10
-nbIts: 250000
+repo: "10508"
+term: txid10508[PORGN] AND biomol_genomic[PROP] NOT gbdiv_pat[PROP] NOT gbdiv_syn[PROP] NOT WGS[KYWD]

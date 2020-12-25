@@ -1,8 +1,8 @@
 {
-  "title": "title",
+  "title": "B55",
   "maintainers": [
     {
-      "name": "Daniel Negrón",
+      "name": "dnanto",
       "url": "https://github.com/dnanto"
     }
   ],
@@ -14,25 +14,16 @@
       "type": "categorical"
     },
     {
-      "key": "type",
-      "title": "Type",
+      "key": "country_code",
+      "title": "Country Code",
       "type": "categorical"
-    },
-    {
-      "key": "gt",
-      "title": "Genotype",
-      "type": "categorical"
-    },
-    {
-      "key": "num_date",
-      "title": "Date",
-      "type": "continuous"
     }
   ],
   "geo_resolutions": [
     "location"
   ],
   "filters": [
-    "location"
+    "location",
+    "country_code"
   ]
 }

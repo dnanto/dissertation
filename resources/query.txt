@@ -1,0 +1,1 @@
+txid10508[PORGN] AND biomol_genomic[PROP] NOT gbdiv_pat[PROP] NOT gbdiv_syn[PROP] NOT WGS[KYWD]

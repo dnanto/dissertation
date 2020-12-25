@@ -4,23 +4,29 @@ description: the parameters for the workflow
 
 properties:
 
-  # inputs
-  meta:
+  # target: init
+  repo:
     type: string
-    description: the tab-separated file of metadata
-  gene:
+    description: the file path to the flat-file repo to create
+  term:
     type: string
-    description: the tab-separated file of gene coordinates
-  conf:
+    description: the NCBI query
+  email:
     type: string
-    description: the auspice JSON configuration file
-    default: "config/conf.json"
+    description: the e-mail to use to be polite to NCBI
 
   # output
   out:
     type: string
     description: the output file directory
-    default: "auspice"
+    default: "results"
+  
+  name:
+    type: string
+    description: the name of the experiment
+  accv:
+    type: string
+    description: the "accession.version" of the query
 
   # Gubbins
   itr:
@@ -31,13 +37,14 @@ properties:
     type: integer
     description: the value to filter out taxa with more than this percentage of gaps
     default: 25
-
+  
   # BactDating
   model:
     type: array
     description: the models to use (poisson, negbin, strictgamma, relaxedgamma, mixedgamma, arc, carc, or mixedcarc)
     default:
       - poisson
+      - negbin
       - strictgamma
       - relaxedgamma
       - mixedgamma
@@ -47,23 +54,25 @@ properties:
   nbIts:
     type: integer
     description: the number of MCMC iterations to perform
-    default: 100000
+    default: 10000
+    # default: 1000000
   thin:
     type: integer
     description: the thining interval between recorded MCMC samples
-    default: 10
-  nbac:
-    type: integer
-    description: the number of replicates per model
-    default: 3
+    default: 100
+  burn:
+    type: number
+    description: the burn-in
+    default: 0.50
 
-  # seed
+  # other
+  auspice:
+    type: string
+    description: the path to the auspice config file
   seed:
     type: integer
     description: "the seed for the PRNG"
     default: 7080
-
-  # threads
   threads:
     type: integer
     description: the number of threads to use for parallel tasks

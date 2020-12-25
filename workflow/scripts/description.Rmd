@@ -4,10 +4,9 @@ output:
   html_document:
     keep_md: yes
 params:
-  root: "hadvgt"
-  bact: "hadvgt/results/A/genome/bactdate.tsv"
-  reco: "hadvgt/results/A/genome/gub.recombination_predictions.gff"
-  meta: "hadvgt/results/A/meta.tsv"
+  bact: "../../results/B55/bac.tsv"
+  reco: "../../results/B55/gub.recombination_predictions.gff"
+  meta: "../../results/10508/meta/meta.tsv"
 ---
 
 ```{r setup, include=FALSE}
@@ -23,24 +22,13 @@ knitr::opts_chunk$set(echo = F, warning = F, message = F, fig.align = "center")
 ```
 
 ```{r models}
-read_tsv(file.path(params$root, params$bact), col_types = "ccccdddddddd") %>%
-  select(-species, -gene) %>%
+read_tsv(params$bact, col_types = cols(.default = "c")) %>%
   arrange(dic) ->
 df.bact
 ```
 
 ```{r, fig.height=2, fig.width=10}
-tidyr::pivot_longer(df.bact, cols = 3:ncol(df.bact)) %>%
-  mutate(model = factor(model, levels = rev(df.bact$model))) %>%
-  ggplot(aes(name, model)) +
-  geom_text(aes(label = round(value, 2))) +
-  scale_x_discrete(position = "top") +
-  xlab("") +
-  theme_minimal() +
-  theme(
-    panel.grid = element_blank(),
-    panel.background = element_rect(fill = "grey95")
-  )
+df.bact
 ```
 
 ```{r trace, fig.width=10}
@@ -48,7 +36,7 @@ tidyr::pivot_longer(df.bact, cols = 3:ncol(df.bact)) %>%
 #   filter(model %in% c("poisson", "strictgamma") | sigma >= params$ess) %>%
 slice_min(df.bact, dic) %>%
   pull(path) %>%
-  file.path(params$root, .) %>%
+  file.path("../../", .) %>%
   qs::qread() ->
 res
 
@@ -56,12 +44,12 @@ plot(res, "trace")
 ```
 
 ```{r recombination, fig.width=10, fig.height=10}
-df.meta <- read_tsv(file.path(params$root, params$meta), col_types = cols(.default = "c"))
+df.meta <- read_tsv(params$meta, col_types = cols(.default = "c"))
 tree <- res$inputtree
-groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
-  ggtree(ladderize = F) +
+# groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
+  ggtree(tree, ladderize = F) +
   geom_tiplab(align = T) +
-  aes(color = type) +
+  # aes(color = type) +
   theme_tree2() +
   theme(
     legend.position = "bottom",
@@ -70,7 +58,7 @@ groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
   ) ->
 p.phy
 
-df.gff <- ape::read.gff(file.path(params$root, params$reco))
+df.gff <- ape::read.gff(params$reco)
 
 if (nrow(df.gff) > 0) {
   select(df.gff, start, end, attributes) %>%
