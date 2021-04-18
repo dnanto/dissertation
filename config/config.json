@@ -17,6 +17,11 @@
       "key": "country_code",
       "title": "Country Code",
       "type": "categorical"
+    },
+    {
+      "key": "genotype",
+      "title": "HAdV Genotype",
+      "type": "categorical"
     }
   ],
   "geo_resolutions": [

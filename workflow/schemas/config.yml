@@ -4,13 +4,22 @@ description: the parameters for the workflow
 
 properties:
 
-  # target: init
+  # experiment
+  name:
+    type: string
+    description: the name of the experiment
+  accv:
+    type: string
+    description: the "accession.version" of the query
+
+  # flat-file repo
   repo:
     type: string
     description: the file path to the flat-file repo to create
   term:
     type: string
     description: the NCBI query
+
   email:
     type: string
     description: the e-mail to use to be polite to NCBI
@@ -19,14 +28,30 @@ properties:
   out:
     type: string
     description: the output file directory
-    default: "results"
-  
-  name:
+
+  # BLAST+
+  task:
     type: string
-    description: the name of the experiment
-  accv:
-    type: string
-    description: the "accession.version" of the query
+    description: the BLAST+ program
+    default: megablast
+  naln:
+    type: integer
+    description: the maximum number of alignments
+    default: 10000
+  qpidcov:
+    type: number
+    description: the threshold >= (query end - query start + 1) / query length * % identity / 100
+    default: 0.985
+
+  # IQ-TREE
+  alrt:
+    type: integer
+    description: the parametric aLRT test
+    default: 1000
+  bb:
+    type: integer
+    description: the replicates for ultrafast bootstrap
+    default: 1000
 
   # Gubbins
   itr:
@@ -37,7 +62,7 @@ properties:
     type: integer
     description: the value to filter out taxa with more than this percentage of gaps
     default: 25
-  
+
   # BactDating
   model:
     type: array
@@ -54,8 +79,7 @@ properties:
   nbIts:
     type: integer
     description: the number of MCMC iterations to perform
-    default: 10000
-    # default: 1000000
+    default: 1000000
   thin:
     type: integer
     description: the thining interval between recorded MCMC samples
@@ -64,8 +88,15 @@ properties:
     type: number
     description: the burn-in
     default: 0.50
+  ess:
+    type: number
+    description: the ess threshold
+    default: 200
 
   # other
+  genotype:
+    type: string
+    description: the tsv mapping accession to genotype (without a header)
   auspice:
     type: string
     description: the path to the auspice config file

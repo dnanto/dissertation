@@ -1,0 +1,74 @@
+####################################################################################################
+# mep
+####################################################################################################
+
+rule mkff:
+  output:
+    repo / "genbank" / "ff.db"
+  params:
+    rettype = "gb",
+    repo = repo / "genbank" / "ff",
+    term = config["term"],
+    email = config["email"]
+  shell:
+    """
+    python -m ffbio.ffdb {params.repo:q} -term {params.term:q} -rettype {params.rettype} -email {params.email}
+    """
+
+rule meta:
+  input: rules.mkff.output
+  output: root / config["repo"] / "meta" / "meta.tsv"
+  threads: config["threads"]
+  shell:
+    """
+    python -m ffbio.ffidx {input:q} -dump -fo gb | \
+    python -m ffbio.ffqual - db_xref collection_date country | \
+    awk -F '\t' -v OFS='\t' 'NR == 1 {{ print "strain", $0; }} NR > 1 {{ print $1, $0; }}' | \
+    Rscript --vanilla ./workflow/scripts/date.R - $'\t' date %Y-%m-%d collection_date dbY Ymd bY Y | \
+    awk -F '\t' '$7 != "?"' | \
+    Rscript --vanilla ./workflow/scripts/geog.R - $'\t' country "[:,]" {threads} > \
+    {output:q}
+    """
+
+rule coor:
+  input: rules.meta.output
+  output: root / config["repo"] / "meta" / "coor.tsv"
+  shell:
+    """
+    awk -F '\t' -v OFS='\t' 'NR > 1 {{ print "location", $7, $8, $9; }}' {input:q} | sort -u > {output:q}
+    """
+
+rule taxa:
+  input:
+    repo = rules.mkff.output,
+    date = rules.meta.output
+  output:
+    root / config["repo"] / "meta" / "taxid.ssv"
+  shell:
+    """
+    awk -F '\t' 'NR > 1 {{ print $1; }}' {input.date:q} | \
+    python -m ffbio.ffidx {input.repo:q} -batch - -fo gb | \
+    python -m ffbio.ffqual - db_xref | \
+    awk -F '\t' 'NR > 1 {{ match($2, /taxon:([0-9]+)/, arr); print $1, arr[1] ? arr[1] : 0; }}' > \
+    {output:q}
+    """
+
+rule mkdb:
+  input:
+    repo = rules.mkff.output,
+    taxa = rules.taxa.output
+  params:
+    root / config["repo"] / "blast" / "db"
+  output:
+    expand(
+      root / config["repo"] / "blast" / "db.{ext}",
+      ext = ("log", "ndb", "nhd", "nin", "nog", "nos", "not", "nsq", "ntf", "nto", "perf")
+    )
+  shell:
+    """
+    cut -f 1 -d ' ' {input.taxa:q} | \
+    python -m ffbio.ffidx {input.repo:q} -batch - | \
+    makeblastdb \
+      -in - -input_type fasta -dbtype nucl -title db -parse_seqids -hash_index \
+      -out {params:q} -blastdb_version 5 -logfile {params:q}.log -taxid_map {input.taxa:q}
+    """

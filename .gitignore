@@ -47,3 +47,9 @@ results
 
 # OSX
 .DS_store
+
+# other
+auspice
+repo
+runs
+*.html

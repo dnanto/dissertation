@@ -1,5 +1,6 @@
 #!/usr/bin/env RScript --vanilla
 
+
 suppressPackageStartupMessages({
   library(rjson)
   library(dplyr)
@@ -10,11 +11,16 @@ suppressPackageStartupMessages({
   library(phytools)
 })
 
+
 path.in.msa <- snakemake@input[["msa"]]
 path.in.tree <- snakemake@input[["tree"]]
 path.out.seqs <- snakemake@output[["seqs"]]
 path.out.json <- snakemake@output[["json"]]
+params <- snakemake@params
 threads <- snakemake@threads
+
+
+set.seed(params$seed)
 
 dna <- read.phyDat(path.in.msa, format = "fasta")
 tree <- phytools::force.ultrametric(read.tree(path.in.tree))
@@ -22,6 +28,7 @@ mod <- modelTest(dna, unroot(tree), multicore = T, mc.cores = threads)
 mod <- mod[which.min(mod$BIC), ]
 fit <- optim.pml(pml(tree, dna), optRoptNni = T, optRooted = T, model = mod$model)
 anc <- as.character(ancestral.pml(fit, type = "bayes", return = "phyDat"))
+
 
 rownames(anc) <- c(tree$tip.label, tree$node.label)
 

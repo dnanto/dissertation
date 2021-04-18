@@ -9,63 +9,73 @@ from snakemake.utils import validate
 validate(config, "schemas/config.yml")
 
 ## variables ##
-
+repo = Path(config["repo"])
 root = Path(config["out"])
 
 ## rules ##
 
 ####################################################################################################
-# Generate measureably-evolving population data set
+# mep
 ####################################################################################################
 
 rule mkff:
-  output: 
-    root / config["repo"] / "genbank" / "ff.db"
+  output:
+    repo / "genbank" / "ff.db"
   params:
-    rettype = "gb",
-    repo = root / config["repo"] / "genbank" / "ff",
+    repo = repo / "genbank" / "ff",
     term = config["term"],
     email = config["email"]
   shell:
     """
-    python -m ffbio.ffdb {params.repo:q} -term {params.term:q} -rettype {params.rettype} -email {params.email}
+    python -m ffbio.ffdb {params.repo:q} -term {params.term:q} -rettype gb -email {params.email}
     """
 
 rule meta:
-  input: rules.mkff.output
-  output: root / config["repo"] / "meta" / "meta.tsv"
+  input:
+    ffdb = rules.mkff.output,
+    type = config["genotype"]
+  output: repo / "meta" / "meta.tsv"
   threads: config["threads"]
   shell:
     """
-    python -m ffbio.ffidx {input:q} -dump -fo gb | \
-    python -m ffbio.ffqual - db_xref collection_date country | \
-    awk -F '\t' -v OFS='\t' 'NR == 1 {{ print "strain", $0; }} NR > 1 {{ print $1, $0; }}' | \
+    python -m ffbio.ffidx {input.ffdb:q} -dump -fo gb | \
+    python -m ffbio.ffqual - db_xref collection_date country -description | \
+    sed "s/^id/accver/1" | \
     Rscript --vanilla ./workflow/scripts/date.R - $'\t' date %Y-%m-%d collection_date dbY Ymd bY Y | \
-    awk -F '\t' '$7 != "?"' | \
-    Rscript --vanilla ./workflow/scripts/geog.R - $'\t' country "[:,]" {threads} > \
-    {output:q}
+    awk -F '\t' '$6 != "?"' | \
+    Rscript --vanilla ./workflow/scripts/geog.R - $'\t' country "[:,]" {threads} > {output:q}.tmp
+    {{
+      awk \
+        -F '\t' -v OFS='\t' \
+        'NR == 1 {{ print "strain", $1, $2, $3, $6, $7, $8, $9, "genotype"; }}' \
+        {output:q}.tmp
+      join \
+        -t $'\t' \
+        -a 1 \
+        -o 1.1,1.1,1.2,1.3,1.6,1.7,1.8,1.9,2.2 \
+        -e '?' \
+        <(tail -n +2 {output:q}.tmp | sort -b) \
+        <(sort -b {input.type:q})
+    }} > {output:q}
+    rm {output:q}.tmp
     """
 
 rule coor:
   input: rules.meta.output
-  output: root / config["repo"] / "meta" / "coor.tsv"
+  output: repo / "meta" / "coor.tsv"
   shell:
     """
-    awk -F '\t' -v OFS='\t' 'NR > 1 {{ print "location", $7, $8, $9; }}' {input:q} | sort -u > {output:q}
+    awk -F '\t' -v OFS='\t' '$8 != "?" && NR > 1 {{ print "location", $6, $7, $8; }}' {input:q} | \
+    sort -u > \
+    {output:q}
     """
 
 rule taxa:
-  input:
-    repo = rules.mkff.output,
-    date = rules.meta.output
-  output:
-    root / config["repo"] / "meta" / "taxid.ssv"
+  input: rules.meta.output
+  output: repo / "meta" / "taxid.ssv"
   shell:
     """
-    awk -F '\t' 'NR > 1 {{ print $1; }}' {input.date:q} | \
-    python -m ffbio.ffidx {input.repo:q} -batch - -fo gb | \
-    python -m ffbio.ffqual - db_xref | \
-    awk -F '\t' 'NR > 1 {{ match($2, /taxon:([0-9]+)/, arr); print $1, arr[1] ? arr[1] : 0; }}' > \
+    awk -F '\t' 'NR > 1 {{ match($4, /taxon:([0-9]+)/, arr); print $1, arr[1] ? arr[1] : 0; }}' {input:q} > \
     {output:q}
     """
 
@@ -74,23 +84,24 @@ rule mkdb:
     repo = rules.mkff.output,
     taxa = rules.taxa.output
   params:
-    root / config["repo"] / "blast" / "db"
+    repo / "blast"
   output:
     expand(
-      root / config["repo"] / "blast" / "db.{ext}",
+      repo / "blast" / "db.{ext}",
       ext = ("log", "ndb", "nhd", "nin", "nog", "nos", "not", "nsq", "ntf", "nto", "perf")
     )
   shell:
     """
+    mkdir -p {params:q}
     cut -f 1 -d ' ' {input.taxa:q} | \
     python -m ffbio.ffidx {input.repo:q} -batch - | \
     makeblastdb \
       -in - -input_type fasta -dbtype nucl -title db -parse_seqids -hash_index \
-      -out {params:q} -blastdb_version 5 -logfile {params:q}.log -taxid_map {input.taxa:q}
+      -out {params:q}/db -blastdb_version 5 -logfile {params:q}/db.log -taxid_map {input.taxa:q}
     """
 
 rule reference:
-  input: rules.mkff.output
+  input: repo / "genbank" / "ff.db"
   params: config["accv"]
   output:
     fasta = root / config["name"] / "ref.fasta",
@@ -107,9 +118,10 @@ rule blast:
   input:
     rules.reference.output.fasta
   params:
-    db = root / config["repo"] / "blast" / "db",
+    db = repo / "blast" / "db",
+    task = config["task"],
     accv = config["accv"],
-    num_alignments = 20000
+    naln = config["naln"]
   output:
     root / config["name"] / "blast.tsv"
   threads:
@@ -117,12 +129,12 @@ rule blast:
   shell:
     """
     blastn \
-      -task megablast \
+      -task {params.task:q} \
       -db {params.db:q} \
       -query {input:q} \
       -outfmt "7 std qlen sstrand staxid stitle" \
       -num_threads {threads} \
-      -num_alignments {params.num_alignments:q} \
+      -num_alignments {params.naln:q} \
       -subject_besthit > \
       {output:q}
     """
@@ -133,26 +145,28 @@ rule qpidcov:
   shell:
     """
     {{
-      printf "accver\tqpidcov\n";
-      awk -F '\t' -v OFS='\t' '/^[^#]/ {{ print $2, ($8 - $7 + 1) / $13 * $3 / 100; }}' {input:q} | \
-      sort -n -r -k 2;
+      printf "accver\tsstart\tsend\tsstrand\tqpidcov\n";
+      awk -F '\t' -v OFS='\t' '/^[^#]/ {{ print $2, $9, $10, $14, ($8 - $7 + 1) / $13 * $3 / 100; }}' {input:q} | \
+      sort -n -k 5;
     }} > \
     {output:q}
     """
-    
+
 rule blastdbcmd:
   input:
     rules.qpidcov.output
   params:
-    db = root / config["repo"] / "blast" / "db",
-    qpidcov = 0.975
+    db = repo / "blast" / "db",
+    qpidcov = config["qpidcov"]
   output:
     root / config["name"] / "seqs.fasta"
   shell:
     """
-    awk -F '\t' -v OFS='\t' -v qpidcov={params.qpidcov:q} 'NR > 1 && $2 >= qpidcov {{ print $1; }}' {input:q} | \
+    awk -F '\t' -v OFS=' ' -v qpidcov={params.qpidcov:q} 'NR > 1 && $5 >= qpidcov' {input:q} | \
+    cut -f 1-4 | \
+    xargs printf "%s %s-%s %s\n" | \
     blastdbcmd -db {params.db} -entry_batch - | \
-    sed -e "s/ .*//g" -e "/^[^>]/ s/[^ACGTNacgtn-]/n/g" > \
+    sed -e "/^>/ s/ .*//g" -e "s/:.*//g" -e "/^[^>]/ s/[^ACGTNacgtn-]/n/g" > \
     {output:q}
     """
 
@@ -165,19 +179,19 @@ rule mafft:
   output: root / config["name"] / "msa.fasta"
   log: root / config["name"] / "msa.log"
   threads: config["threads"]
-  shell: 
+  shell:
     """
     mafft --auto --thread {threads} {input:q} > {output:q} 2> {log:q}
     """
 
 rule iqtree:
-  input: 
+  input:
     rules.mafft.output
-  params: 
+  params:
     prefix = root / config["name"] / "iqt",
     seed = config["seed"],
-    alrt = 1000,
-    bb = 1000
+    alrt = config["alrt"],
+    bb = config["bb"]
   output:
     expand(
       root / config["name"] / "iqt.{ext}",
@@ -197,46 +211,56 @@ rule iqtree:
     """
 
 rule gubbins:
-  input: 
+  input:
     msa = rules.mafft.output,
     tree = rules.iqtree.output.tree
   output:
     expand(
       root / config["name"] / "gub.{ext}",
       ext = (
-        "branch_base_reconstruction.embl", 
-        "filtered_polymorphic_sites.fasta", "filtered_polymorphic_sites.phylip", 
-        "node_labelled.final_tree.tre", 
-        "per_branch_statistics.csv",  
-        "recombination_predictions.embl", "recombination_predictions.gff", 
+        "branch_base_reconstruction.embl",
+        "filtered_polymorphic_sites.fasta", "filtered_polymorphic_sites.phylip",
+        "node_labelled.final_tree.tre",
+        "per_branch_statistics.csv",
+        "recombination_predictions.embl",
         "summary_of_snp_distribution.vcf"
       )
     ),
-    tree = root / config["name"] / "gub.final_tree.tre"
+    tree = root / config["name"] / "gub.final_tree.tre",
+    gff = root / config["name"] / "gub.recombination_predictions.gff"
   params:
     pwd = Path().absolute(),
     root = root / config["name"],
     itr = config["itr"],
-    gap = config["gap"]
+    gap = config["gap"],
+    maxw = 1000
   log:
     root / config["name"] / "gub.log"
-  threads: 
+  threads:
     config["threads"]
   shell:
     """
     cd {params.root:q} || exit && \
-    run_gubbins.py {params.pwd:q}/{input.msa:q} -s {params.pwd:q}/{input.tree:q} -i {params.itr} -f {params.gap} -p gub -c {threads} > gub.log
+    run_gubbins.py \
+      {params.pwd:q}/{input.msa:q} \
+      -s {params.pwd:q}/{input.tree:q} \
+      -i {params.itr} \
+      -f {params.gap} \
+      -p gub \
+      -c {threads} \
+      --max_window_size {params.maxw} \
+      > gub.log
     """
 
 rule bactdate:
   message: "Infer recombination-aware chronogram using BactDating."
   input:
     tree = rules.gubbins.output.tree,
-    meta = rules.meta.output
+    meta = repo / "meta" / "meta.tsv"
   output:
     expand(
-      root / config["name"] / "bac-{model}.{ext}", 
-      model = config["model"], 
+      root / config["name"] / "bac-{model}.{ext}",
+      model = config["model"],
       ext = ("qs", "tree")
     ),
     tsv = root / config["name"] / "bac.tsv",
@@ -253,6 +277,19 @@ rule bactdate:
     seed = config["seed"]
   script: "scripts/bactdate.R"
 
+rule description:
+    input:
+      rules.bactdate.output.tsv,
+      rules.gubbins.output.gff
+    output: root.joinpath(config["name"]).joinpath("description.html").absolute()
+    params:
+      root = str(root.parent.absolute()),
+      rmd = str(Path(workflow.basedir).joinpath("scripts/description.Rmd")),
+      out = str(root.joinpath(config["name"])),
+      ess = config["ess"],
+      typ = config["genotype"]
+    script: "scripts/description.R"
+
 rule ancestral:
   message: "Reconstructing ancestral sequences and mutations"
   input:
@@ -261,6 +298,7 @@ rule ancestral:
   output:
     seqs = root / config["name"] / "ancestral.fasta",
     json = root / config["name"] / "muts-nt.json"
+  params: config["seed"]
   threads: config["threads"]
   script: "scripts/ancestral.R"
 
@@ -285,11 +323,11 @@ rule traits:
   message: "Inferring ancestral traits for {params.columns!s}"
   input:
     tree = rules.bactdate.output.tree,
-    meta = rules.meta.output
+    meta = repo / "meta" / "meta.tsv"
   output:
     root / config["name"] / "traits.json"
   params:
-    columns = "location"
+    columns = "location genotype"
   shell:
     """
     augur traits \
@@ -308,10 +346,12 @@ rule export:
     muts_nt = rules.ancestral.output.json,
     muts_aa = rules.translate.output,
     traits = rules.traits.output,
-    meta = rules.meta.output,
-    coor = rules.coor.output
+    meta = repo / "meta" / "meta.tsv",
+    coor = repo / "meta" / "coor.tsv",
+    desc = rules.description.output
   params:
     auspice = config["auspice"],
+    title = config["name"]
   output:
     root / config["name"] / "auspice.json"
   shell:
@@ -322,5 +362,8 @@ rule export:
       --output {output:q} \
       --auspice-config {params.auspice:q} \
       --metadata {input.meta:q} \
-      --lat-longs {input.coor:q}
+      --color-by-metadata location country_code genotype \
+      --lat-longs {input.coor:q} \
+      --title {params.title:q} \
+      --description {input.desc:q}
     """

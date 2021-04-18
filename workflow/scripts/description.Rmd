@@ -4,100 +4,149 @@ output:
   html_document:
     keep_md: yes
 params:
-  bact: "../../results/B55/bac.tsv"
-  reco: "../../results/B55/gub.recombination_predictions.gff"
-  meta: "../../results/10508/meta/meta.tsv"
+  tsv: "../../runs/HAdV-B55/bac.tsv"
+  typ: "../../config/genotype.tsv"
+  gff: "../../runs/HAdV-B55/gub.recombination_predictions.gff"
+  ess: 200
 ---
 
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages({
   library(readr)
   library(dplyr)
+  library(tidyr)
   library(stringr)
   library(ggplot2)
-  library(ggtree)
   library(BactDating)
 })
-knitr::opts_chunk$set(echo = F, warning = F, message = F, fig.align = "center")
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+options(width = 1000)
 ```
 
-```{r models}
-read_tsv(params$bact, col_types = cols(.default = "c")) %>%
-  arrange(dic) ->
-df.bact
+```{r load}
+df <- (
+  read_tsv(
+    params$tsv,
+    col_types = cols(
+      dic = "d",
+      rootprob = "d",
+      rate = "d",
+      ess.likelihood = "d",
+      ess.prior = "d",
+      ess.mu = "d",
+      .default = "c"
+    )
+  ) %>%
+    arrange(
+      desc(ess.likelihood >= params$ess & ess.prior >= params$ess & ess.mu >= params$ess),
+      dic
+    )
+)
+run <- (
+  slice_head(df, n = 1) %>%
+    pull(path) %>% 
+    file.path("../..", .) %>%
+    qs::qread()
+)
 ```
 
-```{r, fig.height=2, fig.width=10}
-df.bact
+BactDating Model Comparison
+
+```{r result}
+select(df, mod, dic, rootprob, rate, ess.likelihood, ess.prior, ess.mu) %>%
+  mutate(rate = round(rate, digits = 7)) %>%
+  mutate(rootprob = round(rootprob, digits = 2)) %>%
+  mutate(across(starts_with("ess."), round)) %>%
+  rename(ess.like = ess.likelihood) %>%
+  pander::pandoc.table(style = "grid")
 ```
 
-```{r trace, fig.width=10}
-# filter(df.bact, mu >= params$ess & alpha >= params$ess) %>%
-#   filter(model %in% c("poisson", "strictgamma") | sigma >= params$ess) %>%
-slice_min(df.bact, dic) %>%
-  pull(path) %>%
-  file.path("../../", .) %>%
-  qs::qread() ->
-res
+Trace of BactDating Model (`r pull(slice_head(df, n = 1), mod)`)
 
-plot(res, "trace")
+```{r trace, fig.height=5, fig.width=10}
+plot(run, "trace")
 ```
 
-```{r recombination, fig.width=10, fig.height=10}
-df.meta <- read_tsv(params$meta, col_types = cols(.default = "c"))
-tree <- res$inputtree
-# groupOTU(tree, with(df.meta, split(strain, type)), "type") %>%
-  ggtree(tree, ladderize = F) +
-  geom_tiplab(align = T) +
-  # aes(color = type) +
-  theme_tree2() +
-  theme(
-    legend.position = "bottom",
-    panel.grid.major.x = element_line(color = "black", size = .25),
-    panel.grid.minor.x = element_line(color = "grey", size = .25)
-  ) ->
-p.phy
+Divergence of Gubbins Maximum-Likelihood Tree
 
-df.gff <- ape::read.gff(params$reco)
+```{r rtt, fig.height=6, fig.width=10}
+devnull <- with(
+  run, 
+  roottotip(
+    initRoot(inputtree, inputtree$tip.date, useRec = T), 
+    inputtree$tip.date, 
+    showPredInt = "poisson"
+  )
+)
+```
 
+```{r reco, fig.height=10, fig.width=10}
+df.gff <- ape::read.gff(params$gff)
 if (nrow(df.gff) > 0) {
-  select(df.gff, start, end, attributes) %>%
-    apply(1, function(row) {
-      attr <- str_split_fixed(Filter(nchar, str_split(row[["attributes"]], ";")[[1]]), "=", 2)
-      attr[, 2] <- substr(attr[, 2], 2, nchar(attr[, 2]) - 1)
-      attr <- setNames(attr[, 2], attr[, 1])
-      taxa <- Filter(nchar, str_split(attr[["taxa"]], " ")[[1]])
-      data.frame(
-        taxa, t(row[c("start", "end")]), t(attr[setdiff(names(attr), "taxa")]),
-        stringsAsFactors = F
+  df.typ <- read_tsv(params$typ, col_names = c("taxon", "genotype"), col_types = "ff")
+  df.gff <- (
+    select(df.gff, start, end, attributes) %>%
+      apply(1, function(row) {
+        attr <- str_split_fixed(Filter(nchar, str_split(row[["attributes"]], ";")[[1]]), "=", 2)
+        attr[, 2] <- substr(attr[, 2], 2, nchar(attr[, 2]) - 1)
+        attr <- setNames(attr[, 2], attr[, 1])
+        taxon <- Filter(nchar, str_split(attr[["taxa"]], " ")[[1]])
+        data.frame(
+          taxon, t(row[c("start", "end")]), t(attr[setdiff(names(attr), "taxon")]),
+          stringsAsFactors = F
+        )
+      }) %>%
+      bind_rows() %>%
+      mutate(
+        across(all_of(c("start", "end", "snp_count")), as.integer),
+        neg_log_likelihood = as.numeric(neg_log_likelihood),
+        taxon = as.factor(taxon)
       )
-    }) %>%
-    bind_rows() %>%
-    mutate(across(all_of(c("start", "end", "snp_count")), as.integer)) %>%
-    mutate(
-      neg_log_likelihood = as.numeric(neg_log_likelihood),
-      taxa = as.factor(taxa)
-    ) %>%
-    add_count(start, end) %>%
-    mutate(unique = n == 1) %>%
-    ggplot() +
-    geom_rect(
-      aes(
-        xmin = start, xmax = end,
-        ymin = as.numeric(taxa) - 0.5, ymax = as.numeric(taxa) + 0.5,
-        fill = unique, alpha = snp_count
-      ),
-      size = 2
-    ) +
-    scale_y_discrete(limits = tree$tip.label) +
-    xlab("position") +
-    ylab("taxon") +
-    theme_minimal() +
-    theme(legend.position = "bottom", axis.text.y = element_blank()) ->
-  p.gff
-
-  p.phy <- cowplot::plot_grid(p.phy, p.gff, ncol = 2, align = "h", rel_widths = c(2, 1))
+  )
+  df.gff <- (
+    left_join(df.gff, mutate(filter(count(df.gff, start, end), n == 1)), by = c("start", "end")) %>% 
+      replace_na(list(n = 0)) %>% 
+      rename(internal = n) %>% 
+      mutate(internal = !internal)
+  )
+  p1 <- (
+    distinct(df.gff, start, end, neg_log_likelihood) %>%
+      arrange(start) %>%
+      ggplot() +
+      geom_rect(aes(xmin = start, xmax = end, ymin = 0, ymax = neg_log_likelihood)) +
+      labs(y = "-log(likelihood)") +
+      theme_minimal() +
+      theme(
+        axis.text.x = element_blank(),
+        text = element_text(family = "mono")
+      )
+  )
+  p2 <- (
+    left_join(df.gff, df.typ, by = "taxon") %>%
+      ggplot() +
+      geom_rect(
+        aes(
+          xmin = start,
+          xmax = end,
+          ymin = as.numeric(taxon) - 0.5,
+          ymax = as.numeric(taxon) + 0.5,
+          fill = genotype,
+          alpha = snp_count
+        ),
+        color = "black"
+      ) +
+      scale_y_discrete(limits = levels(df.gff$taxon)) +
+      labs(x = "position", y = "accession") +
+      theme_minimal() +
+      theme(
+        legend.position = "bottom",
+        text = element_text(family = "mono")
+      )
+  )
+  p <- cowplot::plot_grid(p1, p2, ncol = 1, rel_heights = c(1, 4), align = "v")
+  ggsave(paste(tools::file_path_sans_ext(params$gff), "pdf", sep = "."))
+  p
+} else {
+  print("no recombination detected...")
 }
-
-p.phy
 ```

@@ -1,2 +1,6 @@
-repo: "10508"
+repo: repo/10508
 term: txid10508[PORGN] AND biomol_genomic[PROP] NOT gbdiv_pat[PROP] NOT gbdiv_syn[PROP] NOT WGS[KYWD]
+out: runs
+auspice: config/config.json
+ess: 200
+genotype: config/genotype.tsv

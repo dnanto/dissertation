@@ -15,8 +15,8 @@ p <- args[4] # pattern
 n <- if (length(args) <= 4) parallel::detectCores() else args[5] # cores
 
 
-df <- read_delim(f, d, col_types = cols(.default = "c"))
-country <- unique(df[[k]])
+df <- read_delim(f, d, col_types = cols(.default = "c"), na = "?")
+country <- Filter(Negate(is.na), unique(df[[k]]))
 
 # subset and order by feature code priority
 codes <- c("country_code", paste0("admin", 1:4, "_code"))
@@ -31,6 +31,12 @@ coor <- (
     bind_rows() %>%
     setNames(codes) %>%
     apply(1, function(row) {
+      # i <- as.vector(head(which(is.na(row)), 1))
+      # if (!identical(i, integer(0))) row[i:length(row)] <- NA
+      idx <- which(is.na(row[1:4])) + 1
+      for(i in idx)
+        if (sum(geoname[[names(row)[i]]] == row[i], na.rm = T) > 1)
+          row[i] <- NA
       Filter(Negate(is.na), row) %>%
         t() %>%
         as.data.frame() %>%
@@ -39,6 +45,7 @@ coor <- (
     }) %>%
     bind_rows()
 )
+
 
 # location
 select(coor, all_of(codes)) %>%
